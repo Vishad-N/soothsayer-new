@@ -24,7 +24,7 @@ export function ImpactStats() {
               as="li"
               key={s.label}
               delay={i * 0.08}
-              className="relative flex min-h-[230px] flex-col justify-between border-b border-r border-white/10 px-6 py-8 first:border-l sm:min-h-[360px] sm:[&:nth-child(3)]:border-l lg:[&:nth-child(3)]:border-l-0"
+              className="relative flex min-h-[200px] flex-col justify-between gap-8 border-b border-r border-white/10 px-6 py-8 first:border-l sm:min-h-[360px] sm:[&:nth-child(3)]:border-l lg:[&:nth-child(3)]:border-l-0"
             >
               <Cross className="-left-[6px] -top-[6px]" />
               <Cross className="-right-[6px] -top-[6px]" />

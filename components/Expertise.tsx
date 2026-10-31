@@ -8,6 +8,8 @@ import { LinkButton } from "./ui/Button";
 import { LINE_ICONS } from "./ui/Icons";
 import { PixelEdge } from "./ui/PixelEdge";
 import { Reveal } from "./ui/Reveal";
+import { BlueprintScene } from "./illustrations/BlueprintScene";
+import { CompetencyScene } from "./illustrations/CompetencyScene";
 import { JourneyPath } from "./illustrations/JourneyPath";
 
 /** "Our Expertise": Responsible AI / Strategy & Blueprint / Digital Competency tabs. */
@@ -36,7 +38,7 @@ export function Expertise() {
             <p className="eyebrow text-white/85">{EXPERTISE.eyebrow}</p>
             <h2 id="expertise-title" className="h-section mt-4 max-w-[620px]">{EXPERTISE.title}</h2>
           </div>
-          <p className="text-[15px] leading-[1.65] text-white/75 lg:pb-2">{EXPERTISE.body}</p>
+          <p className="text-base leading-[1.65] text-white/80 lg:pb-2 lg:text-[15px] lg:text-white/75">{EXPERTISE.body}</p>
         </Reveal>
 
         <Reveal delay={0.1} className="mt-12 overflow-hidden rounded-[10px] bg-white text-ink shadow-[0_30px_80px_-40px_rgb(0_0_0/0.6)]">
@@ -89,12 +91,12 @@ export function Expertise() {
                   </span>
                 </div>
                 <h3 className="mt-7 text-[30px] font-semibold tracking-[-0.015em] sm:text-[38px]">{tab.title}</h3>
-                <p className="mt-4 max-w-[460px] text-[15px] leading-[1.6] text-ink-soft">{tab.body}</p>
+                <p className="mt-4 max-w-[460px] text-base leading-[1.6] text-ink-soft lg:text-[15px]">{tab.body}</p>
                 <ul className="mt-7 grid gap-x-6 gap-y-5 sm:grid-cols-2">
                   {tab.points.map((p) => {
                     const Icon = LINE_ICONS[p.icon];
                     return (
-                      <li key={p.label} className="flex items-start gap-3 text-[14.5px] leading-[1.45] text-ink-soft">
+                      <li key={p.label} className="flex items-start gap-3 text-base leading-[1.45] text-ink-soft lg:text-[14.5px]">
                         <span className="grid size-10 shrink-0 place-items-center rounded-full border border-brand/40 text-brand">
                           <Icon className="size-[18px]" />
                         </span>
@@ -117,7 +119,13 @@ export function Expertise() {
                   transition={{ duration: 0.4 }}
                   className="w-full"
                 >
-                  <JourneyPath variant={tab.art} className="mx-auto h-auto w-full max-w-[560px]" />
+                  {tab.art === "blueprint" ? (
+                    <BlueprintScene className="mx-auto h-auto w-full max-w-[560px]" />
+                  ) : tab.art === "competency" ? (
+                    <CompetencyScene className="mx-auto h-auto w-full max-w-[560px]" />
+                  ) : (
+                    <JourneyPath variant="trust" className="mx-auto h-auto w-full max-w-[560px]" />
+                  )}
                 </motion.div>
               </AnimatePresence>
             </div>

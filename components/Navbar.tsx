@@ -73,7 +73,7 @@ export function Navbar() {
           </span>
           <button
             type="button"
-            className="grid size-10 place-items-center rounded-md text-white xl:hidden"
+            className="grid size-11 place-items-center rounded-md text-white xl:hidden"
             aria-label="Open menu"
             aria-expanded={mobileOpen}
             aria-controls="mobile-menu"
@@ -224,7 +224,7 @@ function MobileMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
           >
             <div className="flex h-[72px] items-center justify-between border-b border-white/10 px-4">
               <Image src={IMAGES.logoWhite} alt="Soothsayer Analytics" width={150} height={40} unoptimized className="h-9 w-auto" />
-              <button type="button" aria-label="Close menu" onClick={onClose} className="grid size-10 place-items-center rounded-md">
+              <button type="button" aria-label="Close menu" onClick={onClose} className="grid size-11 place-items-center rounded-md">
                 <Close className="size-6" />
               </button>
             </div>
@@ -253,7 +253,7 @@ function MobileMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
                         >
                           {[...item.items, ...(item.footer ? [item.footer] : [])].map((l) => (
                             <li key={l.label}>
-                              <a {...linkProps(l.href)} className="flex min-h-11 items-center pl-3 text-[15px] text-white/70 hover:text-brand-300">
+                              <a {...linkProps(l.href)} className="flex min-h-12 items-center pl-3 text-base text-white/75 hover:text-brand-300">
                                 {l.label}
                               </a>
                             </li>
@@ -274,7 +274,7 @@ function MobileMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
             </ul>
 
             <div className="space-y-4 border-t border-white/10 p-4">
-              <div className="flex flex-col gap-1 text-sm text-white/70">
+              <div className="flex flex-col gap-1 text-base text-white/75 [&>a]:flex [&>a]:min-h-11 [&>a]:items-center">
                 <a href={LINKS.phone} className="hover:text-brand-300">844-44-76684</a>
                 <a href={LINKS.email} className="hover:text-brand-300">info@soothsayeranalytics.com</a>
               </div>

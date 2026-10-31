@@ -76,10 +76,12 @@ type Props = {
   href: string;
   children: React.ReactNode;
   arrow?: boolean;
+  /** Full-width below `sm` (a thumb-sized target); natural width from `sm` up. */
+  fullWidthMobile?: boolean;
   className?: string;
 };
 
-export function KeycapButton({ href, children, arrow = true, className }: Props) {
+export function KeycapButton({ href, children, arrow = true, fullWidthMobile = false, className }: Props) {
   const [scope, animate] = useAnimate();
   const reduced = useReducedMotion();
   const hovered = useRef(false);
@@ -180,13 +182,10 @@ export function KeycapButton({ href, children, arrow = true, className }: Props)
   return (
     <div
       ref={scope}
-      className={className}
+      // margin leaves room for the lean and the light so neighbours are never overlapped
+      className={`relative mt-3 mb-[18px] ${fullWidthMobile ? "block w-full sm:mx-2 sm:inline-block sm:w-auto" : "mx-2 inline-block"} ${className ?? ""}`}
       style={
         {
-          position: "relative",
-          display: "inline-block",
-          // room for the lean and the light, so neighbours are never overlapped
-          margin: "12px 8px 18px",
           "--kc-float": `${FLOAT_REST}px`,
           "--kc-stand": `${LEAN}deg`,
           "--kc-thick": `${THICK}px`,

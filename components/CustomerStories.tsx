@@ -55,6 +55,7 @@ export function CustomerStories() {
                   alt=""
                   fill
                   sizes={on ? "760px" : "150px"}
+                  quality={90}
                   className={cn("-z-10 object-cover transition-[filter,transform] duration-700", on ? "scale-100" : "scale-110 grayscale")}
                 />
                 <div
@@ -99,11 +100,11 @@ export function CustomerStories() {
         </Reveal>
 
         {/* Mobile / tablet cards */}
-        <ul className="no-scrollbar -mx-4 mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 lg:hidden">
+        <ul className="no-scrollbar -mx-4 mt-10 flex scroll-pl-4 snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 lg:hidden">
           {items.map((c, i) => (
             <li key={c.href} className="w-[82vw] max-w-[420px] shrink-0 snap-start">
               <a {...linkProps(c.href)} className="group relative isolate flex aspect-[4/5] flex-col justify-end overflow-hidden rounded-[8px] p-6 text-white">
-                <Image src={c.image} alt="" fill sizes="82vw" className="-z-10 object-cover transition-transform duration-500 group-hover:scale-105" />
+                <Image src={c.image} alt="" fill sizes="82vw" quality={90} className="-z-10 object-cover transition-transform duration-500 group-hover:scale-105" />
                 <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgb(6_26_32/0.1)_20%,rgb(6_26_32/0.9)_100%)]" />
                 <span className="absolute left-5 top-5 text-[13px] text-white/85">{String(i + 1).padStart(2, "0")}</span>
                 <span className="self-start rounded-full border border-white/40 px-3 py-1 text-[12px]">{c.industry}</span>

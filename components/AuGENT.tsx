@@ -19,7 +19,8 @@ export function AuGENT() {
       </div>
 
       <div className="container-page flex flex-col gap-8 py-16 lg:static lg:min-h-[646px] lg:justify-center lg:py-0">
-        <Reveal className="relative z-10 max-w-[600px]">
+        {/* On desktop the column ends 32px before the art (which starts at 46.3vw), so copy never runs into the vessel */}
+        <Reveal className="relative z-10 max-w-[600px] lg:max-w-[min(600px,calc(46.3vw_-_max(2rem,(100vw_-_1240px)/2)_-_2rem))]">
           <p className="font-display text-[30px] font-semibold uppercase leading-none tracking-[0.04em] lg:text-[38px]">{AUGENT.kicker}</p>
           <h2 id="augent-title" className="mt-3">
             <Image
@@ -28,7 +29,7 @@ export function AuGENT() {
               width={420}
               height={97}
               unoptimized
-              className="h-auto w-[300px] sm:w-[420px]"
+              className="h-auto w-[300px] max-w-full sm:w-[420px]"
             />
           </h2>
           <p className="mt-6 inline-block rounded-[3px] bg-[linear-gradient(90deg,#b98a3e_0%,#f0d595_50%,#c99a52_100%)] px-[26px] py-[9px] font-display text-[13px] font-semibold uppercase leading-6 tracking-[-0.02em] text-[#1d1608] sm:text-[17.5px]">
@@ -36,7 +37,7 @@ export function AuGENT() {
           </p>
           <p className="mt-8 max-w-[560px] font-display text-[20px] font-semibold leading-[1.27] sm:text-[21px]">{AUGENT.lead}</p>
           <p className="mt-6 max-w-[570px] text-base leading-[1.6] text-white/80">{AUGENT.body}</p>
-          <KeycapButton href={AUGENT.cta.href} className="mt-8 self-start">{AUGENT.cta.label}</KeycapButton>
+          <KeycapButton href={AUGENT.cta.href} fullWidthMobile className="mt-8 self-stretch sm:self-start">{AUGENT.cta.label}</KeycapButton>
         </Reveal>
 
         <div className="pointer-events-none relative -mx-4 sm:mx-0 lg:absolute lg:-right-[2.3vw] lg:top-1/2 lg:w-[56vw] lg:max-w-[1000px] lg:-translate-y-1/2">

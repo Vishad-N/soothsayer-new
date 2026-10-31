@@ -27,13 +27,18 @@ export const CLIENT_LOGOS: ClientLogo[] = [
   { name: "Dun & Bradstreet", src: `${WF_LOGOS}6866b1d280bd0335ad8ab78e_dun-%26-bradstreet.png`, width: 300, height: 200 },
 ];
 
+/**
+ * Case-study art: the originals from the live site's CDN (800 × 600), so the
+ * expanded card (about 760 × 575) shows them near 1:1 instead of stretching a
+ * 266 × 384 thumbnail almost 3×.
+ */
 export const CASE_STUDY_IMAGES = {
-  chatbot: `${COM}case-studies-images/Enterprise-ChatGPT-for-Worlds-Largest-System-Supplier.png`,
-  rawMaterials: `${COM}case-studies-images/Artificial_Intelligence_(AI)_driven_demand_and_price_prediction_for_raw_materials_for_a_very_large_chemical_manufacturer2.jpg`,
-  underwriting: `${COM}case-studies-images/A_I__Based_underwriting_model_-_forecasting_claim_expenses_for_a_leading_healthcare_insurance_provider_(1).jpg`,
-  revenue: `${COM}case-studies-images/Artificial_Intelligence_(AI)_driven_mulitivariate_revenue_forecasting.jpg`,
-  shipFromStore: `${COM}case-studies-images/Case_Studies_0010_Layer_6.jpg`,
-  furnaces: `${COM}case-studies-images/Increasing-efficiency-of-Furnaces-and-Quench-Towers-for-a-Fortune-500-Chemical-Manufacturer.png`,
+  chatbot: `${WF}66acbf25f6dde35184e29f66_Chat-bot.jpg`,
+  rawMaterials: `${WF}66acbef0184b4ec374b23fd9_AI-Driven-Demand-And-Price-Prediction-For-Raw-Materials-For-A-Global-Chemical-Manufacturer.jpg`,
+  underwriting: `${WF}66acbf031f85f7fd3415a7d1_Al-Based-Underwriting-model.jpg`,
+  revenue: `${WF}66ab53b4b0019e2854ffc70e_3.png`,
+  shipFromStore: `${WF}66acbf15c143f292ad5a30f8_Ship-From-Store-Optimization.jpg`,
+  furnaces: `${WF}66ab53b4bf81bfba50e8ff8c_6.png`,
 };
 
 /** YouTube's own thumbnail for a video id. */

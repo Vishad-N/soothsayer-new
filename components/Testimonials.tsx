@@ -27,18 +27,18 @@ function Card({ t }: { t: Testimonial }) {
         </span>
         <div>
           <p className="font-display text-[15px] font-semibold leading-tight text-ink">{t.role}</p>
-          <p className="mt-1 text-[14px] text-ink-soft">{t.company}</p>
+          <p className="mt-1 text-[15px] text-ink-soft lg:text-[14px]">{t.company}</p>
         </div>
       </header>
       <Quote className="mt-6 h-4 w-6 text-brand" />
-      <blockquote className="mt-4 flex-1 text-[15px] leading-[1.75] text-ink-soft">
+      <blockquote className="mt-4 flex-1 text-base leading-[1.75] text-ink-soft lg:text-[15px]">
         <p className={cn(!open && "line-clamp-6")}>{t.quote}</p>
       </blockquote>
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
-        className="mt-3 self-start text-[14px] font-medium text-ink underline-offset-4 hover:text-brand hover:underline"
+        className="mt-3 inline-flex min-h-11 items-center self-start text-[15px] font-medium text-ink underline-offset-4 lg:min-h-0 lg:text-[14px] hover:text-brand hover:underline"
       >
         {open ? "Show less" : "Read More"}
       </button>
@@ -68,7 +68,7 @@ export function Testimonials() {
           role="region"
           aria-label="Testimonials"
           tabIndex={0}
-          className="no-scrollbar -mx-4 mt-10 flex snap-x snap-mandatory items-stretch gap-5 overflow-x-auto px-4 pb-6 pt-1 sm:mx-0 sm:px-0 lg:gap-6"
+          className="no-scrollbar -mx-4 mt-10 flex scroll-pl-4 snap-x snap-mandatory sm:scroll-pl-0 items-stretch gap-5 overflow-x-auto px-4 pb-6 pt-1 sm:mx-0 sm:px-0 lg:gap-6"
         >
           {TESTIMONIALS.map((t) => <Card key={t.company} t={t} />)}
         </div>

@@ -35,6 +35,8 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* the header is fixed (about 81px), so anchor jumps must stop below it */
+    scroll-padding-top: 5.25rem;
     -webkit-text-size-adjust: 100%;
   }
   body {
@@ -162,6 +164,34 @@
 }
 .animate-rim {
   animation: rim 9s linear infinite;
+}
+
+/* Illustration motion. Rotating shapes are centred on their own box so they turn in place. */
+@keyframes needle {
+  0%, 100% { transform: rotate(-9deg); }
+  50% { transform: rotate(16deg); }
+}
+.animate-needle {
+  animation: needle 5s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spin 18s linear infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+@keyframes scan {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(46px); }
+}
+.animate-scan {
+  animation: scan 2.4s ease-in-out infinite alternate;
 }
 
 @keyframes float {

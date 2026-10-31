@@ -501,3 +501,49 @@ export const FOOTER = {
     { label: "info@soothsayeranalytics.com", href: LINKS.email },
   ],
 };
+
+/* ------------------------------------------------------- Capabilities --- */
+
+export const CAPABILITIES = {
+  eyebrow: "What We Deliver",
+  title: "Capabilities we build and run.",
+  body: "Practice areas spanning strategy, data foundations, generative AI, agentic systems and production reliability, combined to fit the problem.",
+  items: [
+    {
+      icon: "compass",
+      title: "AI Strategy & Transformation",
+      body: "Decide where AI earns its keep, and in what order, before anything gets built.",
+      points: ["AI Strategy", "Roadmaps", "Use Case Prioritization", "Change & Adoption"],
+    },
+    {
+      icon: "data",
+      title: "Data & AI Foundations",
+      body: "The layer everything else depends on: your data, made usable, governed and model-ready.",
+      points: ["Data Engineering", "RAG Pipelines", "Knowledge Graphs", "Model Development"],
+    },
+    {
+      icon: "spark",
+      title: "Generative AI Solutions",
+      body: "Put language models to work on the documents, questions and busywork teams handle daily.",
+      points: ["Enterprise Copilots", "Document Intelligence", "Knowledge Assistants", "Conversational Analytics"],
+    },
+    {
+      icon: "chip",
+      title: "Agentic AI & Multi-Agent Systems",
+      body: "Systems that don’t just answer. They plan, act and carry a process to completion.",
+      points: ["AI Agents", "Multi-Agent Orchestration", "Process Automation", "Decision Support"],
+    },
+    {
+      icon: "refresh",
+      title: "AI Reliability Engineering & LLMOps",
+      body: "What keeps a working pilot working once real volume, real users and real cost arrive.",
+      points: ["Monitoring & Observability", "Evaluation & Testing", "MLOps & CI/CD", "Cost & Performance"],
+    },
+    {
+      icon: "framework",
+      title: "Responsible AI & Governance",
+      body: "Proof that a system behaves as intended, ready for audit, legal and the regulator.",
+      points: ["Bias & Fairness Testing", "Security & Privacy", "Risk Management", "Compliance & Auditability"],
+    },
+  ],
+};

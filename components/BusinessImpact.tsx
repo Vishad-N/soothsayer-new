@@ -8,7 +8,7 @@ import { LinkButton } from "./ui/Button";
 import { LINE_ICONS } from "./ui/Icons";
 import { PixelEdge } from "./ui/PixelEdge";
 import { Reveal } from "./ui/Reveal";
-import { ImpactFlow } from "./illustrations/ImpactFlow";
+import { ImpactScene } from "./illustrations/ImpactScenes";
 
 /** "AI built for business impact": six outcome tabs. "Explore More" goes to IDP. */
 export function BusinessImpact() {
@@ -24,7 +24,7 @@ export function BusinessImpact() {
           <div>
             <p className="eyebrow text-ink-soft">{IMPACT.eyebrow}</p>
             <h2 id="impact-title" className="h-section mt-4">{IMPACT.title}</h2>
-            <p className="mt-4 max-w-[640px] text-[15px] leading-[1.65] text-ink-soft">{IMPACT.body}</p>
+            <p className="mt-4 max-w-[640px] text-base leading-[1.65] text-ink-soft lg:text-[15px]">{IMPACT.body}</p>
           </div>
           <LinkButton href={IMPACT.cta.href} className="self-start lg:self-end">{IMPACT.cta.label}</LinkButton>
         </Reveal>
@@ -78,7 +78,7 @@ export function BusinessImpact() {
                       </span>
                       <div>
                         <h3 className="text-[22px] font-semibold tracking-[-0.01em] text-ink">{it.title}</h3>
-                        <p className="mt-1.5 max-w-[420px] text-[14.5px] leading-[1.6] text-ink-soft">{it.body}</p>
+                        <p className="mt-1.5 max-w-[420px] text-base leading-[1.6] text-ink-soft lg:text-[14.5px]">{it.body}</p>
                       </div>
                     </li>
                   );
@@ -88,7 +88,7 @@ export function BusinessImpact() {
 
             <div className="flex items-center justify-center bg-[linear-gradient(135deg,#eef2f4_0%,#dfe7ea_100%)] p-6 lg:p-8">
               <div className="w-full rounded-[10px] bg-[linear-gradient(180deg,#f7fafb_0%,#e9f1f4_100%)] p-4 shadow-[inset_0_0_0_1px_rgb(255_255_255/0.8)]">
-                <ImpactFlow className="h-auto w-full" />
+                <ImpactScene key={active} index={active} className="h-auto w-full" />
               </div>
             </div>
           </div>

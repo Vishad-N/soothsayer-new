@@ -42,7 +42,7 @@ function EpisodeCard({ ep }: { ep: Episode }) {
         <div className="mt-4 flex flex-1 items-end justify-between gap-3 border-t border-dashed border-line pt-4">
           <div>
             <p className="font-display text-[15px] font-semibold text-ink">{ep.guest}</p>
-            <p className="mt-1 text-[13px] leading-[1.45] text-ink-soft">{ep.role}</p>
+            <p className="mt-1 text-sm leading-[1.45] text-ink-soft lg:text-[13px]">{ep.role}</p>
           </div>
           <button
             type="button"
@@ -69,7 +69,7 @@ export function Podcasts() {
         <Reveal className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h2 id="podcasts-title" className="h-section">{PODCASTS.title}</h2>
-            <p className="mt-4 max-w-[600px] text-[15px] leading-[1.65] text-ink-soft">{PODCASTS.body}</p>
+            <p className="mt-4 max-w-[600px] text-base leading-[1.65] text-ink-soft lg:text-[15px]">{PODCASTS.body}</p>
           </div>
           <div className="flex shrink-0 items-center gap-2">
             <LinkButton href={PODCASTS.viewAll} arrow={false}>View All</LinkButton>
@@ -83,7 +83,7 @@ export function Podcasts() {
           role="region"
           aria-label="Podcast episodes"
           tabIndex={0}
-          className="no-scrollbar -mx-4 mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-6 pt-1 sm:mx-0 sm:px-0 xl:-mr-[calc((100vw-1240px)/2)] xl:pr-[calc((100vw-1240px)/2)]"
+          className="no-scrollbar -mx-4 mt-10 flex scroll-pl-4 snap-x snap-mandatory sm:scroll-pl-0 gap-4 overflow-x-auto px-4 pb-6 pt-1 sm:mx-0 sm:px-0 xl:-mr-[calc((100vw-1240px)/2)] xl:pr-[calc((100vw-1240px)/2)]"
         >
           {PODCASTS.episodes.map((ep) => <EpisodeCard key={ep.id} ep={ep} />)}
         </div>

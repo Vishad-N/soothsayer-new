@@ -23,8 +23,8 @@ export function CTASection() {
           {CTA.pill}
         </span>
         <h2 id="cta-title" className="h-section mx-auto mt-5 max-w-[640px]">{CTA.title}</h2>
-        <p className="mx-auto mt-5 max-w-[640px] text-[15px] leading-[1.65] text-white/80">{CTA.body}</p>
-        <KeycapButton href={CTA.cta.href} className="mt-9">{CTA.cta.label}</KeycapButton>
+        <p className="mx-auto mt-5 max-w-[640px] text-base leading-[1.65] text-white/80 lg:text-[15px]">{CTA.body}</p>
+        <KeycapButton href={CTA.cta.href} fullWidthMobile className="mt-9">{CTA.cta.label}</KeycapButton>
       </Reveal>
     </section>
   );

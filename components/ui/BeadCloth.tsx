@@ -23,7 +23,7 @@ import { useEffect, useRef } from "react";
  */
 
 const TUNE = {
-  cloth: "#17728a",
+  cloth: "#0f5468",
   glow: "#00b4d8",
   highlight: "#d9f5fb",
   core: "#8fe4f4",
@@ -272,6 +272,8 @@ export function BeadCloth({ className }: { className?: string }) {
     const gl = canvas.getContext("webgl", { alpha: true, premultipliedAlpha: true, antialias: false, powerPreference: "high-performance" });
     if (!gl) return;
 
+    // phones get the plain gradient: calmer behind stacked text, and no GPU work
+    if (window.matchMedia("(max-width: 639px)").matches) return;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const host = root.closest<HTMLElement>("[data-bead-host]") ?? root;
 
@@ -308,7 +310,7 @@ export function BeadCloth({ className }: { className?: string }) {
 
     // ---- beads ---------------------------------------------------------
     const narrow = root.offsetWidth < 700;
-    const pitch = 0.075 * (TUNE.scale / 50) * (narrow ? 1.45 : 1);
+    const pitch = 0.075 * (TUNE.scale / 50) * (narrow ? 1.8 : 1);
     const cols = Math.floor((HALF_X * 2) / pitch);
     const rows = Math.floor((HALF_Z * 2) / pitch);
     const data = new Float32Array(cols * rows * 3);
@@ -360,7 +362,7 @@ export function BeadCloth({ className }: { className?: string }) {
       W = root.offsetWidth;
       H = root.offsetHeight;
       // keep the fill cost bounded on large or high-density screens
-      dpr = Math.min(window.devicePixelRatio || 1, 1.5, Math.sqrt(1.7e6 / Math.max(1, W * H)));
+      dpr = Math.min(window.devicePixelRatio || 1, narrow ? 1.25 : 1.5, Math.sqrt(1.7e6 / Math.max(1, W * H)));
       canvas.width = Math.max(1, Math.round(W * dpr));
       canvas.height = Math.max(1, Math.round(H * dpr));
       gl.viewport(0, 0, canvas.width, canvas.height);

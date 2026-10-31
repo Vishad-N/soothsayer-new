@@ -6,7 +6,7 @@ import { STRATEGY } from "@/data/content";
 import { cn, linkProps } from "@/lib/cn";
 import { ArrowRight } from "./ui/Icons";
 import { Reveal } from "./ui/Reveal";
-import { NetworkIso } from "./illustrations/NetworkIso";
+import { StepScene } from "./illustrations/StepScenes";
 
 /** "Enterprise AI. From Strategy to Scale." Six-step journey with a detail card. */
 export function StrategyToScale() {
@@ -104,7 +104,7 @@ export function StrategyToScale() {
                 );
               })}
             </ol>
-            <p className="mt-6 max-w-[520px] text-[15px] leading-[1.65] text-ink-soft">{STRATEGY.footnote}</p>
+            <p className="mt-6 max-w-[520px] text-base leading-[1.65] text-ink-soft lg:text-[15px]">{STRATEGY.footnote}</p>
           </Reveal>
 
           {/* Detail card */}
@@ -123,7 +123,7 @@ export function StrategyToScale() {
                   exit={reduce ? undefined : { opacity: 0, y: -10 }}
                   transition={{ duration: 0.35, ease: "easeOut" }}
                 >
-                  <NetworkIso icon={step.icon} className="mx-auto h-auto w-full max-w-[440px]" />
+                  <StepScene icon={step.icon} className="mx-auto h-auto w-full max-w-[480px]" />
                   <p className="mt-2 text-[12px] font-semibold uppercase tracking-[0.16em] text-brand">
                     {String(active + 1).padStart(2, "0")} · {step.label}
                   </p>
@@ -132,7 +132,7 @@ export function StrategyToScale() {
                       {step.title}
                     </a>
                   </h3>
-                  <p className="mx-auto mt-3 max-w-[460px] text-[14px] leading-[1.6] text-ink-soft sm:text-[15px]">
+                  <p className="mx-auto mt-3 max-w-[460px] text-base leading-[1.6] text-ink-soft sm:text-[15px]">
                     {step.body}
                   </p>
                   <ul className="mx-auto mt-5 flex max-w-[460px] flex-wrap justify-center gap-2">

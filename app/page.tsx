@@ -2,6 +2,7 @@ import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { TrustedBy } from "@/components/TrustedBy";
 import { StrategyToScale } from "@/components/StrategyToScale";
+import { Capabilities } from "@/components/Capabilities";
 import { Expertise } from "@/components/Expertise";
 import { ImpactStats } from "@/components/ImpactStats";
 import { BusinessImpact } from "@/components/BusinessImpact";
@@ -21,6 +22,7 @@ export default function HomePage() {
         <Hero />
         <TrustedBy />
         <StrategyToScale />
+        <Capabilities />
         <Expertise />
         <ImpactStats />
         <BusinessImpact />

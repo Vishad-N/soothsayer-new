@@ -14,11 +14,11 @@ export function Footer() {
           <a href="#top" aria-label="Back to top">
             <Image src={IMAGES.logoWhite} alt="Soothsayer Analytics" width={232} height={60} unoptimized className="h-[88px] w-auto" />
           </a>
-          <p className="mt-8 max-w-[300px] text-[14.5px] leading-[1.7] text-white/75">{FOOTER.blurb}</p>
-          <ul className="mt-6 space-y-1.5 text-[14px] text-white/75">
+          <p className="mt-8 max-w-[300px] text-base leading-[1.7] text-white/75 md:text-[14.5px]">{FOOTER.blurb}</p>
+          <ul className="mt-6 space-y-1.5 text-base text-white/75 md:text-[14px]">
             {FOOTER.contact.map((c) => (
               <li key={c.href}>
-                <a href={c.href} className="transition-colors hover:text-brand-300">{c.label}</a>
+                <a href={c.href} className="inline-flex min-h-11 items-center transition-colors hover:text-brand-300 md:min-h-0">{c.label}</a>
               </li>
             ))}
           </ul>
@@ -45,10 +45,10 @@ export function Footer() {
             <div key={col.title}>
               <h3 className="font-display text-[18px] font-medium">{col.title}</h3>
               <span aria-hidden className="mt-3 block h-0.5 w-6 bg-brand" />
-              <ul className="mt-5 space-y-3">
+              <ul className="mt-5 space-y-3 max-md:space-y-0">
                 {col.links.map((l) => (
                   <li key={l.label}>
-                    <a {...linkProps(l.href)} className="text-[14.5px] text-white/80 transition-colors hover:text-brand-300">
+                    <a {...linkProps(l.href)} className="text-base text-white/80 transition-colors hover:text-brand-300 max-md:flex max-md:min-h-11 max-md:items-center md:text-[14.5px]">
                       {l.label}
                     </a>
                   </li>
