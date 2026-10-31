@@ -1,0 +1,129 @@
+"use client";
+
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { useRef, useState } from "react";
+import { EXPERTISE } from "@/data/content";
+import { cn } from "@/lib/cn";
+import { LinkButton } from "./ui/Button";
+import { LINE_ICONS } from "./ui/Icons";
+import { PixelEdge } from "./ui/PixelEdge";
+import { Reveal } from "./ui/Reveal";
+import { JourneyPath } from "./illustrations/JourneyPath";
+
+/** "Our Expertise": Responsible AI / Strategy & Blueprint / Digital Competency tabs. */
+export function Expertise() {
+  const [active, setActive] = useState(0);
+  const reduce = useReducedMotion();
+  const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const tab = EXPERTISE.tabs[active];
+
+  // Arrow keys move between tabs (WAI-ARIA tabs pattern).
+  const onKey = (e: React.KeyboardEvent) => {
+    if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+    const n = EXPERTISE.tabs.length;
+    const next = (active + (e.key === "ArrowRight" ? 1 : n - 1)) % n;
+    setActive(next);
+    tabRefs.current[next]?.focus();
+  };
+
+  return (
+    <section id="expertise" aria-labelledby="expertise-title" className="relative bg-deep pt-20 text-white lg:pt-28">
+      <PixelEdge />
+
+      <div className="container-page">
+        <Reveal className="grid gap-6 lg:grid-cols-[1fr_400px] lg:items-end lg:gap-16">
+          <div>
+            <p className="eyebrow text-white/85">{EXPERTISE.eyebrow}</p>
+            <h2 id="expertise-title" className="h-section mt-4 max-w-[620px]">{EXPERTISE.title}</h2>
+          </div>
+          <p className="text-[15px] leading-[1.65] text-white/75 lg:pb-2">{EXPERTISE.body}</p>
+        </Reveal>
+
+        <Reveal delay={0.1} className="mt-12 overflow-hidden rounded-[10px] bg-white text-ink shadow-[0_30px_80px_-40px_rgb(0_0_0/0.6)]">
+          <div role="tablist" aria-label="Expertise" className="no-scrollbar flex overflow-x-auto border-b border-line" onKeyDown={onKey}>
+            {EXPERTISE.tabs.map((t, i) => {
+              const on = i === active;
+              return (
+                <button
+                  key={t.key}
+                  ref={(el) => { tabRefs.current[i] = el; }}
+                  role="tab"
+                  id={`exp-tab-${t.key}`}
+                  aria-selected={on}
+                  aria-controls="exp-panel"
+                  tabIndex={on ? 0 : -1}
+                  onClick={() => setActive(i)}
+                  className={cn(
+                    "relative min-w-[200px] flex-1 px-4 py-4 text-[14px] font-medium transition-colors sm:text-[15px]",
+                    i > 0 && "border-l border-line",
+                    on ? "text-ink" : "text-ink-soft hover:bg-brand-50 hover:text-ink",
+                  )}
+                >
+                  {on && (
+                    <motion.span
+                      layoutId="exp-tab-bg"
+                      className="absolute inset-0 border-b-2 border-brand bg-[linear-gradient(90deg,#ffffff_0%,#8fe4f4_100%)]"
+                      transition={{ type: "spring", stiffness: 400, damping: 36 }}
+                    />
+                  )}
+                  <span className="relative">{t.tab}</span>
+                </button>
+              );
+            })}
+          </div>
+
+          <div id="exp-panel" role="tabpanel" aria-labelledby={`exp-tab-${tab.key}`} className="grid lg:grid-cols-[1fr_1.12fr]">
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.div
+                key={tab.key}
+                initial={reduce ? false : { opacity: 0, x: -16 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={reduce ? undefined : { opacity: 0, x: 12 }}
+                transition={{ duration: 0.35, ease: "easeOut" }}
+                className="px-6 py-10 sm:px-10 lg:px-[60px] lg:py-[60px]"
+              >
+                <div className="flex items-center gap-3 text-[13px] text-ink-mute">
+                  {String(active + 1).padStart(2, "0")}
+                  <span className="relative h-px w-24 bg-line">
+                    <span className="absolute inset-y-0 left-0 w-2/3 bg-brand" />
+                  </span>
+                </div>
+                <h3 className="mt-7 text-[30px] font-semibold tracking-[-0.015em] sm:text-[38px]">{tab.title}</h3>
+                <p className="mt-4 max-w-[460px] text-[15px] leading-[1.6] text-ink-soft">{tab.body}</p>
+                <ul className="mt-7 grid gap-x-6 gap-y-5 sm:grid-cols-2">
+                  {tab.points.map((p) => {
+                    const Icon = LINE_ICONS[p.icon];
+                    return (
+                      <li key={p.label} className="flex items-start gap-3 text-[14.5px] leading-[1.45] text-ink-soft">
+                        <span className="grid size-10 shrink-0 place-items-center rounded-full border border-brand/40 text-brand">
+                          <Icon className="size-[18px]" />
+                        </span>
+                        <span className="pt-0.5">{p.label}</span>
+                      </li>
+                    );
+                  })}
+                </ul>
+                <LinkButton href={tab.cta.href} className="mt-9">{tab.cta.label}</LinkButton>
+              </motion.div>
+            </AnimatePresence>
+
+            <div className="relative flex items-center justify-center overflow-hidden bg-[linear-gradient(135deg,#f4fafb_0%,#e4f1f4_100%)] px-6 py-10">
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.div
+                  key={tab.art}
+                  initial={reduce ? false : { opacity: 0, scale: 0.96 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={reduce ? undefined : { opacity: 0, scale: 0.98 }}
+                  transition={{ duration: 0.4 }}
+                  className="w-full"
+                >
+                  <JourneyPath variant={tab.art} className="mx-auto h-auto w-full max-w-[560px]" />
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
