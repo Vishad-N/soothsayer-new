@@ -1,18 +1,43 @@
 "use client";
 
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { STRATEGY } from "@/data/content";
 import { cn, linkProps } from "@/lib/cn";
 import { ArrowRight } from "./ui/Icons";
 import { Reveal } from "./ui/Reveal";
 import { StepScene } from "./illustrations/StepScenes";
 
-/** "Enterprise AI. From Strategy to Scale." Six-step journey with a detail card. */
+/**
+ * "Enterprise AI. From Strategy to Scale." Six-step journey.
+ * Desktop (lg+): a stepper beside one detail card.
+ * Below lg: an accordion. Each step opens its own panel (illustration, copy, tags)
+ * directly under it, and tapping the open step closes it again.
+ */
 export function StrategyToScale() {
   const [active, setActive] = useState(3);
+  const [collapsed, setCollapsed] = useState(false); // accordion only
+  // null until mounted: the server renders the desktop card, and phones swap it for the accordion
+  const [desk, setDesk] = useState<boolean | null>(null);
   const reduce = useReducedMotion();
   const step = STRATEGY.steps[active];
+
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 1024px)");
+    const sync = () => setDesk(mq.matches);
+    sync();
+    mq.addEventListener("change", sync);
+    return () => mq.removeEventListener("change", sync);
+  }, []);
+
+  const mobile = desk === false;
+  const choose = (i: number) => {
+    if (mobile && i === active) setCollapsed((c) => !c);
+    else {
+      setActive(i);
+      setCollapsed(false);
+    }
+  };
 
   return (
     <section
@@ -36,13 +61,14 @@ export function StrategyToScale() {
           </p>
         </Reveal>
 
-        <div className="mt-14 grid gap-10 lg:mt-16 lg:grid-cols-[minmax(0,520px)_minmax(0,612px)] lg:justify-between lg:gap-12">
+        <div className="mt-14 grid gap-0 lg:mt-16 lg:grid-cols-[minmax(0,520px)_minmax(0,612px)] lg:justify-between lg:gap-12">
           {/* Stepper */}
           <Reveal>
-            <ol role="tablist" aria-label="Enterprise AI journey" className="relative">
+            <ol role={mobile ? undefined : "tablist"} aria-label="Enterprise AI journey" className="relative">
               {STRATEGY.steps.map((s, i) => {
-                const on = i === active;
+                const on = i === active && !(mobile && collapsed);
                 const done = i < active;
+                const open = mobile && on;
                 return (
                   <li key={s.key} className="relative flex items-stretch gap-5">
                     {/* rail */}
@@ -72,17 +98,20 @@ export function StrategyToScale() {
                       )}
                     </div>
 
+                    <div className="min-w-0 flex-1">
                     <button
                       type="button"
-                      role="tab"
+                      role={mobile ? undefined : "tab"}
                       id={`step-tab-${s.key}`}
-                      aria-selected={on}
-                      aria-controls="step-panel"
-                      onClick={() => setActive(i)}
-                      onMouseEnter={() => setActive(i)}
+                      aria-selected={mobile ? undefined : on}
+                      aria-expanded={mobile ? open : undefined}
+                      aria-controls={mobile ? `step-m-${s.key}` : "step-panel"}
+                      onClick={() => choose(i)}
+                      // hover previews a step on desktop only; on touch a tap must not pre-activate it
+                      onPointerEnter={(e) => e.pointerType === "mouse" && desk && setActive(i)}
                       className={cn(
-                        "group flex min-h-[84px] flex-1 items-center justify-between border-b border-dashed border-line text-left transition-colors",
-                        i === STRATEGY.steps.length - 1 && "border-b-0",
+                        "group flex min-h-[84px] w-full items-center justify-between border-b border-dashed border-line text-left transition-colors",
+                        i === STRATEGY.steps.length - 1 && !open && "border-b-0",
                       )}
                     >
                       <span
@@ -97,9 +126,48 @@ export function StrategyToScale() {
                         className={cn(
                           "size-6 transition-all duration-300",
                           on ? "translate-x-1 text-brand" : "text-ink group-hover:translate-x-1",
+                          open && "max-lg:translate-x-0 max-lg:rotate-90",
                         )}
                       />
                     </button>
+
+                    {/* phones: the step's detail opens right under it */}
+                    <AnimatePresence initial={false}>
+                      {open && (
+                        <motion.div
+                          key="panel"
+                          id={`step-m-${s.key}`}
+                          role="region"
+                          aria-labelledby={`step-tab-${s.key}`}
+                          initial={reduce ? false : { height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={reduce ? undefined : { height: 0, opacity: 0 }}
+                          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                          className="overflow-hidden"
+                        >
+                          <div className="mb-5 mt-3 rounded-[10px] border border-[#cfe9ef] bg-[linear-gradient(180deg,#eef9fb_0%,#e6f5f8_100%)] px-4 pb-7 pt-4 text-center">
+                            <StepScene icon={s.icon} className="mx-auto h-auto w-full" />
+                            <p className="mt-1 text-[12px] font-semibold uppercase tracking-[0.16em] text-brand">
+                              {String(i + 1).padStart(2, "0")} · {s.label}
+                            </p>
+                            <h3 className="mt-2 text-[22px] font-semibold leading-[1.2] tracking-[-0.01em] text-ink">
+                              <a {...linkProps(s.href)} className="transition-colors hover:text-brand">
+                                {s.title}
+                              </a>
+                            </h3>
+                            <p className="mt-3 text-base leading-[1.6] text-ink-soft">{s.body}</p>
+                            <ul className="mt-5 flex flex-wrap justify-center gap-2">
+                              {s.tags.map((t) => (
+                                <li key={t} className="rounded-full border border-[#c7dfe5] bg-white px-3.5 py-1.5 text-[13px] text-ink-soft">
+                                  {t}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                    </div>
                   </li>
                 );
               })}
@@ -108,7 +176,7 @@ export function StrategyToScale() {
           </Reveal>
 
           {/* Detail card */}
-          <Reveal delay={0.1}>
+          <Reveal delay={0.1} className="hidden lg:block">
             <div
               id="step-panel"
               role="tabpanel"
@@ -123,7 +191,7 @@ export function StrategyToScale() {
                   exit={reduce ? undefined : { opacity: 0, y: -10 }}
                   transition={{ duration: 0.35, ease: "easeOut" }}
                 >
-                  <StepScene icon={step.icon} className="mx-auto h-auto w-full max-w-[480px]" />
+                  {!mobile && <StepScene icon={step.icon} className="mx-auto h-auto w-full max-w-[480px]" />}
                   <p className="mt-2 text-[12px] font-semibold uppercase tracking-[0.16em] text-brand">
                     {String(active + 1).padStart(2, "0")} · {step.label}
                   </p>
