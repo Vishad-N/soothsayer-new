@@ -4,7 +4,7 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { STRATEGY } from "@/data/content";
 import { cn, linkProps } from "@/lib/cn";
-import { ArrowRight } from "./ui/Icons";
+import { ArrowRight, LINE_ICONS } from "./ui/Icons";
 import { Reveal } from "./ui/Reveal";
 import { StepScene } from "./illustrations/StepScenes";
 
@@ -43,7 +43,7 @@ export function StrategyToScale() {
     <section
       id="services"
       aria-labelledby="strategy-title"
-      className="relative overflow-hidden bg-white pb-28 pt-20 lg:pb-40 lg:pt-28"
+      className="relative overflow-hidden bg-white pb-16 pt-20 lg:pb-20 lg:pt-28"
     >
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <div className="absolute -left-40 top-1/3 size-[520px] rounded-full bg-brand-100/70 blur-[120px]" />
@@ -52,7 +52,8 @@ export function StrategyToScale() {
 
       <div className="container-page relative">
         <Reveal className="mx-auto max-w-[760px] text-center">
-          <h2 id="strategy-title" className="h-section">
+          <p className="eyebrow text-ink-soft">How We Work</p>
+          <h2 id="strategy-title" className="h-section mt-4">
             Enterprise AI. From Strategy
             <br className="hidden sm:block" /> to Scale.
           </h2>
@@ -61,7 +62,24 @@ export function StrategyToScale() {
           </p>
         </Reveal>
 
-        <div className="mt-14 grid gap-0 lg:mt-16 lg:grid-cols-[minmax(0,520px)_minmax(0,612px)] lg:justify-between lg:gap-12">
+        {/* Governance wraps the whole journey: it frames all five stages rather than sitting after them. */}
+        <div className="mt-12 rounded-2xl border border-dashed border-brand/40 bg-[linear-gradient(180deg,rgb(238_250_253/0.8),rgb(255_255_255/0))] p-4 sm:p-6 lg:mt-14 lg:p-8">
+          <Reveal>
+            <div className="flex flex-col items-start gap-4 rounded-[10px] border border-brand/30 bg-white px-5 py-4 shadow-card sm:flex-row sm:items-center sm:gap-5">
+              <span aria-hidden className="grid size-12 shrink-0 place-items-center rounded-full bg-brand text-white shadow-[0_0_0_6px_rgb(0_180_216/0.15)]">
+                <LINE_ICONS.framework className="size-[22px]" />
+              </span>
+              <div>
+                <h3 className="font-display text-[20px] font-semibold leading-[1.2] tracking-[-0.01em] text-ink">Responsible AI &amp; Governance</h3>
+                <p className="mt-1 text-base leading-[1.55] text-ink-soft lg:text-[15px]">
+                  Every stage, every system. Embedded from the first use case, not added at the end.
+                </p>
+              </div>
+            </div>
+            <span aria-hidden className="ml-6 block h-6 w-px bg-brand/40" />
+          </Reveal>
+
+        <div className="grid gap-0 lg:grid-cols-[minmax(0,520px)_minmax(0,1fr)] lg:justify-between lg:gap-12">
           {/* Stepper */}
           <Reveal>
             <ol role={mobile ? undefined : "tablist"} aria-label="Enterprise AI journey" className="relative">
@@ -172,7 +190,6 @@ export function StrategyToScale() {
                 );
               })}
             </ol>
-            <p className="mt-6 max-w-[520px] text-base leading-[1.65] text-ink-soft lg:text-[15px]">{STRATEGY.footnote}</p>
           </Reveal>
 
           {/* Detail card */}
@@ -250,6 +267,9 @@ export function StrategyToScale() {
             </div>
           </Reveal>
         </div>
+        </div>
+
+        <p className="mx-auto mt-10 max-w-[640px] text-center text-base leading-[1.65] text-ink-soft lg:text-[15px]">{STRATEGY.footnote}</p>
       </div>
     </section>
   );

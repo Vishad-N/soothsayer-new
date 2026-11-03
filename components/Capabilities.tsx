@@ -1,5 +1,5 @@
 import { CAPABILITIES } from "@/data/content";
-import { LINE_ICONS } from "./ui/Icons";
+import { Chevron, LINE_ICONS } from "./ui/Icons";
 import { Reveal } from "./ui/Reveal";
 
 /**
@@ -16,6 +16,14 @@ export function Capabilities() {
       className="relative bg-white pb-24 pt-2 lg:pb-36 lg:pt-0 xl:pb-44"
     >
       <div className="container-page">
+        {/* hairline marks the hand-off from the journey above to the service catalogue */}
+        <div aria-hidden className="mb-14 flex items-center gap-4 lg:mb-20 lg:gap-6">
+          <span className="h-px flex-1 bg-gradient-to-r from-transparent via-brand/30 to-brand/60" />
+          <span className="relative grid size-11 place-items-center rounded-full border border-brand/40 bg-white shadow-[0_0_0_6px_rgb(0_180_216/0.08)]">
+            <Chevron className="size-4 text-brand" />
+          </span>
+          <span className="h-px flex-1 bg-gradient-to-l from-transparent via-brand/30 to-brand/60" />
+        </div>
         <Reveal className="mx-auto max-w-[760px] text-center">
           <p className="eyebrow text-ink-soft">{CAPABILITIES.eyebrow}</p>
           <h2 id="capabilities-title" className="h-section mt-4">{CAPABILITIES.title}</h2>
