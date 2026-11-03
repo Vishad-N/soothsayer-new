@@ -85,7 +85,6 @@ export function Navbar() {
               <span className="absolute inset-0 animate-ping rounded-full bg-brand-300/70" />
               <span className="absolute inset-0 rounded-full bg-brand-300" />
             </span>
-            <span className="hidden max-lg:inline">Menu</span>
             <Menu className="size-6 max-lg:size-[18px]" />
           </button>
         </div>

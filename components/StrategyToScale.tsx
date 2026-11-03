@@ -9,7 +9,7 @@ import { Reveal } from "./ui/Reveal";
 import { StepScene } from "./illustrations/StepScenes";
 
 /**
- * "Enterprise AI. From Strategy to Scale." Six-step journey.
+ * "Enterprise AI. From Strategy to Scale." Five-step journey.
  * Desktop (lg+): a stepper beside one detail card.
  * Below lg: an accordion. Each step opens its own panel (illustration, copy, tags)
  * directly under it, and tapping the open step closes it again.
@@ -148,7 +148,7 @@ export function StrategyToScale() {
                           <div className="mb-5 mt-3 rounded-[10px] border border-[#cfe9ef] bg-[linear-gradient(180deg,#eef9fb_0%,#e6f5f8_100%)] px-4 pb-7 pt-4 text-center">
                             <StepScene icon={s.icon} className="mx-auto h-auto w-full" />
                             <p className="mt-1 text-[12px] font-semibold uppercase tracking-[0.16em] text-brand">
-                              {String(i + 1).padStart(2, "0")} · {s.label}
+                              {String(i + 1).padStart(2, "0")}
                             </p>
                             <h3 className="mt-2 text-[22px] font-semibold leading-[1.2] tracking-[-0.01em] text-ink">
                               <a {...linkProps(s.href)} className="transition-colors hover:text-brand">
@@ -156,13 +156,13 @@ export function StrategyToScale() {
                               </a>
                             </h3>
                             <p className="mt-3 text-base leading-[1.6] text-ink-soft">{s.body}</p>
-                            <ul className="mt-5 flex flex-wrap justify-center gap-2">
+                            {s.tags.length > 0 && <ul className="mt-5 flex flex-wrap justify-center gap-2">
                               {s.tags.map((t) => (
                                 <li key={t} className="rounded-full border border-[#c7dfe5] bg-white px-3.5 py-1.5 text-[13px] text-ink-soft">
                                   {t}
                                 </li>
                               ))}
-                            </ul>
+                            </ul>}
                           </div>
                         </motion.div>
                       )}
@@ -181,8 +181,25 @@ export function StrategyToScale() {
               id="step-panel"
               role="tabpanel"
               aria-labelledby={`step-tab-${step.key}`}
-              className="relative overflow-hidden rounded-[10px] border border-[#cfe9ef] bg-[linear-gradient(180deg,#eef9fb_0%,#e6f5f8_100%)] px-6 pb-10 pt-6 text-center sm:px-10"
+              className="relative overflow-hidden rounded-[14px] border border-brand/35 bg-[linear-gradient(180deg,#eef9fb_0%,#e6f5f8_100%)] px-6 pb-8 pt-6 text-center shadow-[0_24px_60px_-30px_rgb(0_180_216/0.45)] sm:px-10"
             >
+              {/* frame: dotted field, inset keyline, corner brackets and a ghost numeral fill the negative space */}
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0 opacity-60 [background-image:radial-gradient(rgb(0_180_216/0.28)_1px,transparent_1.2px)] [background-size:18px_18px] [mask-image:radial-gradient(ellipse_at_center,transparent_35%,#000_100%)]"
+              />
+              <div aria-hidden className="pointer-events-none absolute inset-3 rounded-[10px] border border-dashed border-brand/30" />
+              <span aria-hidden className="pointer-events-none absolute left-3 top-3 size-5 rounded-tl-[10px] border-l-2 border-t-2 border-brand" />
+              <span aria-hidden className="pointer-events-none absolute right-3 top-3 size-5 rounded-tr-[10px] border-r-2 border-t-2 border-brand" />
+              <span aria-hidden className="pointer-events-none absolute bottom-3 left-3 size-5 rounded-bl-[10px] border-b-2 border-l-2 border-brand" />
+              <span aria-hidden className="pointer-events-none absolute bottom-3 right-3 size-5 rounded-br-[10px] border-b-2 border-r-2 border-brand" />
+              <span
+                key={step.key}
+                aria-hidden
+                className="pointer-events-none absolute -bottom-6 right-6 select-none font-display text-[200px] font-semibold leading-none tracking-tighter text-brand/[0.08]"
+              >
+                {String(active + 1).padStart(2, "0")}
+              </span>
               <AnimatePresence mode="wait" initial={false}>
                 <motion.div
                   key={step.key}
@@ -193,7 +210,7 @@ export function StrategyToScale() {
                 >
                   {!mobile && <StepScene icon={step.icon} className="mx-auto h-auto w-full max-w-[480px]" />}
                   <p className="mt-2 text-[12px] font-semibold uppercase tracking-[0.16em] text-brand">
-                    {String(active + 1).padStart(2, "0")} · {step.label}
+                    {String(active + 1).padStart(2, "0")}
                   </p>
                   <h3 className="mt-2 text-[24px] font-semibold tracking-[-0.01em] text-ink sm:text-[30px]">
                     <a {...linkProps(step.href)} className="transition-colors hover:text-brand">
@@ -203,7 +220,7 @@ export function StrategyToScale() {
                   <p className="mx-auto mt-3 max-w-[460px] text-base leading-[1.6] text-ink-soft sm:text-[15px]">
                     {step.body}
                   </p>
-                  <ul className="mx-auto mt-5 flex max-w-[460px] flex-wrap justify-center gap-2">
+                  {step.tags.length > 0 && <ul className="mx-auto mt-5 flex max-w-[460px] flex-wrap justify-center gap-2">
                     {step.tags.map((t) => (
                       <li
                         key={t}
@@ -212,9 +229,24 @@ export function StrategyToScale() {
                         {t}
                       </li>
                     ))}
-                  </ul>
+                  </ul>}
                 </motion.div>
               </AnimatePresence>
+
+              {/* progress: where this stage sits in the five-stage journey */}
+              <div aria-hidden className="relative mx-auto mt-8 flex max-w-[300px] items-center gap-3">
+                <div className="flex flex-1 gap-1.5">
+                  {STRATEGY.steps.map((s, i) => (
+                    <span
+                      key={s.key}
+                      className={cn("h-1 flex-1 rounded-full transition-colors duration-300", i <= active ? "bg-brand" : "bg-brand/20")}
+                    />
+                  ))}
+                </div>
+                <span className="font-mono text-[11px] tracking-widest text-brand">
+                  {String(active + 1).padStart(2, "0")}/{String(STRATEGY.steps.length).padStart(2, "0")}
+                </span>
+              </div>
             </div>
           </Reveal>
         </div>
