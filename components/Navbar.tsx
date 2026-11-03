@@ -32,21 +32,23 @@ export function Navbar() {
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,box-shadow,backdrop-filter] duration-300",
+        // Below lg the bar floats as an inset glass pill.
+        "max-lg:inset-x-3 max-lg:top-3 max-lg:overflow-hidden max-lg:rounded-full max-lg:border max-lg:border-brand-300/25 max-lg:bg-abyss/55 max-lg:shadow-[0_12px_40px_-12px_rgb(0_0_0/0.7)] max-lg:backdrop-blur-xl",
         scrolled
-          ? "border-b border-white/10 bg-abyss/85 shadow-[0_10px_30px_-20px_rgb(0_0_0/0.8)] backdrop-blur-xl"
+          ? "border-b border-white/10 bg-abyss/85 shadow-[0_10px_30px_-20px_rgb(0_0_0/0.8)] backdrop-blur-xl max-lg:border-brand-300/40 max-lg:bg-abyss/80 max-lg:shadow-[0_14px_44px_-10px_rgb(34_211_238/0.28)]"
           : "border-b border-white/10 bg-transparent",
       )}
     >
-      <nav aria-label="Main" className="container-page flex h-[72px] items-center justify-between gap-6 lg:h-20">
+      <nav aria-label="Main" className="container-page flex h-20 items-center justify-between gap-6 max-lg:h-[68px] max-lg:pl-5 max-lg:pr-2 lg:h-24">
         <a href="#top" className="relative z-10 shrink-0" aria-label="Soothsayer Analytics home">
           <Image
             src={IMAGES.logoWhite}
             alt="Soothsayer Analytics"
-            width={168}
-            height={44}
+            width={232}
+            height={60}
             priority
             unoptimized
-            className="h-11 w-auto lg:h-[52px]"
+            className="h-[72px] w-auto max-lg:h-[60px] lg:h-[80px]"
           />
         </a>
 
@@ -73,13 +75,18 @@ export function Navbar() {
           </span>
           <button
             type="button"
-            className="grid size-11 place-items-center rounded-md text-white xl:hidden"
+            className="grid size-11 place-items-center rounded-md text-white max-lg:flex max-lg:size-auto max-lg:items-center max-lg:gap-2 max-lg:rounded-full max-lg:border max-lg:border-brand-300/40 max-lg:bg-brand-300/15 max-lg:py-2.5 max-lg:pl-4 max-lg:pr-3.5 max-lg:text-[14px] max-lg:font-semibold max-lg:tracking-wide max-lg:shadow-[0_0_24px_-4px_rgb(34_211_238/0.55)] max-lg:active:scale-95 xl:hidden"
             aria-label="Open menu"
             aria-expanded={mobileOpen}
             aria-controls="mobile-menu"
             onClick={() => setMobileOpen(true)}
           >
-            <Menu className="size-6" />
+            <span className="relative hidden size-2 max-lg:block" aria-hidden>
+              <span className="absolute inset-0 animate-ping rounded-full bg-brand-300/70" />
+              <span className="absolute inset-0 rounded-full bg-brand-300" />
+            </span>
+            <span className="hidden max-lg:inline">Menu</span>
+            <Menu className="size-6 max-lg:size-[18px]" />
           </button>
         </div>
       </nav>
@@ -184,6 +191,12 @@ function Dropdown({ group }: { group: NavGroup }) {
   );
 }
 
+const listVariants = { open: { transition: { staggerChildren: 0.06, delayChildren: 0.18 } }, closed: {} };
+const rowVariants = {
+  closed: { opacity: 0, y: 28 },
+  open: { opacity: 1, y: 0, transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] as const } },
+};
+
 function MobileMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
   const [expanded, setExpanded] = useState<string | null>(null);
   const [mounted, setMounted] = useState(false);
@@ -201,87 +214,104 @@ function MobileMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
   return createPortal(
     <AnimatePresence>
       {open && (
-        <>
-          <motion.div
-            key="scrim"
-            className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm xl:hidden"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={onClose}
+        <motion.div
+          key="panel"
+          id="mobile-menu"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Menu"
+          className="fixed inset-0 z-50 flex flex-col overflow-hidden bg-abyss text-white xl:hidden"
+          // Circular reveal that grows out of the menu pill's corner.
+          initial={{ clipPath: "circle(0px at calc(100% - 64px) 46px)" }}
+          animate={{ clipPath: "circle(1800px at calc(100% - 64px) 46px)" }}
+          exit={{ clipPath: "circle(0px at calc(100% - 64px) 46px)" }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <div aria-hidden className="pointer-events-none absolute -right-24 -top-24 size-[420px] rounded-full bg-brand-300/20 blur-[110px]" />
+          <div aria-hidden className="pointer-events-none absolute -bottom-32 -left-24 size-[360px] rounded-full bg-brand-300/10 blur-[110px]" />
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 opacity-[0.07] [background-image:linear-gradient(white_1px,transparent_1px),linear-gradient(90deg,white_1px,transparent_1px)] [background-size:44px_44px] [mask-image:linear-gradient(180deg,#000,transparent_70%)]"
           />
-          <motion.div
-            key="panel"
-            id="mobile-menu"
-            role="dialog"
-            aria-modal="true"
-            aria-label="Menu"
-            className="fixed inset-y-0 right-0 z-50 flex w-full max-w-sm flex-col bg-abyss text-white xl:hidden"
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "100%" }}
-            transition={{ type: "spring", stiffness: 380, damping: 38 }}
+
+          <div className="relative mx-3 mt-3 flex h-[68px] shrink-0 items-center justify-between rounded-full border border-brand-300/25 bg-white/[0.03] pl-5 pr-2">
+            <Image src={IMAGES.logoWhite} alt="Soothsayer Analytics" width={232} height={60} unoptimized className="h-[60px] w-auto" />
+            <button
+              type="button"
+              aria-label="Close menu"
+              onClick={onClose}
+              className="flex items-center gap-2 rounded-full border border-brand-300/40 bg-brand-300/15 py-2.5 pl-4 pr-3.5 text-[14px] font-semibold tracking-wide shadow-[0_0_24px_-4px_rgb(34_211_238/0.55)] active:scale-95"
+            >
+              Close
+              <Close className="size-[18px]" />
+            </button>
+          </div>
+
+          <motion.ul
+            variants={listVariants}
+            initial="closed"
+            animate="open"
+            className="relative flex-1 overflow-y-auto px-6 pb-4 pt-6"
           >
-            <div className="flex h-[72px] items-center justify-between border-b border-white/10 px-4">
-              <Image src={IMAGES.logoWhite} alt="Soothsayer Analytics" width={150} height={40} unoptimized className="h-9 w-auto" />
-              <button type="button" aria-label="Close menu" onClick={onClose} className="grid size-11 place-items-center rounded-md">
-                <Close className="size-6" />
-              </button>
-            </div>
+            {NAV.map((item, i) => {
+              const rowClass = "flex min-h-[68px] w-full items-center gap-4 text-left text-[30px] font-semibold leading-none tracking-tight";
+              const num = (
+                <span className="w-7 shrink-0 font-mono text-[12px] font-normal tracking-widest text-brand-300">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+              );
+              return isGroup(item) ? (
+                <motion.li key={item.label} variants={rowVariants} className="border-b border-white/10">
+                  <button
+                    type="button"
+                    className={cn(rowClass, "transition-colors", expanded === item.label && "text-brand-300")}
+                    aria-expanded={expanded === item.label}
+                    onClick={() => setExpanded((v) => (v === item.label ? null : item.label))}
+                  >
+                    {num}
+                    <span className="flex-1">{item.label}</span>
+                    <Chevron className={cn("size-5 text-white/60 transition-transform", expanded === item.label && "rotate-180 text-brand-300")} />
+                  </button>
+                  <AnimatePresence initial={false}>
+                    {expanded === item.label && (
+                      <motion.ul
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.25 }}
+                        className="overflow-hidden pl-11"
+                      >
+                        {[...item.items, ...(item.footer ? [item.footer] : [])].map((l) => (
+                          <li key={l.label}>
+                            <a {...linkProps(l.href)} className="flex min-h-12 items-center text-[17px] text-white/75 hover:text-brand-300">
+                              {l.label}
+                            </a>
+                          </li>
+                        ))}
+                        <li className="h-3" />
+                      </motion.ul>
+                    )}
+                  </AnimatePresence>
+                </motion.li>
+              ) : (
+                <motion.li key={item.label} variants={rowVariants} className="border-b border-white/10">
+                  <a {...linkProps(item.href)} className={rowClass}>
+                    {num}
+                    {item.label}
+                  </a>
+                </motion.li>
+              );
+            })}
+          </motion.ul>
 
-            <ul className="flex-1 overflow-y-auto px-4 py-2">
-              {NAV.map((item) =>
-                isGroup(item) ? (
-                  <li key={item.label} className="border-b border-white/10">
-                    <button
-                      type="button"
-                      className="flex min-h-14 w-full items-center justify-between text-left text-[17px]"
-                      aria-expanded={expanded === item.label}
-                      onClick={() => setExpanded((v) => (v === item.label ? null : item.label))}
-                    >
-                      {item.label}
-                      <Chevron className={cn("size-4 transition-transform", expanded === item.label && "rotate-180")} />
-                    </button>
-                    <AnimatePresence initial={false}>
-                      {expanded === item.label && (
-                        <motion.ul
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.25 }}
-                          className="overflow-hidden"
-                        >
-                          {[...item.items, ...(item.footer ? [item.footer] : [])].map((l) => (
-                            <li key={l.label}>
-                              <a {...linkProps(l.href)} className="flex min-h-12 items-center pl-3 text-base text-white/75 hover:text-brand-300">
-                                {l.label}
-                              </a>
-                            </li>
-                          ))}
-                          <li className="h-3" />
-                        </motion.ul>
-                      )}
-                    </AnimatePresence>
-                  </li>
-                ) : (
-                  <li key={item.label} className="border-b border-white/10">
-                    <a {...linkProps(item.href)} className="flex min-h-14 items-center text-[17px]">
-                      {item.label}
-                    </a>
-                  </li>
-                ),
-              )}
-            </ul>
-
-            <div className="space-y-4 border-t border-white/10 p-4">
-              <div className="flex flex-col gap-1 text-base text-white/75 [&>a]:flex [&>a]:min-h-11 [&>a]:items-center">
-                <a href={LINKS.phone} className="hover:text-brand-300">844-44-76684</a>
-                <a href={LINKS.email} className="hover:text-brand-300">info@soothsayeranalytics.com</a>
-              </div>
-              <LinkButton href={LINKS.contact} className="w-full">Get in Touch</LinkButton>
+          <div className="relative space-y-4 border-t border-white/10 p-6">
+            <div className="flex flex-col gap-1 text-base text-white/75 [&>a]:flex [&>a]:min-h-11 [&>a]:items-center">
+              <a href={LINKS.phone} className="hover:text-brand-300">844-44-76684</a>
+              <a href={LINKS.email} className="hover:text-brand-300">info@soothsayeranalytics.com</a>
             </div>
-          </motion.div>
-        </>
+            <LinkButton href={LINKS.contact} className="w-full">Get in Touch</LinkButton>
+          </div>
+        </motion.div>
       )}
     </AnimatePresence>,
     document.body,

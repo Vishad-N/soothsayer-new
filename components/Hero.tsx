@@ -59,7 +59,7 @@ export function Hero() {
         <div className="absolute -right-40 top-1/4 size-[640px] rounded-full bg-brand/10 blur-[140px]" />
       </div>
 
-      <div className="container-page relative flex lg:static min-h-[720px] flex-col pt-[72px] lg:min-h-[800px] lg:pt-20">
+      <div className="container-page relative flex lg:static min-h-[720px] flex-col pt-20 lg:min-h-[800px] lg:pt-24">
         <div className="grid flex-1 items-center gap-10 py-14 lg:py-0">
           <div className="relative z-10 max-w-[700px] lg:mt-[55px]">
             <motion.p

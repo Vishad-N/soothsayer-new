@@ -36,7 +36,7 @@
   html {
     scroll-behavior: smooth;
     /* the header is fixed (about 81px), so anchor jumps must stop below it */
-    scroll-padding-top: 5.25rem;
+    scroll-padding-top: 6.25rem;
     -webkit-text-size-adjust: 100%;
   }
   body {
