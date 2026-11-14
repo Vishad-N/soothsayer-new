@@ -5,12 +5,18 @@ reverse-proxied (a Vercel **rewrite**, so the address bar keeps our URL) to the
 original site. The rules live in [`vercel.json`](vercel.json). JSON has no
 comments, so this file is the documentation.
 
+## Native pages (served by Next.js, never rewritten)
+
+`/`, `/digital-competency`, `/responsible-ai`, `/soothgpt`, the 11 guide pages, the 4 `/uae/*` pages and the 18
+`/case-studies/<slug>` pages in the `.ai` sitemap. Their text lives in `data/site-pages.json` (extracted verbatim from
+the live pages) and is rendered by `components/flow/`. Webinar pages are not built and still fall through to the rules below.
+
 ## Order matters: the first matching rule wins
 
 | # | Source | Destination | Why |
 |---|--------|-------------|-----|
 | 1 | `/webinars`, `/webinars/*` | `www.soothsayeranalytics.ai/webinars…` | Existing, kept as-is |
-| 2 | `/digital-competency`, `/responsible-ai` | `www.soothsayeranalytics.ai/…` | Existing, kept as-is |
+| 2 | (removed) | `/digital-competency`, `/responsible-ai`, `/soothgpt` are now native Next.js pages |
 | 3 | `/case-studies` | `soothsayeranalytics.com/case-studies` | The real listing (57 studies). It does **not** exist on `.ai` (404). Safe to proxy: the page uses only absolute URLs |
 | 4 | `/case-studies/<slug>` | `www.soothsayeranalytics.ai/case-studies/<slug>` | The 22 detail pages in the `.ai` sitemap |
 | 5 | `/about` | `www.soothsayeranalytics.ai/soothsayer-new/about` | `.ai` only has About under `/soothsayer-new/` |

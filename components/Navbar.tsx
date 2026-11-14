@@ -11,7 +11,7 @@ import { cn, linkProps } from "@/lib/cn";
 import { LinkButton } from "./ui/Button";
 import { ArrowRight, Chevron, Close, Menu } from "./ui/Icons";
 
-export function Navbar() {
+export function Navbar({ homeHref = "#top" }: { homeHref?: string }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -40,7 +40,7 @@ export function Navbar() {
       )}
     >
       <nav aria-label="Main" className="container-page flex h-20 items-center justify-between gap-6 max-lg:h-[68px] max-lg:pl-5 max-lg:pr-2 lg:h-24">
-        <a href="#top" className="relative z-10 shrink-0" aria-label="Soothsayer Analytics home">
+        <a href={homeHref} className="relative z-10 shrink-0" aria-label="Soothsayer Analytics home">
           <Image
             src={IMAGES.logoWhite}
             alt="Soothsayer Analytics"

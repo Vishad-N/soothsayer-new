@@ -4,14 +4,14 @@ import { IMAGES } from "@/data/images";
 import { linkProps } from "@/lib/cn";
 import { SOCIAL_ICONS } from "./ui/Icons";
 
-export function Footer() {
+export function Footer({ homeHref = "#top" }: { homeHref?: string }) {
   const year = new Date().getFullYear();
   return (
     <footer className="bg-coal text-white" aria-labelledby="footer-title">
       <h2 id="footer-title" className="sr-only">Site footer</h2>
       <div className="container-page grid gap-12 pb-12 pt-16 lg:grid-cols-[340px_1fr] lg:gap-16 lg:pt-20">
         <div>
-          <a href="#top" aria-label="Back to top">
+          <a href={homeHref} aria-label="Back to top">
             <Image src={IMAGES.logoWhite} alt="Soothsayer Analytics" width={232} height={60} unoptimized className="h-[88px] w-auto" />
           </a>
           <p className="mt-8 max-w-[300px] text-base leading-[1.7] text-white/75 md:text-[14.5px]">{FOOTER.blurb}</p>

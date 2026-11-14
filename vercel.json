@@ -5,8 +5,6 @@
   "rewrites": [
     { "source": "/webinars", "destination": "https://www.soothsayeranalytics.ai/webinars" },
     { "source": "/webinars/:path*", "destination": "https://www.soothsayeranalytics.ai/webinars/:path*" },
-    { "source": "/digital-competency", "destination": "https://www.soothsayeranalytics.ai/digital-competency" },
-    { "source": "/responsible-ai", "destination": "https://www.soothsayeranalytics.ai/responsible-ai" },
 
     { "source": "/case-studies", "destination": "https://soothsayeranalytics.com/case-studies" },
     { "source": "/case-studies/:path+", "destination": "https://www.soothsayeranalytics.ai/case-studies/:path+" },
