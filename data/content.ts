@@ -15,7 +15,7 @@ export const NAV: (NavGroup | NavItem)[] = [
   {
     label: "Bespoke AI",
     items: [
-      { label: "Generative AI", href: LINKS.generativeAI },
+      { label: "GenAI", href: LINKS.generativeAI },
       { label: "Pattern Recognition", href: LINKS.patternRecognition },
       { label: "Predictive Analytics", href: LINKS.predictiveAnalytics },
       { label: "Optimization", href: LINKS.optimization },
@@ -55,7 +55,7 @@ export const NAV: (NavGroup | NavItem)[] = [
     items: [
       { label: "AuGENT™", href: LINKS.augent },
       { label: "ESG Analytics", href: LINKS.esgAnalytics },
-      { label: "Generative AI for Business Transformation", href: LINKS.genAIBusiness },
+      { label: "GenAI for Business Transformation", href: LINKS.genAIBusiness },
       { label: "Multilingual Virtual Assistant", href: LINKS.multilingualVA },
     ],
   },
@@ -80,7 +80,7 @@ export const isGroup = (n: NavGroup | NavItem): n is NavGroup => "items" in n;
 export const HERO = {
   eyebrow: "A new perspective on enterprise AI",
   title: "Enterprise AI built to move from strategy to production.",
-  body: "Bespoke AI and data science solutions that turn complex challenges into better business decisions.",
+  body: "Bespoke AI, GenAI and data science solutions that turn complex challenges into better business decisions.",
   cta: { label: "Explore Our Solutions", href: LINKS.services },
   // Bottom ticker. Each entry links to the page that covers it.
   pillars: [
@@ -176,7 +176,7 @@ export type ExpertiseTab = {
 export const EXPERTISE = {
   eyebrow: "Our Expertise",
   title: "AI Transformation That Drives Business Growth",
-  body: "We help enterprises define AI strategies, build intelligent solutions, and scale digital capabilities responsibly to achieve measurable business impact.",
+  body: "We help enterprises define AI and GenAI strategies, build intelligent solutions, and scale digital capabilities responsibly to achieve measurable business impact.",
   tabs: [
     {
       key: "responsible",
@@ -198,7 +198,7 @@ export const EXPERTISE = {
       key: "blueprint",
       tab: "Strategy & Blueprint",
       title: "Turn AI ambition into a plan.",
-      body: "Define your AI priorities, target architecture, roadmap, and governance model for a clear path from opportunity to execution.",
+      body: "Define your AI and GenAI priorities, target architecture, roadmap, and governance model, with a detailed execution plan you can hand off to your team or deliver in partnership with us.",
       points: [
         { icon: "target", label: "AI opportunity assessment" },
         { icon: "layers", label: "Target AI architecture" },
@@ -514,7 +514,7 @@ export const CAPABILITIES = {
     },
     {
       icon: "spark",
-      title: "Generative AI Solutions",
+      title: "GenAI Solutions",
       body: "Put language models to work on the documents, questions and busywork teams handle daily.",
       points: ["Enterprise Copilots", "Document Intelligence", "Knowledge Assistants", "Conversational Analytics"],
     },
