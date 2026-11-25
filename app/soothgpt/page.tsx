@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import { PageShell } from "@/components/page/PageShell";
 import { BlueprintScene } from "@/components/illustrations/BlueprintScene";
 import { LINKS } from "@/data/links";
-import { Tabs } from "@/components/page/Client";
-import { ContactBand, GlobalPresence, PageHero, Paras, Section, WF_BASE } from "@/components/page/Shared";
+import { FlowTabs } from "@/components/flow/FlowClient";
+import { ScrollSpyNav } from "@/components/page/Client";
+import { cn } from "@/lib/cn";
+import { ContactBand, GlobalPresence, Glyph, Heading, IconChip, PageHero, Section, WF_BASE } from "@/components/page/Shared";
 
 const TITLE = "SoothGPT";
 const DESC =
@@ -151,37 +153,59 @@ const PODCASTS = [
   { img: "66abd9a4c05c521de43fb10b_Dr%20Lloyd%20Colegrove.png", title: "AI in Chemical Manufacturing", who: "Dr Lloyd Colegrove", role: "Director, Data Services & Fundamental Problem Solving, Dow Chemical (retired)", href: "https://youtu.be/i9s4V7prMOA" },
 ];
 
-function Block({ label, children }: { label: string; children: React.ReactNode }) {
+
+const BENEFIT_ICONS = ["bolt", "lock", "cursor", "database", "leaf", "puzzle", "link", "search"];
+
+/** One labelled card inside a module panel. */
+function Card({ icon, label, tone = "white", children }: { icon: string; label: string; tone?: "white" | "mist" | "brand"; children: React.ReactNode }) {
   return (
-    <div>
-      <h3 className="font-display text-lg font-semibold text-brand-600">{label}</h3>
-      <div className="mt-2 text-[17px] leading-[1.7] text-ink-soft">{children}</div>
+    <div
+      className={cn(
+        "flex flex-col rounded-[14px] border p-6 sm:p-7",
+        tone === "white" && "border-line bg-white shadow-card",
+        tone === "mist" && "border-line bg-mist",
+        tone === "brand" && "border-brand/25 bg-brand-50",
+      )}
+    >
+      <div className="flex items-center gap-3">
+        <IconChip name={icon} className="size-10" />
+        <h3 className="font-display text-xl font-semibold text-ink">{label}</h3>
+      </div>
+      <div className="mt-4 space-y-3 text-[16px] leading-[1.7] text-ink-soft">{children}</div>
     </div>
   );
 }
 
 function ModulePanel({ m }: { m: Mod }) {
   return (
-    <div className="grid items-start gap-10 lg:grid-cols-[280px_1fr] lg:gap-14">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={`${WF_BASE}${m.logo}`} alt={m.name} loading="lazy" className="w-48 lg:w-full" />
-      <div className="space-y-7">
-        {m.intro && <p className="text-[17px] leading-[1.7] text-ink">{m.intro}</p>}
-        <Block label="Problem">{m.problem}</Block>
-        {m.solution && <Block label="Solution">{m.solution}</Block>}
-        {m.how && <Block label="How it works">{m.how.map((p) => <p key={p.slice(0, 30)}>{p}</p>)}</Block>}
+    <div>
+      {m.intro && <p className="mb-6 rounded-[14px] border-l-4 border-brand bg-brand-50 p-6 text-lg leading-[1.65] text-ink">{m.intro}</p>}
+      <div className={cn("grid gap-5", m.benefits ? "lg:grid-cols-3" : "md:grid-cols-2")}>
+        <Card icon="alert" label="Problem" tone="mist">{m.problem}</Card>
+        {m.solution && <Card icon="bolt" label="Solution" tone="brand">{m.solution}</Card>}
+        {m.how && <Card icon="seed" label="How it works" tone="brand">{m.how.map((p) => <p key={p.slice(0, 30)}>{p}</p>)}</Card>}
         {m.benefits && (
-          <Block label="Benefits">
+          <Card icon="check" label="Benefits">
             <ul className="space-y-4">
               {m.benefits.map(([h, b]) => (
-                <li key={h}><strong className="font-semibold text-ink">{h}</strong> {b}</li>
+                <li key={h} className="flex gap-3">
+                  <span aria-hidden className="mt-1 grid size-5 shrink-0 place-items-center rounded-full bg-brand text-white">
+                    <Glyph name="check" className="size-3" />
+                  </span>
+                  <span><strong className="font-semibold text-ink">{h}</strong> {b}</span>
+                </li>
               ))}
             </ul>
-          </Block>
+          </Card>
         )}
       </div>
     </div>
   );
+}
+
+function ModuleLabel({ m }: { m: Mod }) {
+  // eslint-disable-next-line @next/next/no-img-element
+  return <img src={`${WF_BASE}${m.logo}`} alt={m.name} loading="lazy" className="h-9 w-auto max-w-full" />;
 }
 
 export default function SoothGPTPage() {
@@ -189,69 +213,100 @@ export default function SoothGPTPage() {
     <PageShell>
       <PageHero
         art={<BlueprintScene className="w-full" />}
+        split
+        animated
         title={<>SoothGPT is Your Gateway to<br />Advanced GenAI Solutions</>}
         sub="Unleash the Power of Large Language Models (LLMs) With SoothGPT, a Comprehensive Platform-as-a-Service Designed to Meet All Your GenAI Needs."
         cta={{ label: "Schedule a Consultation", href: LINKS.contact }}
         video={BANNER}
       />
 
-      <nav aria-label="On this page" className="sticky top-20 z-40 hidden border-b border-line bg-white/90 backdrop-blur-md lg:top-24 md:block">
-        <ul className="container-page flex gap-1 overflow-x-auto py-2 text-[15px]">
-          {SUBNAV.map(([l, h]) => (
-            <li key={l}><a href={h} className="block whitespace-nowrap rounded-md px-3 py-2 text-ink-soft transition-colors hover:text-brand-600">{l}</a></li>
-          ))}
-        </ul>
-      </nav>
+      <ScrollSpyNav items={SUBNAV} ctaLast />
 
-      <Section>
-        <h2 className="h-section max-w-4xl">SoothGPT is not just a powerful Gen AI platform</h2>
-        <p className="mt-5 max-w-3xl text-xl text-ink-soft">It is a versatile, industry-agnostic & customizable tool designed to transform the way companies work.</p>
-        <div className="mt-12 grid gap-10 md:grid-cols-2">
-          <Block label="Problem It Solves">Enterprises are not able to exploit the full potential of generative AI due to security concerns and the specialized knowledge needed to build effective Gen AI solutions.</Block>
-          <Block label="How It Works">
-            <Paras>{[
-              "SoothGPT is a secure, scalable platform built on the power of Generative AI technology. The platform enables harnessing unstructured and structured data across various formats as well as generating new data.",
-              "While leveraging state of the art technology, we offer the highest levels of security through robust authentication, authorization, and auditing protocols.",
-            ]}</Paras>
-          </Block>
+      {/* Intro */}
+      <Section edge>
+        <div className="max-w-4xl">
+          <h2 className="h-section text-ink">SoothGPT is not just a powerful Gen AI platform</h2>
+          <p className="mt-5 text-xl leading-[1.55] text-ink-soft sm:text-2xl">It is a versatile, industry-agnostic & customizable tool designed to transform the way companies work.</p>
+        </div>
+        <div className="mt-12 grid gap-6 lg:grid-cols-[1fr_1.2fr]">
+          <div className="rounded-[16px] border border-line bg-mist p-7 sm:p-9">
+            <IconChip name="alert" />
+            <h3 className="mt-5 font-display text-2xl font-semibold text-ink">Problem It Solves</h3>
+            <p className="mt-4 text-[17px] leading-[1.7] text-ink-soft">Enterprises are not able to exploit the full potential of generative AI due to security concerns and the specialized knowledge needed to build effective Gen AI solutions.</p>
+          </div>
+          <div className="rounded-[16px] border border-brand/25 bg-brand-50 p-7 sm:p-9">
+            <IconChip name="bolt" />
+            <h3 className="mt-5 font-display text-2xl font-semibold text-ink">How It Works</h3>
+            <div className="mt-4 space-y-4 text-[17px] leading-[1.7] text-ink-soft">
+              <p>SoothGPT is a secure, scalable platform built on the power of GenAI technology. The platform enables harnessing unstructured and structured data across various formats as well as generating new data.</p>
+              <p>While leveraging state of the art technology, we offer the highest levels of security through robust authentication, authorization, and auditing protocols.</p>
+            </div>
+          </div>
         </div>
       </Section>
 
+      {/* Key benefits */}
       <Section tone="mist" id="benefits">
-        <h2 className="h-section">Key Benefits</h2>
-        <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {BENEFITS.map((b) => (
-            <li key={b} className="rounded-[10px] border border-line bg-white p-6 text-lg font-medium leading-snug text-ink shadow-card">{b}</li>
+        <Heading index="01">Key Benefits</Heading>
+        <ul className="mt-12 grid gap-3 xs:grid-cols-2 sm:gap-4 lg:grid-cols-4">
+          {BENEFITS.map((b, i) => (
+            <li key={b} className="group relative flex min-h-[150px] flex-col justify-between gap-5 overflow-hidden rounded-[14px] border border-line bg-white p-4 shadow-card sm:min-h-[170px] sm:p-6 transition duration-300 hover:-translate-y-1 hover:border-brand/40 hover:shadow-lift">
+              <span aria-hidden className="absolute right-4 top-4 font-mono text-xs tracking-widest text-ink-mute">{String(i + 1).padStart(2, "0")}</span>
+              <IconChip name={BENEFIT_ICONS[i]} />
+              <span className="font-display text-[18px] font-semibold leading-snug text-ink sm:text-[19px]">{b}</span>
+            </li>
           ))}
         </ul>
       </Section>
 
-      <Section id="modules">
-        <h2 className="h-section">Modules</h2>
-        <div className="mt-10">
-          <Tabs tabs={MODULES.map((m) => ({ label: m.name, content: <ModulePanel m={m} /> }))} />
+      {/* Modules */}
+      <Section id="modules" beforeDark>
+        <Heading index="02">Modules</Heading>
+        <div className="mt-12">
+          <FlowTabs
+            id="modules"
+            logoTabs
+            labels={MODULES.map((m) => <ModuleLabel key={m.name} m={m} />)}
+            panes={MODULES.map((m) => <ModulePanel key={m.name} m={m} />)}
+          />
         </div>
       </Section>
 
-      <Section tone="dark">
-        <h2 className="h-section">About Us</h2>
-        <Paras className="mt-6 max-w-3xl text-white/80">{[
-          "Founded in 2014, Soothsayer Analytics delivers AI solutions to Fortune 1000 and mid-market leaders. Our Data Scientists & Engineers specialize in developing user-centric AI systems for Pattern Recognition, Predictive Analytics, Computer Vision, NLP/GenAI, and IIoT.",
-          "Beyond providing cutting-edge tools, we offer strategic advisory services and specialized AI training to align with your unique operational needs and empower your team. Soothsayer Analytics is more than an AI provider—we are a strategic partner driving efficiency, innovation, and competitive advantage.",
-        ]}</Paras>
+      {/* About */}
+      <Section tone="dark" edge>
+        <div className="relative">
+          <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden"><div className="absolute -left-20 top-0 size-80 rounded-full bg-brand/15 blur-[100px]" /></div>
+          <Heading index="03" dark>About Us</Heading>
+          <ul className="relative mt-10 grid gap-4 sm:grid-cols-3">
+            {[["2014", "Year founded"], ["Fortune 1000", "Enterprise clients served"], ["12+", "Countries with active work"]].map(([v, l]) => (
+              <li key={l} className="rounded-[14px] border border-white/10 bg-gradient-to-b from-white/[0.08] to-white/[0.02] p-6">
+                <p className="font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">{v}</p>
+                <p className="mt-2 text-base text-white/75">{l}</p>
+              </li>
+            ))}
+          </ul>
+          <div className="relative mt-6 grid gap-6 md:grid-cols-2">
+            <p className="rounded-[14px] border border-white/10 bg-white/[0.04] p-7 text-[17px] leading-[1.75] text-white/85">Founded in 2014, Soothsayer Analytics delivers AI solutions to Fortune 1000 and mid-market leaders. Our Data Scientists & Engineers specialize in developing user-centric AI systems for Pattern Recognition, Predictive Analytics, Computer Vision, NLP/GenAI, and IIoT.</p>
+            <p className="rounded-[14px] border border-white/10 bg-white/[0.04] p-7 text-[17px] leading-[1.75] text-white/85">Beyond providing cutting-edge tools, we offer strategic advisory services and specialized AI training to align with your unique operational needs and empower your team. Soothsayer Analytics is more than an AI provider—we are a strategic partner driving efficiency, innovation, and competitive advantage.</p>
+          </div>
+        </div>
       </Section>
 
-      <Section id="case-studies">
-        <h2 className="h-section">Case Studies</h2>
-        <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {/* Case studies */}
+      <Section id="case-studies" edge>
+        <Heading index="04">Case Studies</Heading>
+        <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {CASES.map(([slug, title, img]) => (
             <li key={slug}>
-              <a href={`${CASE}${slug}`} target="_blank" rel="noopener noreferrer" className="group flex h-full flex-col overflow-hidden rounded-[10px] border border-line bg-white shadow-card transition hover:-translate-y-1 hover:shadow-lift">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={`${CASE_IMG}${img}`} alt="" loading="lazy" className="aspect-[4/3] w-full object-cover" />
-                <span className="flex flex-1 flex-col p-5">
-                  <span className="font-display text-lg font-semibold leading-snug">{title}</span>
-                  <span className="mt-auto pt-4 font-medium text-brand-600">Read More</span>
+              <a href={`${CASE}${slug}`} target="_blank" rel="noopener noreferrer" className="group flex h-full flex-col overflow-hidden rounded-[14px] border border-line bg-white shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-lift">
+                <span className="block overflow-hidden">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={`${CASE_IMG}${img}`} alt="" loading="lazy" className="aspect-[4/3] w-full object-cover transition duration-500 group-hover:scale-105" />
+                </span>
+                <span className="flex flex-1 flex-col p-6">
+                  <span className="line-clamp-4 font-display text-lg font-semibold leading-snug text-ink">{title}</span>
+                  <span className="mt-auto inline-flex items-center gap-2 pt-5 font-semibold text-[#007a96]">Read More <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span></span>
                 </span>
               </a>
             </li>
@@ -259,33 +314,35 @@ export default function SoothGPTPage() {
         </ul>
       </Section>
 
+      {/* Demos */}
       <Section tone="mist" id="demos">
-        <h2 className="h-section">Demos</h2>
-        <ul className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <Heading index="05">Demos</Heading>
+        <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {DEMOS.map(([file, title]) => (
-            <li key={file}>
-              <video controls preload="metadata" playsInline className="aspect-video w-full rounded-[10px] bg-ink object-cover">
+            <li key={file} className="overflow-hidden rounded-[14px] border border-line bg-white shadow-card">
+              <video controls preload="metadata" playsInline className="aspect-video w-full bg-[linear-gradient(135deg,#0d2530,#0e5262)] object-cover">
                 {/* #t=0.5 makes the browser paint a preview frame instead of a black box */}
                 <source src={`${COM_VIDEO}${file}#t=0.5`} type="video/mp4" />
               </video>
-              <p className="mt-3 font-display text-lg font-medium leading-snug">{title}</p>
+              <p className="p-5 font-display text-lg font-semibold leading-snug text-ink">{title}</p>
             </li>
           ))}
         </ul>
       </Section>
 
+      {/* Podcasts */}
       <Section id="podcasts">
-        <h2 className="h-section">Podcasts</h2>
-        <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <Heading index="06">Podcasts</Heading>
+        <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {PODCASTS.map((p) => (
             <li key={p.who}>
-              <a href={p.href} target="_blank" rel="noopener noreferrer" className="group block overflow-hidden rounded-[10px] border border-line bg-white shadow-card transition hover:-translate-y-1 hover:shadow-lift">
+              <a href={p.href} target="_blank" rel="noopener noreferrer" className="group block h-full overflow-hidden rounded-[14px] border border-line bg-white shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-lift">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={`${CASE_IMG}${p.img}`} alt="" loading="lazy" className="aspect-square w-full object-cover" />
                 <span className="block p-5">
-                  <span className="block font-display text-lg font-semibold leading-snug">{p.title}</span>
-                  <span className="mt-3 block font-medium">{p.who}</span>
-                  <span className="block text-sm text-ink-soft">{p.role}</span>
+                  <span className="block font-display text-lg font-semibold leading-snug text-ink">{p.title}</span>
+                  <span className="mt-3 block border-t border-dashed border-line pt-3 font-medium text-ink">{p.who}</span>
+                  <span className="block text-[15px] leading-snug text-ink-soft">{p.role}</span>
                 </span>
               </a>
             </li>

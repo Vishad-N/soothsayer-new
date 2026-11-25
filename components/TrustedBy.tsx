@@ -3,7 +3,7 @@ import { CLIENT_LOGOS, type ClientLogo } from "@/data/images";
 
 function Logo({ logo, decorative = false }: { logo: ClientLogo; decorative?: boolean }) {
   return (
-    <li className="flex h-20 w-[130px] shrink-0 items-center justify-center sm:w-[150px] lg:mx-5 lg:w-[170px]">
+    <li className="flex h-24 shrink-0 items-center px-2.5 lg:px-3"><span className="flex h-20 w-[130px] items-center justify-center rounded-[12px] border border-line/80 bg-white/80 px-4 shadow-[0_1px_2px_rgb(12_38_49/0.04)] backdrop-blur-sm transition duration-300 hover:-translate-y-0.5 hover:border-brand/40 hover:shadow-card sm:w-[150px] lg:w-[170px]">
       {/* Source files mix white and coloured artwork; brightness(0) turns them into one dark mark. */}
       <Image
         src={logo.src}
@@ -17,7 +17,7 @@ function Logo({ logo, decorative = false }: { logo: ClientLogo; decorative?: boo
           logo.width < 200 ? "max-h-11" : "max-h-20"
         }`}
       />
-    </li>
+    </span></li>
   );
 }
 
@@ -35,7 +35,7 @@ export function TrustedBy() {
       aria-labelledby="trusted-title"
       className="relative overflow-hidden border-b border-line bg-[linear-gradient(90deg,#ffffff_0%,#ffffff_45%,#e3f7fc_100%)] py-12 lg:py-14"
     >
-      <h2 id="trusted-title" className="text-center font-sans text-[15px] font-normal text-ink-soft">
+      <h2 id="trusted-title" className="text-center font-sans text-[15px] font-medium tracking-[0.01em] text-ink-soft">
         Trusted By Enterprises
       </h2>
 

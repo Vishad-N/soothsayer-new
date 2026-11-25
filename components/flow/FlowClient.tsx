@@ -9,7 +9,7 @@ export function FlowTabs({ labels, panes, dark, id, logoTabs }: { labels: React.
   const [i, setI] = useState(0);
   return (
     <div>
-      <div role="tablist" className="grid gap-3 [grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr))]">
+      <div role="tablist" className={cn("grid gap-3", logoTabs ? "[grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr))]" : "[grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr))]")}>
         {labels.map((l, n) => (
           <button
             key={n}
@@ -22,7 +22,7 @@ export function FlowTabs({ labels, panes, dark, id, logoTabs }: { labels: React.
             className={cn(
               "flex min-h-[72px] flex-col items-start justify-center gap-1.5 rounded-[10px] border p-4 text-left transition-colors",
               logoTabs
-                ? cn("bg-deep", i === n ? "border-brand shadow-[0_0_0_1px_var(--color-brand)]" : "border-white/10 opacity-80 hover:border-brand/60 hover:opacity-100")
+                ? cn("bg-deep", i === n ? "border-brand shadow-[0_0_0_1px_var(--color-brand)]" : "border-white/10 hover:border-brand/60 hover:bg-[#0f3540]")
                 : i === n
                 ? "border-brand bg-brand/10 shadow-[0_0_0_1px_var(--color-brand)]"
                 : dark

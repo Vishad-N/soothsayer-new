@@ -9,7 +9,7 @@ import { HelixField } from "../ui/HelixField";
 import { PixelEdge } from "../ui/PixelEdge";
 import { Reveal } from "../ui/Reveal";
 import { FlowTabs } from "./FlowClient";
-import { blockText, getPage, segText, type Block, type Seg, type SitePage } from "./types";
+import { PAGES, blockText, getPage, segText, type Block, type Seg, type SitePage } from "./types";
 
 const MAP = "https://cdn.prod.website-files.com/6687c738a732506c2bf59c22/686feef50e3e1a0a66c7b9f6_Map.svg";
 const CONSULT = /^(schedule a consultation|register now|contact us)$/i;
@@ -51,6 +51,25 @@ const trim = (s: Seg[]): Seg[] => {
   if (l?.t) l.t = l.t.replace(/\s+$/, "");
   return c;
 };
+
+/** CMS headings arrive as "abstract", "webinar Details" or "SPEAKER"; show them in consistent title case. */
+const SMALL = /^(a|an|and|of|the|for|in|on|to|with|vs|or)$/i;
+function tidyText(t: string) {
+  const bare = t.trim();
+  if (!bare || !(/^[a-z]/.test(bare) || (bare === bare.toUpperCase() && /[A-Z]{3}/.test(bare)))) return t;
+  return t.toLowerCase().replace(/\S+/g, (w, i: number) => (i > 0 && SMALL.test(w) ? w : w[0].toUpperCase() + w.slice(1)));
+}
+const tidy = (s: Seg[]): Seg[] => s.map((x) => (x.t && !x.href ? { ...x, t: tidyText(x.t) } : x));
+
+/** Brand cyan fails contrast on white, so light sections use a deeper teal for accent text. */
+const accent = (dark: boolean) => (dark ? "text-brand-300" : "text-[#007a96]");
+
+/** A few client logos are white or tiny artwork; fix those individually so every tile reads. */
+const LOGO_FIX: [RegExp, string][] = [
+  [/american-electric/i, "brightness-0"],
+  [/dun-/i, "scale-[2.2]"],
+];
+const logoFix = (src: string) => LOGO_FIX.find(([re]) => re.test(src))?.[1];
 
 const isSvg = (b: Block) => b.k === "img" && /\.svg(\?|$)/i.test(b.src);
 const isRaster = (b: Block) => b.k === "img" && !isSvg(b);
@@ -154,7 +173,7 @@ function CtaButton({ label, href, dark }: { label: string; href: string; dark?: 
 
 /* ------------------------------------------------------------- hero --- */
 
-function Hero({ page, title, hero }: { page: SitePage; title: Block[]; hero: Block[] }) {
+function Hero({ page, title, hero, eyebrow, leadText, ctaLabel }: { page: SitePage; title: Block[]; hero: Block[]; eyebrow?: string; leadText?: string; ctaLabel?: string }) {
   const pre = page.pre;
   const preText = pre.filter((b) => b.k === "p").map((b) => blockText(b)).join(" ").trim();
   const preImg = pre.find((b) => b.k === "img") as Extract<Block, { k: "img" }> | undefined;
@@ -177,7 +196,7 @@ function Hero({ page, title, hero }: { page: SitePage; title: Block[]; hero: Blo
       sub.push(b);
     }
   }
-  const first = ctas[0];
+  const first = ctas[0] ?? (ctaLabel ? { label: ctaLabel, href: LINKS.contact } : undefined);
   const heads = title.map((h) => (h as Extract<Block, { k: "h" }>).s);
   // "Webinar⏎Real title": a short first line is a kicker, not part of the headline
   let kicker: string | null = null;
@@ -192,6 +211,7 @@ function Hero({ page, title, hero }: { page: SitePage; title: Block[]; hero: Blo
   const lead = sub[0]?.k === "p" && blockText(sub[0]).length < 220 ? sub[0] : undefined;
   const notes = sub.filter((b) => b !== lead);
   const framed = video || image;
+  const headLen = heads.reduce((n, h) => n + segText(h).length, 0);
 
   return (
     <section className={cn("relative isolate z-10 bg-abyss text-white", framed ? "pb-4" : "pb-16 sm:pb-24")}>
@@ -199,6 +219,12 @@ function Hero({ page, title, hero }: { page: SitePage; title: Block[]; hero: Blo
         <div className="absolute inset-0 bg-[radial-gradient(120%_90%_at_50%_0%,#0b323a_0%,#061f26_45%,#04141a_80%)]" />
         <div className="absolute inset-0 opacity-[0.08] [background-image:linear-gradient(white_1px,transparent_1px),linear-gradient(90deg,white_1px,transparent_1px)] [background-size:56px_56px] [mask-image:radial-gradient(ellipse_75%_70%_at_50%_0%,#000,transparent_80%)]" />
         <div className="absolute left-1/2 top-0 h-[520px] w-[920px] max-w-[160vw] -translate-x-1/2 rounded-full bg-brand/25 blur-[130px]" />
+        <div className="absolute inset-0 opacity-[0.16] [background-image:radial-gradient(circle,#6fdcf0_1px,transparent_1.4px)] [background-size:30px_30px] [mask-image:radial-gradient(ellipse_65%_75%_at_50%_35%,#000,transparent_80%)]" />
+        <svg className="absolute left-1/2 top-[38%] size-[1100px] max-w-none -translate-x-1/2 -translate-y-1/2 text-brand-300" viewBox="0 0 1100 1100" fill="none" stroke="currentColor">
+          <circle cx="550" cy="550" r="250" opacity="0.1" />
+          <circle cx="550" cy="550" r="400" opacity="0.07" />
+          <circle cx="550" cy="550" r="545" opacity="0.05" />
+        </svg>
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-abyss" />
       </div>
 
@@ -209,10 +235,10 @@ function Hero({ page, title, hero }: { page: SitePage; title: Block[]; hero: Blo
             {ps(l.b).map((p) => blockText(p)).join(" ")}
           </a>
         ))}
-        {(preText || preImg || kicker) && (
+        {(preText || preImg || kicker || eyebrow) && (
           <Reveal y={12}>
             <Eyebrow dark>
-              {kicker ?? preText}
+              {kicker ?? (preText || eyebrow)}
               {preImg && !kicker && /* eslint-disable-next-line @next/next/no-img-element */ <img src={preImg.src} alt={preImg.alt} className="h-5 w-auto" />}
             </Eyebrow>
             {kicker && preText && <p className="mt-3 text-sm text-white/70">{preText}</p>}
@@ -220,7 +246,7 @@ function Hero({ page, title, hero }: { page: SitePage; title: Block[]; hero: Blo
         )}
 
         <Reveal delay={0.05}>
-          <h1 className="mx-auto mt-5 max-w-[920px] bg-gradient-to-b from-white from-40% to-brand-100/80 bg-clip-text text-[34px] font-semibold leading-[1.08] tracking-[-0.025em] text-transparent xs:text-[42px] sm:text-[54px] lg:text-[66px]">
+          <h1 className={cn("mx-auto mt-5 max-w-[920px] bg-gradient-to-b from-white from-40% to-brand-100/80 bg-clip-text font-semibold leading-[1.1] tracking-[-0.025em] text-transparent", headLen > 70 ? "text-[28px] xs:text-[34px] sm:text-[42px] lg:text-[50px]" : headLen > 44 ? "text-[30px] xs:text-[38px] sm:text-[46px] lg:text-[56px]" : "text-[34px] xs:text-[42px] sm:text-[54px] lg:text-[66px]")}>
             {heads.map((s, i) => (
               <Fragment key={i}>
                 {i > 0 && <br />}
@@ -230,6 +256,11 @@ function Hero({ page, title, hero }: { page: SitePage; title: Block[]; hero: Blo
           </h1>
         </Reveal>
 
+        {!lead && leadText && (
+          <Reveal delay={0.12}>
+            <p className="mx-auto mt-6 max-w-[680px] text-[17px] leading-[1.55] text-white/80 sm:text-xl">{leadText}</p>
+          </Reveal>
+        )}
         {lead && (
           <Reveal delay={0.12}>
             <p className="mx-auto mt-6 max-w-[680px] text-[17px] leading-[1.55] text-white/80 sm:text-xl"><Inline s={trim(lead.s)} /></p>
@@ -295,7 +326,7 @@ function HeadingText({ h, dark }: { h: Extract<Block, { k: "h" }>; dark?: boolea
   const long = segText(h.s).length > 56;
   return (
     <h2 className={cn("font-display font-semibold tracking-[-0.015em]", long ? "text-[26px] leading-[1.18] sm:text-[34px] lg:text-[40px]" : "h-section")}>
-      <Inline s={trim(h.s)} />
+      <Inline s={tidy(trim(h.s))} />
     </h2>
   );
 }
@@ -341,7 +372,7 @@ function GroupView({ g, ctx }: { g: Extract<Block, { k: "group" }>; ctx: Ctx }) 
                 <img src={img.src} alt={name ? segText(name.s) : ""} loading="lazy" className="aspect-square w-full max-w-[220px] rounded-[12px] object-cover" />
               )}
               <div className="min-w-0">
-                <p className="text-sm font-medium text-brand">Speaker</p>
+                <p className={cn("text-sm font-semibold uppercase tracking-wider", accent(dark))}>Speaker</p>
                 <BlockList blocks={body} ctx={ctx} speaker />
               </div>
             </div>
@@ -352,7 +383,8 @@ function GroupView({ g, ctx }: { g: Extract<Block, { k: "group" }>; ctx: Ctx }) 
   }
 
   const numbered = items.some((it) => ps(it).some((p) => /^\d{1,2}$/.test(blockText(p))));
-  const cols = items.length === 5 ? "sm:grid-cols-2 lg:grid-cols-3" : items.length === 6 ? "sm:grid-cols-2 lg:grid-cols-3" : items.length >= 4 ? "sm:grid-cols-2 lg:grid-cols-4" : items.length === 3 ? "md:grid-cols-3" : items.length === 2 ? "md:grid-cols-2" : "";
+  const five = items.length === 5;
+  const cols = five ? "sm:grid-cols-2 lg:grid-cols-6" : items.length === 6 ? "sm:grid-cols-2 lg:grid-cols-3" : items.length >= 4 ? "sm:grid-cols-2 lg:grid-cols-4" : items.length === 3 ? "md:grid-cols-3" : items.length === 2 ? "md:grid-cols-2" : "";
   const wide = items.some((it) => it.length > 6 || it.reduce((n, b) => n + blockText(b).length, 0) > 700);
 
   return (
@@ -368,12 +400,13 @@ function GroupView({ g, ctx }: { g: Extract<Block, { k: "group" }>; ctx: Ctx }) 
         const titleFirst = !hasHead && ptxt.length >= 2 && blockText(ptxt[0]).length < 60 && blockText(ptxt[1]).length > blockText(ptxt[0]).length;
         const ordered = hasHead ? [...rest.filter(heading), ...rest.filter((b) => !heading(b))] : rest;
         return (
-          <div key={i} className={cn("relative min-w-0 rounded-[12px] border p-6", dark ? "border-white/10 bg-white/[0.04]" : "border-line bg-white shadow-card")}>
+          <div key={i} className={cn("group relative min-w-0 overflow-hidden rounded-[12px] border p-6 transition duration-300 hover:-translate-y-0.5", dark ? "border-white/10 bg-white/[0.04] hover:border-brand/50" : "border-line bg-white shadow-card hover:shadow-lift", five && !wide && "lg:col-span-2", five && !wide && i === 3 && "lg:col-start-2", five && !wide && i === 4 && "sm:col-span-2", wide && items.length % 2 === 1 && i === items.length - 1 && "md:col-span-2")}>
+            <span aria-hidden className="absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-brand to-brand-300 opacity-60 transition-opacity group-hover:opacity-100" />
             {icon && (
               // eslint-disable-next-line @next/next/no-img-element
               <img src={icon.src} alt="" loading="lazy" className="mb-4 size-12" />
             )}
-            {num && <span className="mb-3 block font-display text-3xl font-semibold text-brand">{blockText(num)}</span>}
+            {num && <span className={cn("mb-3 block font-display text-3xl font-semibold", accent(dark))}>{blockText(num)}</span>}
             {ticks ? <TickList blocks={rest} muted={muted} /> : <BlockList blocks={ordered} ctx={ctx} card titleFirst={titleFirst} />}
           </div>
         );
@@ -402,7 +435,7 @@ function TickList({ blocks, muted }: { blocks: Block[]; muted: string }) {
             <span aria-hidden className="mt-1 grid size-5 shrink-0 place-items-center rounded-full bg-brand text-white">
               <svg viewBox="0 0 12 12" className="size-3" fill="none" stroke="currentColor" strokeWidth="2"><path d="M2.5 6.2l2.4 2.3 4.6-4.8" /></svg>
             </span>
-            <span className={cn("text-[15px] leading-relaxed", muted)}>
+            <span className={cn("text-[16px] leading-relaxed", muted)}>
               {r.map((p, k) => (p.k === "p" ? <Fragment key={k}>{k > 0 && " "}<Inline s={trim(p.s)} /></Fragment> : null))}
             </span>
           </li>
@@ -430,7 +463,7 @@ function BlockList({ blocks, ctx, card, speaker, titleFirst }: { blocks: Block[]
           {logos.map((l, k) => (
             <li key={k} className="flex h-16 items-center justify-center rounded-[10px] bg-white/95 px-5 py-3">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={l.src} alt={l.alt} loading="lazy" className={cn("max-h-full max-w-full object-contain opacity-80 transition hover:opacity-100", /\.svg(\?|$)/i.test(l.src) ? "brightness-0" : "grayscale hover:grayscale-0")} />
+              <img src={l.src} alt={l.alt} loading="lazy" className={cn("max-h-full max-w-full object-contain opacity-90 transition hover:opacity-100", logoFix(l.src) ?? (/\.svg(\?|$)/i.test(l.src) ? "brightness-0" : "grayscale hover:grayscale-0"))} />
             </li>
           ))}
         </ul>,
@@ -478,12 +511,12 @@ function BlockView({ b, ctx, muted, card, speaker, first, titleFirst }: { b: Blo
   switch (b.k) {
     case "h": {
       const t = segText(b.s);
-      if (speaker) return <h3 className="mt-1 font-display text-2xl font-semibold sm:text-3xl"><Inline s={trim(b.s)} /></h3>;
-      if (b.l <= 2 && card) return <p className="font-display text-sm font-semibold tracking-wide text-brand"><Inline s={trim(b.s)} /></p>;
+      if (speaker) return <h3 className="mt-1 font-display text-2xl font-semibold sm:text-3xl"><Inline s={tidy(trim(b.s))} /></h3>;
+      if (b.l <= 2 && card) return <p className={cn("font-display text-sm font-semibold tracking-wide", accent(dark))}><Inline s={tidy(trim(b.s))} /></p>;
       if (b.l <= 2) return <HeadingText h={b} dark={dark} />;
-      if (t.length > 90) return <p className={cn("max-w-3xl text-xl leading-[1.55]", dark ? "text-white/90" : "text-ink")}><Inline s={trim(b.s)} /></p>;
-      if (speaker) return <h3 className="mt-1 font-display text-2xl font-semibold"><Inline s={trim(b.s)} /></h3>;
-      return <h3 className={cn("font-display font-semibold leading-snug", card ? "text-lg" : "text-xl")}><Inline s={trim(b.s)} /></h3>;
+      if (t.length > 90) return <p className={cn("max-w-3xl text-xl leading-[1.55]", dark ? "text-white/90" : "text-ink")}><Inline s={tidy(trim(b.s))} /></p>;
+      if (speaker) return <h3 className="mt-1 font-display text-2xl font-semibold"><Inline s={tidy(trim(b.s))} /></h3>;
+      return <h3 className={cn("font-display font-semibold leading-snug", card ? "text-lg" : "text-xl")}><Inline s={tidy(trim(b.s))} /></h3>;
     }
     case "p": {
       const t = blockText(b);
@@ -494,11 +527,12 @@ function BlockView({ b, ctx, muted, card, speaker, first, titleFirst }: { b: Blo
           </blockquote>
         );
       }
-      if (speaker && first) return <p className="mt-1 text-base font-medium text-brand"><Inline s={trim(b.s)} /></p>;
+      if (speaker && first) return <p className={cn("mt-1 text-base font-medium", accent(dark))}><Inline s={trim(b.s)} /></p>;
       if (card && titleFirst && first) return <h3 className="font-display text-lg font-semibold leading-snug"><Inline s={trim(b.s)} /></h3>;
-      return <p className={cn("max-w-3xl text-[16px] leading-[1.75] sm:text-[17px]", card && "text-[15px] leading-[1.65]", muted)}><Inline s={trim(b.s)} /></p>;
+      return <p className={cn("max-w-3xl text-[16px] leading-[1.75] sm:text-[17px]", card && "text-[16px] leading-[1.65]", muted)}><Inline s={trim(b.s)} /></p>;
     }
     case "img":
+      if (/Background(%20| )Hero/i.test(b.src)) return null; // decorative leftover from the CMS hero, renders as a black square
       return isSvg(b) ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img src={b.src} alt={b.alt} loading="lazy" className="size-12" />
@@ -518,7 +552,7 @@ function BlockView({ b, ctx, muted, card, speaker, first, titleFirst }: { b: Blo
       return (
         <a href={href} {...linkAttrs(href)} className={cn("group block max-w-4xl rounded-[14px] border p-6 transition duration-300 hover:-translate-y-0.5 sm:p-8", dark ? "border-white/10 bg-white/[0.04] hover:border-brand/60" : "border-line bg-white shadow-card hover:shadow-lift")}>
           <BlockList blocks={b.b.filter((x) => !(x.k === "p" && blockText(x) === "Learn More"))} ctx={ctx} card />
-          <span className="mt-5 inline-flex items-center gap-2 font-medium text-brand">Learn More <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span></span>
+          <span className={cn("mt-5 inline-flex items-center gap-2 font-semibold", accent(dark))}>Learn More <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span></span>
         </a>
       );
     }
@@ -568,17 +602,35 @@ function SectionView({ sec, tone, prev, idx, spaced, beforeDark }: { sec: Sectio
   const dark = tone === "dark" || tone === "abyss";
   const ctx: Ctx = { dark, id: `s${idx}` };
   const edge = prev !== tone && prev !== "hero" && (dark || prev === "dark" || prev === "abyss");
+  const empty = !!sec.head && sec.blocks.length === 0;
+  const prose = !!sec.head && sec.blocks.length > 0 && sec.blocks.every((b) => b.k === "p");
+  const rule = <span aria-hidden className="mb-5 block h-1 w-12 rounded-full bg-gradient-to-r from-brand to-brand-300" />;
   return (
-    <section className={cn("relative py-16 sm:py-20 lg:py-24", TONE[tone].bg, spaced && "pt-32 sm:pt-44 lg:pt-52", beforeDark && "pb-28 sm:pb-32 lg:pb-40")}>
+    <section className={cn("relative py-16 sm:py-20 lg:py-24", empty && "py-12 sm:py-14 lg:py-16", TONE[tone].bg, spaced && "pt-24 sm:pt-32 lg:pt-36", beforeDark && "pb-28 sm:pb-32 lg:pb-40")}>
       {edge && <PixelEdge color={TONE[tone].color} accent={dark} />}
       <div className="container-page">
         <Reveal>
-          {sec.head && (
-            <div className="mb-10 max-w-3xl">
-              <HeadingText h={sec.head} dark={dark} />
+          {prose ? (
+            <div className="grid gap-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
+              <div className="self-start lg:sticky lg:top-28">
+                {rule}
+                <HeadingText h={sec.head!} dark={dark} />
+              </div>
+              <div className={cn("border-l-2 pl-6 sm:pl-8", dark ? "border-brand-300/40" : "border-brand/30", dark ? "[&_p:first-child]:text-white" : "[&_p:first-child]:text-ink", "[&_p:first-child]:text-[18px] [&_p:first-child]:leading-[1.65] sm:[&_p:first-child]:text-[20px]")}>
+                <BlockList blocks={sec.blocks} ctx={ctx} />
+              </div>
             </div>
+          ) : (
+            <>
+              {sec.head && (
+                <div className={cn("max-w-3xl", empty ? "" : "mb-10")}>
+                  {rule}
+                  <HeadingText h={sec.head} dark={dark} />
+                </div>
+              )}
+              <SectionContent blocks={sec.blocks} ctx={ctx} />
+            </>
           )}
-          <SectionContent blocks={sec.blocks} ctx={ctx} />
         </Reveal>
       </div>
     </section>
@@ -613,7 +665,7 @@ function CtaPanel({ sec, label, href }: { sec: Section; label: string; href: str
           <HelixField className="absolute inset-0 opacity-80 [mask-image:radial-gradient(ellipse_70%_75%_at_50%_50%,rgba(0,0,0,0.28)_0%,#000_78%)]" />
           <div className="absolute inset-0 bg-[radial-gradient(55%_60%_at_50%_48%,rgba(7,20,25,0.72)_0%,transparent_100%)]" />
         </div>
-        {sec.head && <h2 className="mx-auto max-w-[760px] font-display text-[30px] font-semibold leading-[1.12] tracking-[-0.015em] sm:text-[44px]"><Inline s={trim(sec.head.s)} /></h2>}
+        {sec.head && <h2 className="mx-auto max-w-[760px] font-display text-[30px] font-semibold leading-[1.12] tracking-[-0.015em] sm:text-[44px]"><Inline s={tidy(trim(sec.head.s))} /></h2>}
         {sec.blocks.map((b, i) =>
           b.k === "p" || b.k === "h" ? (
             <p key={i} className={cn("mx-auto mt-5 max-w-[640px] leading-[1.65]", b.k === "h" ? "text-lg text-white/90" : "text-base text-white/80")}><Inline s={trim(b.s)} /></p>
@@ -648,6 +700,109 @@ function PresenceSection({ sec, tone, prev, idx, beforeDark }: { sec: Section; t
   );
 }
 
+/* -------------------------------------------------------- case studies --- */
+
+const isCaseKey = (k: string) => k.startsWith("case-studies/");
+const pageTitle = (key: string) => {
+  const h = PAGES[key]?.blocks.find((b) => b.k === "h") as Extract<Block, { k: "h" }> | undefined;
+  return h ? segText(h.s) : key;
+};
+
+/** Pull "what" and "for whom" out of titles shaped like "Demand Forecasting for a Large Distributor". */
+function splitCaseTitle(title: string) {
+  const m = title.match(/^(.*?)\s+for\s+(.+)$/i);
+  if (!m) return { what: title, who: null as string | null };
+  const who = m[2].replace(/^(a|an|the)\s+/i, (x) => x.toLowerCase());
+  return { what: m[1], who: who[0].toUpperCase() + who.slice(1) };
+}
+
+/** Breaks one long paragraph into a lead sentence followed by short two-sentence paragraphs. */
+function paragraphise(text: string) {
+  const sentences = text.split(/(?<=[.!?])\s+(?=[A-Z“"(])/).filter(Boolean);
+  if (sentences.length < 3) return [text];
+  const out = [sentences[0]];
+  for (let i = 1; i < sentences.length; i += 2) out.push(sentences.slice(i, i + 2).join(" "));
+  return out;
+}
+
+function CaseBackground({ sec, pageKey }: { sec: Section; pageKey: string }) {
+  const { what, who } = splitCaseTitle(pageTitle(pageKey));
+  const text = sec.blocks.filter((b) => b.k === "p").map(blockText).join(" ");
+  const paras = paragraphise(text);
+  const keys = Object.keys(PAGES).filter(isCaseKey);
+  const at = keys.indexOf(pageKey);
+  const more = [1, 2, 3].map((n) => keys[(at + n) % keys.length]).filter((k) => k !== pageKey);
+  const facts = [
+    { label: "Solution", value: what },
+    ...(who ? [{ label: "Client", value: who }] : []),
+  ];
+
+  return (
+    <>
+      <section className={cn("relative bg-white py-16 sm:py-20 lg:py-24")}>
+        <div className="container-page">
+          <Reveal className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-16">
+            <div>
+              <span aria-hidden className="mb-5 block h-1 w-12 rounded-full bg-gradient-to-r from-brand to-brand-300" />
+              <h2 className="h-section">{sec.head ? <Inline s={tidy(trim(sec.head.s))} /> : "The Background"}</h2>
+              <div className="mt-8 space-y-6">
+                {paras.map((p, i) =>
+                  i === 0 ? (
+                    <p key={i} className="max-w-3xl border-l-2 border-brand/40 pl-5 text-[20px] leading-[1.6] text-ink sm:pl-6 sm:text-[22px]">{p}</p>
+                  ) : (
+                    <p key={i} className="max-w-3xl text-[17px] leading-[1.8] text-ink-soft">{p}</p>
+                  ),
+                )}
+              </div>
+            </div>
+
+            <aside className="space-y-5 self-start lg:sticky lg:top-28">
+              <div className="rounded-[14px] border border-line bg-mist p-6 shadow-card">
+                <p className="font-mono text-sm font-medium uppercase tracking-widest text-[#007a96]">At a glance</p>
+                <dl className="mt-5 space-y-5">
+                  {facts.map((f) => (
+                    <div key={f.label} className="border-t border-line pt-4 first:border-t-0 first:pt-0">
+                      <dt className="text-sm text-ink-mute">{f.label}</dt>
+                      <dd className="mt-1 font-display text-lg font-semibold leading-snug text-ink">{f.value}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+              <div className="rounded-[14px] bg-deep p-6 text-white">
+                <p className="font-display text-xl font-semibold leading-snug">Facing a similar challenge?</p>
+                <p className="mt-2 text-[15px] leading-relaxed text-white/75">Tell us about it and we will show you what a comparable approach could look like for your data.</p>
+                <div className="mt-5"><KeycapButton href={LINKS.contact}>Talk to an Expert</KeycapButton></div>
+              </div>
+            </aside>
+          </Reveal>
+        </div>
+      </section>
+
+      {more.length > 0 && (
+        <section className="relative border-t border-line bg-white py-16 sm:py-20">
+          <div className="container-page">
+            <Reveal>
+              <span aria-hidden className="mb-5 block h-1 w-12 rounded-full bg-gradient-to-r from-brand to-brand-300" />
+              <h2 className="h-section">More case studies</h2>
+              <ul className="mt-10 grid gap-5 md:grid-cols-3">
+                {more.map((k, i) => (
+                  <li key={k}>
+                    <a href={`/${k}`} className="group flex h-full flex-col rounded-[14px] border border-line bg-mist p-6 transition duration-300 hover:-translate-y-1 hover:bg-white hover:border-brand/40 hover:shadow-lift">
+                      <span className="font-mono text-sm font-medium tracking-widest text-[#007a96]">{String(i + 1).padStart(2, "0")}</span>
+                      <span className="mt-3 font-display text-lg font-semibold leading-snug text-ink">{pageTitle(k)}</span>
+                      <span className="mt-auto inline-flex items-center gap-2 pt-6 font-semibold text-[#007a96]">Read case study <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span></span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+          </div>
+        </section>
+      )}
+    </>
+  );
+}
+
 /* -------------------------------------------------------------- page --- */
 
 export function flowMetadata(key: string, path: string): Metadata {
@@ -668,7 +823,9 @@ export function FlowPage({ pageKey }: { pageKey: string }) {
   const { title, hero, rest } = splitHero(page.blocks);
   const sections = splitSections(rest);
   const framed = hero.some((b) => b.k === "video") || hero.some(isRaster);
-  const ctaLabel = (page.blocks.find((b) => b.k === "cta") as Extract<Block, { k: "cta" }> | undefined)?.label ?? "Contact Us";
+  const caseStudy = isCaseKey(pageKey);
+  const caseWho = caseStudy ? splitCaseTitle(pageTitle(pageKey)).who : null;
+  const ctaLabel = (page.blocks.find((b) => b.k === "cta") as Extract<Block, { k: "cta" }> | undefined)?.label ?? (caseStudy ? "Request the Full Case Study" : "Contact Us");
 
   const isCta = (sec: Section) => /^(register now|interested in learning more\??|schedule a consultation)$/i.test(sec.head ? segText(sec.head.s) : "");
   const body = sections.filter((s) => !isCta(s));
@@ -691,8 +848,9 @@ export function FlowPage({ pageKey }: { pageKey: string }) {
     const t = tones[i];
     const prev: Tone | "hero" = i === 0 ? "hero" : tones[i - 1];
     const next: Tone | "cta" | undefined = i + 1 < body.length ? tones[i + 1] : ctaSec ? "cta" : undefined;
-    const beforeDark = next === "dark" || next === "abyss" || next === "cta";
+    const beforeDark = next === "dark" || next === "abyss" || next === "cta" || ((t === "dark" || t === "abyss") && next !== undefined);
     const h = sec.head ? segText(sec.head.s) : "";
+    if (caseStudy && /background/i.test(h)) return <CaseBackground key={i} sec={sec} pageKey={pageKey} />;
     return /global presence/i.test(h) ? (
       <PresenceSection key={i} sec={sec} tone={t} prev={prev} idx={i} beforeDark={beforeDark} />
     ) : (
@@ -702,7 +860,14 @@ export function FlowPage({ pageKey }: { pageKey: string }) {
 
   return (
     <PageShell>
-      <Hero page={page} title={title} hero={hero} />
+      <Hero
+        page={page}
+        title={title}
+        hero={hero}
+        eyebrow={caseStudy ? "Case Study" : undefined}
+        leadText={caseWho ? `A look at how we worked with ${caseWho[0].toLowerCase()}${caseWho.slice(1)}.` : undefined}
+        ctaLabel={caseStudy ? "Discuss a Similar Project" : undefined}
+      />
       {nodes}
       {ctaSec && <CtaPanel sec={ctaSec} label={ctaLabel} href={LINKS.contact} />}
     </PageShell>

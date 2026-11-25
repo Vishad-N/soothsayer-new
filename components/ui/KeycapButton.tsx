@@ -68,6 +68,9 @@ const REFL_BLUR_HOVER = 1;
 const BRIGHT_REST = 0.6;
 const BRIGHT_HOVER = 1.3;
 
+// Below 24rem a long label may wrap to two lines instead of overflowing the column; wider screens keep one line.
+const WRAP_NARROW = "max-[24rem]:whitespace-normal!";
+
 const edge = mix(CAP, BLACK, 0.4);
 const glowGradient = `linear-gradient(120deg, ${rgb(LIGHT_A)} 0%, ${rgb(LIGHT)} 50%, ${rgb(LIGHT_C)} 110%)`;
 const topGradient = `linear-gradient(135deg, ${rgb(mix(CAP, WHITE, 0.1))} 0%, ${rgb(mix(CAP, edge, 0.15))} 75%)`;
@@ -158,9 +161,10 @@ export function KeycapButton({ href, children, arrow = true, fullWidthMobile = f
     alignItems: "center",
     justifyContent: "center",
     boxSizing: "border-box",
-    padding: "0 28px",
-    height: 50,
+    padding: "8px 28px",
+    minHeight: 50,
     gap: 8,
+    textAlign: "center",
     whiteSpace: "nowrap",
     fontSize: 16,
     fontWeight: 500,
@@ -201,7 +205,7 @@ export function KeycapButton({ href, children, arrow = true, fullWidthMobile = f
       }
     >
       {/* Sizer: the cap is absolutely positioned, so a hidden copy of the label gives the button its box. */}
-      <div aria-hidden style={{ ...rowStyle, visibility: "hidden", pointerEvents: "none" }}>
+      <div aria-hidden className={WRAP_NARROW} style={{ ...rowStyle, visibility: "hidden", pointerEvents: "none" }}>
         {content}
       </div>
 
@@ -252,6 +256,7 @@ export function KeycapButton({ href, children, arrow = true, fullWidthMobile = f
           ))}
           {/* cap with the visible label */}
           <div
+            className={WRAP_NARROW}
             style={{
               ...face,
               ...rowStyle,

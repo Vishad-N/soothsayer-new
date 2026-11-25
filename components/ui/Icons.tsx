@@ -105,5 +105,8 @@ export const LINE_ICONS: Record<string, (p: P) => React.ReactElement> = {
   trend: (p) => <svg {...base(p)}><path d="M3 17l6-6 4 4 8-8" /><path d="M15 7h6v6" /></svg>,
   check: (p) => <svg {...base(p)}><circle cx="12" cy="12" r="9" /><path d="M8 12l3 3 5-6" /></svg>,
   rocket: (p) => <svg {...base(p)}><path d="M5 15c-1 1-1.5 3.5-1.5 5.5 2 0 4.5-.5 5.5-1.5M9 15l-3-3c1-3 3-5.5 6-7.5 2.5-1.5 5.5-1.5 8-1.5 0 2.5 0 5.5-1.5 8-2 3-4.5 5-7.5 6l-2-2z" /><circle cx="15" cy="9" r="1.6" /></svg>,
+  network: (p) => <svg {...base(p)}><circle cx="12" cy="5" r="2.2" /><circle cx="5" cy="18" r="2.2" /><circle cx="19" cy="18" r="2.2" /><path d="M11 7l-5 9M13 7l5 9M7.2 18h9.6" /></svg>,
+  chat: (p) => <svg {...base(p)}><path d="M4 5h16v11H9l-5 4V5z" /><path d="M8 9.5h8M8 12.5h5" /></svg>,
+  scale: (p) => <svg {...base(p)}><path d="M12 4v16M7 20h10M5 7h14" /><path d="M5 7l-2.5 6a3 3 0 005 0L5 7zM19 7l-2.5 6a3 3 0 005 0L19 7z" /></svg>,
   globe: (p) => <svg {...base(p)}><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3c2.5 2.5 3.5 5.5 3.5 9s-1 6.5-3.5 9c-2.5-2.5-3.5-5.5-3.5-9s1-6.5 3.5-9z" /></svg>,
 };

@@ -2,13 +2,6 @@ import { STATS } from "@/data/content";
 import { CountUp } from "./ui/CountUp";
 import { Reveal } from "./ui/Reveal";
 
-/** Small "+" crosshair drawn at grid intersections. */
-const Cross = ({ className }: { className: string }) => (
-  <svg aria-hidden viewBox="0 0 11 11" className={`absolute size-[11px] text-white/40 ${className}`}>
-    <path d="M5.5 0v11M0 5.5h11" stroke="currentColor" />
-  </svg>
-);
-
 /** "Results that survive scrutiny" stat grid on the dark band. */
 export function ImpactStats() {
   return (
@@ -18,25 +11,23 @@ export function ImpactStats() {
           <h2 id="stats-title" className="h-section text-center">{STATS.title}</h2>
         </Reveal>
 
-        <ul className="mt-12 grid border-t border-white/10 sm:grid-cols-2 lg:mt-14 lg:grid-cols-4">
+        <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:mt-14 lg:grid-cols-4 lg:gap-5">
           {STATS.items.map((s, i) => (
             <Reveal
               as="li"
               key={s.label}
               delay={i * 0.08}
-              className="relative flex min-h-[200px] flex-col justify-between gap-8 border-b border-r border-white/10 px-6 py-8 first:border-l sm:min-h-[360px] sm:[&:nth-child(3)]:border-l lg:[&:nth-child(3)]:border-l-0"
+              className="group relative flex min-h-[220px] flex-col justify-between gap-10 overflow-hidden rounded-[14px] border border-white/10 bg-gradient-to-b from-white/[0.07] to-white/[0.015] px-6 pb-7 pt-8 transition duration-300 hover:-translate-y-1 hover:border-brand/40 sm:min-h-[300px]"
             >
-              <Cross className="-left-[6px] -top-[6px]" />
-              <Cross className="-right-[6px] -top-[6px]" />
-              <Cross className="-bottom-[6px] -left-[6px]" />
-              <Cross className="-bottom-[6px] -right-[6px]" />
+              <span aria-hidden className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-brand-300/70 to-transparent" />
+              <span aria-hidden className="pointer-events-none absolute -right-10 -top-10 size-40 rounded-full bg-brand/15 blur-3xl transition-opacity duration-300 group-hover:opacity-100 lg:opacity-70" />
               <CountUp
                 value={s.value}
                 prefix={s.prefix}
                 suffix={s.suffix}
-                className="font-display text-[52px] font-semibold leading-none tracking-[-0.025em] sm:text-[56px] lg:text-[64px]"
+                className="relative font-display text-[52px] font-semibold leading-none tracking-[-0.025em] sm:text-[56px] lg:text-[60px]"
               />
-              <p className="border-t border-white/15 pt-5 text-[17px] leading-[1.55] text-white/85 lg:min-h-[100px]">{s.label}</p>
+              <p className="relative border-t border-white/15 pt-5 text-[17px] leading-[1.55] text-white/85 lg:min-h-[100px]">{s.label}</p>
             </Reveal>
           ))}
         </ul>

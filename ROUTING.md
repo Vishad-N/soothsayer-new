@@ -7,7 +7,7 @@ comments, so this file is the documentation.
 
 ## Native pages (served by Next.js, never rewritten)
 
-`/`, `/digital-competency`, `/responsible-ai`, `/soothgpt`, the 11 guide pages, the 4 `/uae/*` pages and the 18
+`/`, `/capabilities` and the six `/capabilities/<slug>` pages (copy in `data/capabilities.ts`, template in `components/capability/`), `/digital-competency`, `/responsible-ai`, `/soothgpt`, the 11 guide pages, the 4 `/uae/*` pages and the 18
 `/case-studies/<slug>` pages in the `.ai` sitemap. Their text lives in `data/site-pages.json` (extracted verbatim from
 the live pages) and is rendered by `components/flow/`. Webinar pages are not built and still fall through to the rules below.
 

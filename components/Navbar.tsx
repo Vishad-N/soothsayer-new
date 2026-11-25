@@ -101,7 +101,7 @@ function Dropdown({ group }: { group: NavGroup }) {
   const id = useId();
   const ref = useRef<HTMLLIElement>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const wide = group.items.length > 6;
+  const wide = group.items.length > 7;
 
   useEffect(() => {
     if (!open) return;
@@ -157,7 +157,7 @@ function Dropdown({ group }: { group: NavGroup }) {
             transition={{ duration: 0.18, ease: "easeOut" }}
             className={cn(
               "absolute left-1/2 top-full z-20 -translate-x-1/2 pt-3",
-              wide ? "w-[520px]" : "w-[300px]",
+              wide ? "w-[520px]" : "w-[320px]",
             )}
           >
             <div className="overflow-hidden rounded-xl border border-white/10 bg-white p-2 shadow-[0_24px_60px_-20px_rgb(0_0_0/0.45)]">
