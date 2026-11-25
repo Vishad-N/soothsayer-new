@@ -11,6 +11,9 @@ export const LINKS = {
   // Top bar / Company
   about: "https://soothsayeranalytics.com/about-us",
   contact: "https://soothsayeranalytics.com/contact-us",
+  // TODO: replace with the booking calendar link that accompanies the Services content document.
+  // Every main button on the Services pages uses this; until the real link is set it opens the contact form.
+  booking: "https://soothsayeranalytics.com/contact-us",
   careers: "https://soothsayeranalytics.com/careers",
 
   // Capabilities
@@ -51,7 +54,7 @@ export const LINKS = {
   caseStudies: "https://soothsayeranalytics.com/case-studies",
   podcasts: "https://soothsayeranalytics.com/podcasts",
   webinars: "https://www.soothsayeranalytics.ai/webinars",
-  philanthropy: "https://soothsayeranalytics.com/philanthropy",
+  philanthropy: "/philanthropy",
 
   // Homepage CTAs
   services: "https://soothsayeranalytics.com/services",

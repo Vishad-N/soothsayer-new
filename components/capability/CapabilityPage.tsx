@@ -6,6 +6,7 @@ import { PageShell } from "../page/PageShell";
 import { ContactBand, Heading, Section } from "../page/Shared";
 import { KeycapButton } from "../ui/KeycapButton";
 import { ArrowRight, Chevron, LINE_ICONS } from "../ui/Icons";
+import { CornerRings } from "../ui/CornerRings";
 import { Reveal } from "../ui/Reveal";
 
 const SITE = "https://www.soothsayeranalytics.ai";
@@ -121,7 +122,8 @@ function Build({ page }: { page: Page }) {
         {page.build.map((b, i) => {
           const Icon = LINE_ICONS[b.icon] ?? LINE_ICONS.spark;
           return (
-            <li key={b.title} id={`build-${i + 1}`} className="scroll-mt-28 rounded-[12px] border border-line bg-white p-6 shadow-card sm:p-8">
+            <li key={b.title} id={`build-${i + 1}`} className="group relative scroll-mt-28 overflow-hidden rounded-[12px] border border-line bg-white p-6 shadow-card transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1 hover:border-brand/40 hover:shadow-lift sm:p-8">
+              <CornerRings />
               <div className="flex items-center gap-4">
                 <span className="grid size-12 shrink-0 place-items-center rounded-full border border-brand/40 text-brand">
                   <Icon className="size-[22px]" />

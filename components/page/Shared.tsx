@@ -256,7 +256,9 @@ export function GlobalPresence({ title, paras, edge, tone = "mist" }: { title: s
 }
 
 /** Closing call to action in the homepage's horizon-glow panel. The original form links out to the .com contact page. */
-export function ContactBand({ title, cta = "Contact Us" }: { title: string; cta?: string }) {
+export function ContactBand({
+  title, cta = "Contact Us", href = LINKS.contact, secondary,
+}: { title: string; cta?: string; href?: string; secondary?: { label: string; href: string } }) {
   return (
     <section id="cta-form" className="relative bg-coal px-4 pb-20 pt-24 text-white sm:px-6 lg:px-8 lg:pb-28 lg:pt-32">
       <PixelEdge color="var(--color-coal)" />
@@ -267,7 +269,12 @@ export function ContactBand({ title, cta = "Contact Us" }: { title: string; cta?
           <div className="absolute inset-0 bg-[radial-gradient(55%_60%_at_50%_48%,rgba(7,20,25,0.72)_0%,transparent_100%)]" />
         </div>
         <h2 className="mx-auto max-w-[760px] font-display text-[30px] font-semibold leading-[1.12] tracking-[-0.015em] sm:text-[44px]">{title}</h2>
-        <KeycapButton href={LINKS.contact} fullWidthMobile className="mt-9">{cta}</KeycapButton>
+        <KeycapButton href={href} fullWidthMobile className="mt-9">{cta}</KeycapButton>
+        {secondary && (
+          <p className="mt-6">
+            <a href={secondary.href} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center text-[15px] text-white/80 underline underline-offset-4 transition-colors hover:text-brand-300">{secondary.label}</a>
+          </p>
+        )}
         <p className="mx-auto mt-8 max-w-[520px] text-xs text-white/60">
           I have read and agree to the{" "}
           <a href={LINKS.privacy} target="_blank" rel="noopener noreferrer" className="underline hover:text-brand-300">Privacy Policy</a>{" "}and{" "}

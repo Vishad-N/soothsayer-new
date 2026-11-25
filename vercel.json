@@ -14,7 +14,6 @@
     { "source": "/uae/:path+", "destination": "https://www.soothsayeranalytics.ai/uae/:path+" },
 
     { "source": "/contact", "destination": "https://soothsayeranalytics.com/contact-us" },
-    { "source": "/services", "destination": "https://soothsayeranalytics.com/services" },
 
     { "source": "/:path+", "destination": "https://www.soothsayeranalytics.ai/:path+" }
   ]

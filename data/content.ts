@@ -27,16 +27,16 @@ export const NAV: (NavGroup | NavItem)[] = [
   {
     label: "Services",
     items: [
-      { label: "Data Science Consulting", href: LINKS.dataScienceConsulting },
-      { label: "Strategy & Blueprint", href: LINKS.strategyBlueprint },
-      { label: "Research & Development", href: LINKS.researchDevelopment },
-      { label: "Corporate Training", href: LINKS.corporateTraining },
-      { label: "A.I & D.L Accelerated Course", href: LINKS.aiDlCourse },
-      { label: "Advanced Certificate Program", href: LINKS.advancedCertificate },
-      { label: "Blockchain for CXO's Workshop", href: LINKS.blockchainWorkshop },
-      { label: "IoT Leadership Seminar", href: LINKS.iotLeadership },
+      { label: "Services (overview)", href: "/services" },
+      { label: "AI Strategy and Roadmap", href: "/services/ai-strategy-roadmap" },
+      { label: "Fractional AI Leadership", href: "/services/ai-leadership" },
+      { label: "Fractional Chief AI Officer", href: "/services/fractional-chief-ai-officer" },
+      { label: "Proof of Value", href: "/services/proof-of-value" },
+      { label: "Embedded Delivery Team", href: "/services/embedded-delivery-team" },
+      { label: "AI Managed Services", href: "/services/ai-managed-services" },
+      { label: "AI Capability Building", href: "/services/ai-capability-building" },
+      { label: "Applied AI R&D", href: "/services/applied-ai-research" },
     ],
-    footer: { label: "All services", href: LINKS.services },
   },
   {
     label: "Industries",
@@ -79,12 +79,12 @@ export const HERO = {
   eyebrow: "A new perspective on enterprise AI",
   title: "Enterprise AI built to move from strategy to production.",
   body: "Bespoke AI, GenAI and data science solutions that turn complex challenges into better business decisions.",
-  cta: { label: "Explore Our Solutions", href: LINKS.services },
+  cta: { label: "Explore Our Services", href: "/services" },
   // Bottom ticker. Each entry links to the page that covers it.
   pillars: [
-    { label: "Building Digital Competency", href: LINKS.digitalCompetency },
-    { label: "Strategy & AI Roadmaps", href: LINKS.strategyBlueprint },
-    { label: "Build and deploy production ready AI systems.", href: LINKS.genAIBusiness },
+    { label: "AI Strategy and Roadmaps", href: "/services/ai-strategy-roadmap" },
+    { label: "Fractional AI Leadership", href: "/services/ai-leadership" },
+    { label: "Build and Run AI in Production", href: "/services/proof-of-value" },
   ],
 };
 
@@ -113,7 +113,7 @@ export const STRATEGY = {
       body: "Score opportunities on business value, data readiness and time to production.",
       tags: [],
       icon: "strategy",
-      href: LINKS.strategyBlueprint,
+      href: "/services/ai-strategy-roadmap",
     },
     {
       key: "build",
@@ -122,7 +122,7 @@ export const STRATEGY = {
       body: "Stand up data foundations and train models on your own systems and history.",
       tags: [],
       icon: "foundation",
-      href: LINKS.dataScienceConsulting,
+      href: "/services/proof-of-value",
     },
     {
       key: "deploy",
@@ -149,7 +149,7 @@ export const STRATEGY = {
       body: "Hold accuracy, latency and cost steady as usage spreads across the enterprise.",
       tags: [],
       icon: "scale",
-      href: LINKS.researchDevelopment,
+      href: "/services/ai-managed-services",
     },
   ] satisfies Step[],
 };
@@ -189,12 +189,12 @@ export const EXPERTISE = {
         { icon: "owner", label: "Clear ownership and oversight" },
         { icon: "compliance", label: "Governance and compliance" },
       ],
-      cta: { label: "Explore Responsible AI", href: LINKS.responsibleAI },
+      cta: { label: "Explore Responsible AI", href: "/capabilities/responsible-ai-governance" },
       art: "trust",
     },
     {
       key: "blueprint",
-      tab: "Strategy & Blueprint",
+      tab: "AI Strategy and Roadmaps",
       title: "Turn AI ambition into a plan.",
       body: "Define your AI and GenAI priorities, target architecture, roadmap, and governance model, with a detailed execution plan you can hand off to your team or deliver in partnership with us.",
       points: [
@@ -205,12 +205,12 @@ export const EXPERTISE = {
         { icon: "compliance", label: "Governance operating model" },
         { icon: "chart", label: "Value and ROI tracking" },
       ],
-      cta: { label: "Explore Strategy & Blueprint", href: LINKS.strategyBlueprint },
+      cta: { label: "Explore AI Strategy and Roadmaps", href: "/services/ai-strategy-roadmap" },
       art: "blueprint",
     },
     {
       key: "competency",
-      tab: "Building Digital Competency",
+      tab: "AI Capability Building",
       title: "Build the skills to scale AI.",
       body: "Build enterprise AI capabilities through executive alignment, role-based enablement, and practical AI skills development.",
       points: [
@@ -221,7 +221,7 @@ export const EXPERTISE = {
         { icon: "award", label: "Certification programs" },
         { icon: "refresh", label: "Change and adoption" },
       ],
-      cta: { label: "Explore Digital Competency", href: LINKS.digitalCompetency },
+      cta: { label: "Explore AI Capability Building", href: "/services/ai-capability-building" },
       art: "competency",
     },
   ] satisfies ExpertiseTab[],
@@ -439,10 +439,12 @@ export const FOOTER = {
     {
       title: "Services",
       links: [
-        { label: "Data Science Consulting", href: LINKS.dataScienceConsulting },
-        { label: "Strategy & Blueprint", href: LINKS.strategyBlueprint },
-        { label: "Research & Development", href: LINKS.researchDevelopment },
-        { label: "Corporate Training", href: LINKS.corporateTraining },
+        { label: "AI Strategy and Roadmap", href: "/services/ai-strategy-roadmap" },
+        { label: "Fractional AI Leadership", href: "/services/ai-leadership" },
+        { label: "Proof of Value", href: "/services/proof-of-value" },
+        { label: "Embedded Delivery Team", href: "/services/embedded-delivery-team" },
+        { label: "AI Managed Services", href: "/services/ai-managed-services" },
+        { label: "AI Capability Building", href: "/services/ai-capability-building" },
       ],
     },
     {
