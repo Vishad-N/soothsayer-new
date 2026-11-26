@@ -28,15 +28,15 @@ function Logo({ logo, decorative = false }: { logo: ClientLogo; decorative?: boo
  * Spacing is padding on each item (not flex gap) for the same reason.
  * Hovering pauses it; the duplicate is hidden from assistive tech.
  */
-export function TrustedBy() {
+export function TrustedBy({ title = "Trusted By Enterprises" }: { title?: string }) {
   return (
     <section
       id="trusted"
       aria-labelledby="trusted-title"
       className="relative overflow-hidden border-b border-line bg-[linear-gradient(90deg,#ffffff_0%,#ffffff_45%,#e3f7fc_100%)] py-12 lg:py-14"
     >
-      <h2 id="trusted-title" className="text-center font-sans text-[15px] font-medium tracking-[0.01em] text-ink-soft">
-        Trusted By Enterprises
+      <h2 id="trusted-title" className="mx-auto max-w-[760px] px-4 text-center font-sans text-[15px] font-medium tracking-[0.01em] text-ink-soft">
+        {title}
       </h2>
 
       <div className="group mt-6 overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_10%,black_90%,transparent)] lg:mt-8">

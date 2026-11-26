@@ -1,0 +1,1069 @@
+{
+ "agentic-ai-and-the-future-of-continuous-cyber-defense": {
+  "slug": "agentic-ai-and-the-future-of-continuous-cyber-defense",
+  "title": "Agentic AI and the Future of Continuous Cyber Defense",
+  "dateLabel": "Wednesday, June 17, 2026",
+  "subtitle": null,
+  "description": null,
+  "about": null,
+  "hero": null,
+  "landingPath": "/agentic-ai-and-the-future-of-continuous-cyber-defense",
+  "landing": {
+   "abstract": [
+    "Traditional cybersecurity models were designed for environments that changed slowly. Today, enterprise systems evolve continuously, while most security assessments still operate on periodic testing cycles. This creates a growing gap between organizational exposure and actual security visibility.",
+    "This webinar explores how Agentic AI is redefining cybersecurity through autonomous reasoning, continuous assessment, and adaptive defense operations. Through practical case-study-driven examples, attendees will see how AI agents can analyze attack surfaces, identify vulnerabilities, validate risks, and support security teams with greater speed, scalability, and consistency than traditional approaches alone.",
+    "The session will also discuss governance, auditability, human oversight, and the operational realities of deploying AI-driven security systems responsibly within enterprise environments. Attendees will leave with a practical understanding of how organizations can evolve from reactive security programs toward intelligent, continuous cyber defense models."
+   ],
+   "dateLong": "Wednesday, June 17, 2026",
+   "time": [
+    "10:00 AM EST (New York)",
+    "5:00 PM KSA (Riyadh)",
+    "6:00 PM GST (Dubai)"
+   ],
+   "duration": "1 Hour",
+   "speakers": [
+    {
+     "name": "Vishal Mishra",
+     "roles": [
+      "Chief AI Officer, IDC Technologies",
+      "Advisor, Soothsayer Analytics"
+     ],
+     "bio": [
+      "Vishal Mishra is the Chief AI Officer at IDC Technologies, where he leads enterprise AI, data, and digital transformation initiatives across the UAE and GCC region. He is the creator of HIVE HQ, an AI governance platform focused on visibility, accountability, and responsible AI operations at enterprise scale, as well as the creator of the Vibe Coding Governance framework for AI-assisted software development.",
+      "Vishal specializes in enterprise AI architecture, autonomous systems, AI governance, and real-world deployment strategies. He advises organizations on responsible AI adoption, scalable AI infrastructure, and operationalizing Generative and Agentic AI within complex enterprise environments. Vishal also advises and collaborates with Soothsayer Analytics on AI initiatives and enterprise implementations across the GCC and global markets."
+     ]
+    }
+   ],
+   "takeawaysIntro": [
+    "This session is designed to provide practical clarity, not just conceptual understanding. Participants will leave knowing how to:"
+   ],
+   "takeaways": [
+    {
+     "title": "Why Periodic Assessments Fail",
+     "text": "Understand why traditional point-in-time security audits and periodic assessments are no longer sufficient against continuously evolving threats, dynamic infrastructures, and AI-powered attack vectors."
+    },
+    {
+     "title": "From Automation to Agentic AI",
+     "text": "Explore how Agentic AI differs from conventional security automation by enabling systems to reason, adapt, prioritise, and act autonomously across complex cyber environments."
+    },
+    {
+     "title": "Continuous Autonomous Defense",
+     "text": "Examine the role of autonomous AI agents in enabling continuous monitoring, threat detection, response coordination, and adaptive cyber defense operations at enterprise scale."
+    },
+    {
+     "title": "Reasoning Through Threat Scenarios",
+     "text": "Learn how AI-driven systems analyse context, correlate signals, and reason through evolving attack patterns, vulnerabilities, and multi-stage threat scenarios in real time."
+    },
+    {
+     "title": "Continuous Attack Surface Visibility",
+     "text": "Understand how continuous assessment models improve visibility across cloud, endpoints, identities, applications, and third-party environments to reduce security blind spots."
+    },
+    {
+     "title": "Governance and Human Oversight",
+     "text": "Implement governance frameworks that ensure auditability, explainability, escalation paths, and meaningful human oversight within AI-driven cybersecurity operations."
+    },
+    {
+     "title": "Operational and Economic Impact",
+     "text": "Evaluate how AI-enabled security programs improve operational efficiency, reduce response times, optimise analyst workloads, and strengthen overall cyber resilience."
+    },
+    {
+     "title": "Responsible Adoption Roadmap",
+     "text": "Develop a practical approach for adopting continuous AI-driven cyber defense responsibly, balancing automation, risk management, compliance, and organisational readiness."
+    }
+   ],
+   "who": [
+    {
+     "title": "CXOs and Senior Executives",
+     "text": "Leaders evaluating how AI and autonomous systems will reshape enterprise operations, risk management, governance, and digital transformation strategies."
+    },
+    {
+     "title": "CIOs, CTOs, CDOs, and Technology Leaders",
+     "text": "Executives responsible for enterprise technology strategy, AI adoption, operational resilience, and scalable digital innovation."
+    },
+    {
+     "title": "IT and Digital Transformation Leaders",
+     "text": "Professionals driving modernization initiatives and evaluating how AI-enabled systems can improve agility, governance, and operational efficiency."
+    },
+    {
+     "title": "Risk, Governance, and Compliance Professionals",
+     "text": "Teams responsible for oversight, accountability, policy enforcement, and ensuring emerging AI capabilities align with enterprise risk frameworks."
+    },
+    {
+     "title": "AI Engineers, Architects, and Data Science Teams",
+     "text": "Technical practitioners building and deploying AI systems who want practical insight into autonomous reasoning, orchestration, and enterprise-scale deployment considerations."
+    },
+    {
+     "title": "Product, Operations, and Business Leaders",
+     "text": "Decision-makers exploring how AI-driven systems can improve operational responsiveness, decision-making, workflow automation, and organizational resilience."
+    },
+    {
+     "title": "Enterprise Architects and Innovation Teams",
+     "text": "Professionals evaluating how next-generation AI capabilities integrate into enterprise ecosystems, business processes, and long-term transformation initiatives."
+    },
+    {
+     "title": "Managers, Analysts, and Emerging AI Leaders",
+     "text": "Professionals seeking practical understanding of how Agentic AI is evolving from experimentation into real-world enterprise deployment."
+    }
+   ],
+   "closing": {
+    "heading": "If you are evaluating how AI can strengthen cybersecurity beyond periodic assessments and reactive operations — this session is for you.",
+    "text": [
+     "Join Vishal Mishra for a practitioner-led session on how Agentic AI is enabling continuous cyber defense through autonomous reasoning, adaptive threat analysis, continuous attack-surface assessment, and governed AI-driven security operations at enterprise scale."
+    ]
+   },
+   "h1": "Agentic AI and the Future of Continuous Cyber Defense",
+   "sub": "A practitioner-led session on how AI-driven autonomous systems are transforming cybersecurity from periodic assessments into intelligent, continuous, and adaptive defense operations—covering autonomous threat detection, real-time response orchestration, risk-aware decisioning, observability, and scalable security governance for enterprise environments."
+  }
+ },
+ "agentic-ai-demystified-for-leaders": {
+  "slug": "agentic-ai-demystified-for-leaders",
+  "title": "Agentic AI demystified for leaders",
+  "dateLabel": "Wednesday, April 8, 2026",
+  "subtitle": "From Generative Experiments to Operational Impact",
+  "description": "A practitioner-led session focused on how Agentic AI enables goal-driven workflows, orchestrates enterprise systems, and delivers measurable outcomes beyond traditional Generative AI.",
+  "about": "Artificial Intelligence is evolving rapidly, and organizations are moving from experimentation toward operational deployment where systems must reason, plan, and execute reliably. This session explored how Agentic AI extends beyond Generative AI by enabling multi-step decision-making, tool orchestration, and workflow automation aligned with enterprise objectives. It also highlighted how leaders can identify high-impact use cases, establish strong architectural and governance foundations, and transition from isolated pilots to scalable, production-grade AI systems that deliver measurable business outcomes.",
+  "hero": "/images/webinars/agentic-ai-demystified-for-leaders.webp",
+  "landingPath": "/agentic-ai-demystified-for-leaders",
+  "landing": {
+   "abstract": [
+    "Artificial Intelligence, including the emergence of Agentic AI, is advancing at a pace few organizations have previously experienced. New models, platforms, and ambitious claims appear almost weekly, creating an environment that is dynamic, complex, and often difficult to navigate. For many leaders, the issue is no longer whether AI is accessible, but how to interpret the noise and determine a disciplined path forward. In this rapidly evolving landscape, Agentic AI marks a meaningful progression beyond Generative AI. While Generative AI focuses on producing content, Agentic AI extends those capabilities by reasoning through objectives, planning multi step actions, validating outcomes, and executing workflows aligned with enterprise goals.",
+    "In this session, we demystify Agentic AI from a business and architectural perspective. We move beyond hype to explain how goal driven AI agents operate within governed environments, orchestrate tools, interact with enterprise systems, and deliver measurable outcomes across functions such as Procurement, Finance, HR, Sales, and Shared Services.",
+    "The session will clarify the distinction between prompt driven automation and workflow aligned Agentic execution. We will also examine the architectural foundations required for responsible deployment, including governance, integration, evaluation frameworks, and human oversight.",
+    "Participants will leave with a clear understanding of how Agentic AI can transform operational workflows while preserving compliance, transparency, and executive control."
+   ],
+   "dateLong": "Wednesday, April 8th, 2026",
+   "time": [
+    "7:00 AM EST (New York)",
+    "2:00 PM KSA (Riyadh)",
+    "3:00 PM GST (Dubai)"
+   ],
+   "duration": "1 Hour",
+   "speakers": [
+    {
+     "name": "Akshay Deshpande",
+     "roles": [
+      "Senior Director of AI, Soothsayer Analytics"
+     ],
+     "bio": [
+      "Akshay Deshpande is a senior AI leader with deep expertise in enterprise Artificial Intelligence strategy, Agentic AI systems, and large scale digital transformation. As Senior Director of AI at Soothsayer Analytics, he leads the design and deployment of enterprise grade AI solutions across manufacturing, energy, retail, healthcare, finance, and education sectors.",
+      "Akshay has extensive experience building scalable AI architectures that integrate data engineering, machine learning, Generative AI, and Agentic orchestration within governed enterprise environments. His work focuses on transforming fragmented workflows into intelligent, auditable systems that drive measurable business impact."
+     ]
+    }
+   ],
+   "takeawaysIntro": [
+    "This session is designed to provide practical clarity, not just conceptual understanding. Participants will learn how to",
+    "Participants will leave with a clear action framework to assess readiness, prioritize use cases, and initiate responsible Agentic AI implementation within their organization."
+   ],
+   "takeaways": [
+    {
+     "title": "Generative AI vs Agentic AI",
+     "text": "Clearly distinguish between Generative AI pilots and true Agentic AI workflow execution"
+    },
+    {
+     "title": "Identifying High Impact Workflows",
+     "text": "How to identify two to three high impact workflows within your own function that are suitable for Agentic automation"
+    },
+    {
+     "title": "Assessing Readiness for Agentic AI",
+     "text": "How to evaluate whether your current data and system landscape is ready for Agentic AI deployment"
+    },
+    {
+     "title": "Governance and Human Oversight",
+     "text": "How to design guardrails, human oversight checkpoints, and governance controls from day one"
+    },
+    {
+     "title": "From Proof of Concept to Production",
+     "text": "How to structure a phased roadmap to move from proof of concept to production grade deployment"
+    },
+    {
+     "title": "Measuring Business Impact",
+     "text": "How to measure ROI beyond cost savings, including cycle time reduction, error reduction, and decision consistency"
+    },
+    {
+     "title": "Avoiding Common Failure Points",
+     "text": "Common pitfalls organizations encounter such as over automation, poor integration, and lack of executive alignment, and how to avoid them"
+    }
+   ],
+   "who": [
+    {
+     "title": "Business Leaders and Department Heads",
+     "text": "Leaders responsible for improving operational efficiency, reducing manual effort, and modernizing workflows across functions such as Procurement, Finance, HR, Sales, and Operations"
+    },
+    {
+     "title": "CXOs and Senior Executives",
+     "text": "Executives seeking clarity on the strategic implications of Agentic AI and how it can drive measurable outcomes across enterprise operations"
+    },
+    {
+     "title": "IT and Digital Transformation Leaders",
+     "text": "Technology leaders evaluating AI architecture, enterprise integration, and the deployment of governed AI systems within complex environments"
+    },
+    {
+     "title": "Innovation and AI Teams",
+     "text": "Teams experimenting with Generative AI and looking to move beyond pilots toward structured, workflow aligned Agentic AI implementation"
+    },
+    {
+     "title": "Managers Driving Process Improvement",
+     "text": "Senior professionals tasked with improving workflows, reducing operational friction, and identifying automation opportunities within their teams"
+    },
+    {
+     "title": "Risk, Governance, and Compliance Professionals",
+     "text": "Professionals responsible for ensuring AI systems operate within defined governance frameworks, with transparency, accountability, and human oversight"
+    }
+   ],
+   "h1": "Agentic AI Demystified for Leaders: From Generative Experiments to Operational Impact",
+   "sub": "Practical Frameworks to Identify, Prioritize, and Deploy Intelligent Workflow Automation"
+  }
+ },
+ "ai-driven-digital-transformation-in-manufacturing": {
+  "slug": "ai-driven-digital-transformation-in-manufacturing",
+  "title": "AI-Driven Digital Transformation in Manufacturing",
+  "dateLabel": "Wednesday, November 19, 2025",
+  "subtitle": "Applying AI Across Oil & Gas, Petrochemicals, Metals, and Heavy Industry",
+  "description": "A practitioner-led session focused on how AI and digital systems can transform industrial operations — improving reliability, optimizing energy use, and enabling scalable, high-performance manufacturing systems.",
+  "about": "Manufacturing is at a pivotal moment as organizations face rising cost pressures, sustainability demands, and increasing global competition. As AI moves from isolated pilots into core operations, the focus is shifting toward achieving measurable and lasting impact. This session explored how enterprises can leverage AI and advanced analytics to improve reliability, optimize energy usage, enhance safety, and strengthen supply chain resilience, while also emphasizing the importance of workforce readiness, governance, and organizational alignment to ensure scalable, high-performance industrial systems.",
+  "hero": "/images/webinars/ai-driven-digital-transformation-in-manufacturing.webp",
+  "landingPath": null,
+  "landing": {
+   "abstract": [
+    "Manufacturing is entering a decisive moment. From downstream oil and gas to petrochemicals, aluminum, construction materials, and food processing, industries are under pressure to reduce costs, optimize energy use, and meet ambitious national sustainability goals. Global competitors are already reshaping their operations with AI and digital systems. The question for regional manufacturers is not whether to transform, but how to do so in a way that produces measurable and lasting results.",
+    "This webinar focuses specifically on industrial realities. Participants will learn how digital tools can drive predictive maintenance, improve safety, reduce waste, and strengthen supply chain resilience. More importantly, the session will emphasize the organizational and workforce foundations required to succeed. Technology adoption without skills, governance, and alignment quickly stalls. With the right approach, however, AI and advanced analytics can become embedded sources of efficiency and competitive differentiation.",
+    "Drawing on practical case contexts, the session will demonstrate how to connect national visions for diversification and sustainability with enterprise-level execution. Attendees will leave with a clear understanding of how to advance from fragmented digital experiments to industrial systems that perform reliably at scale."
+   ],
+   "dateLong": "Wednesday, November 19",
+   "time": [
+    "7:00 AM EST (New York)",
+    "3:00 PM AST (Riyadh)",
+    "4:00 PM GST (Dubai)"
+   ],
+   "duration": "1 Hour",
+   "speakers": [
+    {
+     "name": "Akshay Deshpande",
+     "roles": [
+      "Senior Director of AI at Soothsayer Analytics"
+     ],
+     "bio": [
+      "As a seasoned leader in AI, Akshay has 15+ years of expertise lies in crafting customized AI solutions that streamline operations, enhance decision-making, and unlock new avenues for growth. His academic pursuits began in gaining proficiency in control systems and instrumentation and culminated in a Masters in Artificial Intelligence focused on speech recognition systems.",
+      "By combining technical knowledge with strategic thinking, he has advised dozens of Fortune 500 and 1000 utilities, manufacturing, supply chain and insurance companies. He specializes not only in building digital transformation strategies but also translating them into tangible AI/GenAI solutions. He spearheads Generative AI practice at Soothsayer and has helped deploy multiple valuable GenAI solutions."
+     ]
+    }
+   ],
+   "takeawaysIntro": [],
+   "takeaways": [
+    {
+     "title": "AI Impact Assessment",
+     "text": "How AI and analytics directly impact reliability, energy efficiency, and throughput in manufacturing"
+    },
+    {
+     "title": "Operational Optimization",
+     "text": "Practical strategies for predictive maintenance, safety monitoring, and yield optimization"
+    },
+    {
+     "title": "National Alignment",
+     "text": "Ways to align digital initiatives with Saudi Vision 2030 and UAE Industry 4.0 objectives"
+    },
+    {
+     "title": "Workforce Development",
+     "text": "The role of workforce development and localization in sustaining transformation"
+    },
+    {
+     "title": "Scalable Implementation",
+     "text": "How to scale pilots into fully embedded industrial systems that deliver measurable ROI"
+    }
+   ],
+   "who": [
+    {
+     "title": "Manufacturing Leadership",
+     "text": "Executives and operations leaders in oil and gas, petrochemicals, metals, and heavy manufacturing"
+    },
+    {
+     "title": "Operational Excellence",
+     "text": "Plant managers and engineering directors seeking efficiency and reliability gains"
+    },
+    {
+     "title": "Policy & Strategy",
+     "text": "Government and policy stakeholders focused on industrial competitiveness and sustainability"
+    },
+    {
+     "title": "Digital Innovation",
+     "text": "Digital transformation and innovation leaders responsible for Industry 4.0 initiatives"
+    }
+   ],
+   "h1": null,
+   "sub": null,
+   "closing": {
+    "heading": "Register now",
+    "text": [
+     "Register today to explore how manufacturing enterprises in the Gulf can leverage AI and digital systems to achieve efficiency, sustainability, and long-term competitiveness."
+    ]
+   }
+  }
+ },
+ "ai-forecasting-that-businesses-actually-act-on": {
+  "slug": "ai-forecasting-that-businesses-actually-act-on",
+  "title": "AI Forecasting That Businesses Actually Act On",
+  "dateLabel": "Thursday, September 3, 2026",
+  "subtitle": null,
+  "description": null,
+  "about": null,
+  "hero": "/images/webinars/ai-forecasting-that-businesses-actually-act-on.webp",
+  "landingPath": "/ai-forecasting-that-businesses-actually-act-on",
+  "landing": {
+   "abstract": [
+    "A more accurate forecast does not automatically lead to better decisions. This session explores what distinguishes forecasting that drives business action from forecasting that sits on the shelf, featuring two real-world engagements examined end to end, with dedicated time for audience questions.",
+    "Organizations invest heavily in forecasting and then watch the output sit in a report while people carry on using their spreadsheets. Accuracy improves, dashboards get built, and very little about the way decisions are made actually changes. The gap is rarely technical. Forecasting pays off when it is built around a decision someone owns, delivered in a form they trust, at a moment they can act on.",
+    "This webinar explores what it takes to bridge the gap between forecasting and business action in real-world environments. Through two detailed case studies, we will examine what was delivered, what changed as a result, and the lessons learned along the way. Rather than reviewing forecasting techniques, the session focuses on the organizational and practical factors that determine whether forecasts drive decisions and gain adoption."
+   ],
+   "dateLong": "Thursday, September 3, 2026",
+   "time": [
+    "10:00 AM EST (New York)",
+    "5:00 PM KSA (Riyadh)",
+    "6:00 PM GST (Dubai)"
+   ],
+   "duration": "1 Hour",
+   "speakers": [
+    {
+     "name": "Krishnan Sankaranarayanan, PhD, MBA",
+     "roles": [
+      "Advisor, AI Innovation at Soothsayer Analytics"
+     ],
+     "bio": [
+      "Krishnan Sankaranarayanan, PhD, MBA, is a seasoned executive with over 24 years of experience in the chemical and energy industry. He obtained his PhD in Chemical Engineering at Princeton University, after which he spent 1 2 years at ExxonMobil, followed by 12 years at SABIC, in a host of different roles. Most recently, he was responsible for the AI transformation at SABIC across all domains and geographies. Krishnan, also teaches at the University of Houston (AI for Chemical Engineers, and Chemical Industry Strategy), and Columbia University (How to make AI implementations for) for executives."
+     ]
+    },
+    {
+     "name": "Akshay Deshpande",
+     "roles": [
+      "Senior Director of AI, Soothsayer Analytics"
+     ],
+     "bio": [
+      "Akshay Deshpande is a senior AI leader with deep expertise in enterprise Artificial Intelligence strategy, Agentic AI systems, and large scale digital transformation. As Senior Director of AI at Soothsayer Analytics, he leads the design and deployment of enterprise grade AI solutions across manufacturing, energy, retail, healthcare, finance, and education sectors.",
+      "Akshay has extensive experience building scalable AI architectures that integrate data engineering, machine learning, Generative AI, and Agentic orchestration within governed enterprise environments. His work focuses on transforming fragmented workflows into intelligent, auditable systems that drive measurable business impact."
+     ]
+    }
+   ],
+   "takeawaysIntro": [
+    "This session is designed to provide practical clarity, not just conceptual understanding. Participants will leave knowing how to:"
+   ],
+   "takeaways": [
+    {
+     "title": "Accuracy Isn’t Adoption",
+     "text": "Understand why a more accurate forecast does not automatically lead to better business decisions or changed behavior."
+    },
+    {
+     "title": "Start With the Decision",
+     "text": "Learn what needs to be in place for a forecast to become a trusted input to a decision someone actually owns."
+    },
+    {
+     "title": "Build for the Business Context",
+     "text": "See how timing, workflow, ownership, and trust can matter just as much as the forecasting model itself."
+    },
+    {
+     "title": "Learn From Real Engagements",
+     "text": "Walk through two real engagements end to end, including what was delivered, how it was used, and what changed as a result."
+    },
+    {
+     "title": "Turn Forecasts Into Action",
+     "text": "Take away practical lessons and hard-earned judgment calls for moving forecasting from a report into everyday business decisions."
+    }
+   ],
+   "who": [
+    {
+     "title": "Supply Chain and Planning Leadership",
+     "text": "Demand planners, S&OP leads, and inventory managers accountable for decisions driven by forecast output"
+    },
+    {
+     "title": "Finance Leaders",
+     "text": "Leaders responsible for revenue forecasting, budgeting, and working capital planning"
+    },
+    {
+     "title": "Commercial and Sales Operations",
+     "text": "Teams that plan around demand signals and are measured on forecast reliability"
+    },
+    {
+     "title": "Digital, Data, and Transformation Leaders",
+     "text": "Leaders driving analytics and enterprise AI adoption across business functions"
+    }
+   ],
+   "closing": {
+    "heading": "If you are looking to turn forecasting and AI investments into measurable business outcomes while avoiding the common challenges that prevent forecasts from being used effectively, this session is designed for you.",
+    "text": [
+     "Join us for a practitioner-led session on what it takes to move forecasting beyond better models and dashboards to decisions that actually change how the business operates. Through two real engagements, we will explore how to identify high-value forecasting opportunities, build trust and adoption, align forecasts with business decisions, and create practical approaches that deliver measurable impact in real-world environments."
+    ]
+   },
+   "h1": "AI Forecasting That Businesses Actually Act On",
+   "sub": "What Separates Forecasting That Changes Decisions From Forecasting That Sits in a Report"
+  }
+ },
+ "ai-in-procurement": {
+  "slug": "ai-in-procurement",
+  "title": "AI in Procurement",
+  "dateLabel": "Wednesday, March 4, 2026",
+  "subtitle": "High-Impact Use Cases and a Clear Path to Prioritize Your First Moves",
+  "description": "A practitioner-led session focused on applying AI in procurement to improve spend visibility, strengthen compliance, and enable faster, data-driven decision-making across source-to-pay processes.",
+  "about": "Procurement is evolving beyond cost savings to deliver resilience, compliance, and operational speed, even as data remains fragmented across systems. This session explored how AI can be applied to real procurement workflows through document intelligence, machine learning, and copilots that enhance decision-making and control. It also highlighted practical, repeatable use case patterns and a simple, leader-friendly approach to prioritizing AI initiatives based on value at stake and data readiness, enabling teams to move from experimentation to measurable impact.",
+  "hero": "/images/webinars/ai-in-procurement.webp",
+  "landingPath": "/ai-in-procurement",
+  "landing": {
+   "abstract": [
+    "Procurement is being asked to deliver more than savings. Leaders are accountable for resilience, compliance, and speed, while data remains fragmented across ERPs, spreadsheets, emails, and document repositories. At the same time, modern AI has moved from experimentation to practical value when applied to the right workflows.",
+    "This webinar focuses on what works in real procurement environments today. We will walk through the AI building blocks behind the most reliable outcomes, including document intelligence for contracts and invoices, machine learning for spend classification and exception detection, and copilots that help teams navigate policies, terms, and historical spend with confidence. Rather than covering everything, the session highlights repeatable use case patterns across source-to-pay and supplier management, and a leader-friendly method to prioritize where to start based on value at stake and data readiness."
+   ],
+   "dateLong": "Wednesday, March 4th, 2026",
+   "time": [
+    "8:00 AM EST (New York)",
+    "4:00 PM AST (Riyadh)",
+    "5:00 PM GST (Dubai)"
+   ],
+   "duration": "1 Hour",
+   "speakers": [
+    {
+     "name": "Shravan Adapa",
+     "roles": [
+      "Director of AI at Soothsayer Analytics"
+     ],
+     "bio": [
+      "Shravan Adapa is the Director of AI at Soothsayer Analytics, where he helps organizations translate AI and Generative AI into measurable business outcomes. With over a decade of experience across manufacturing, retail, logistics, and financial services, he has led end-to-end initiatives from executive alignment and solution design to production rollout across cloud and hybrid environments.",
+      "His work spans high-impact, operational AI applications including demand and supply forecasting, quality and reliability intelligence, and document-driven automation for procurement and finance. Shravan is known for building practical, scalable solutions that fit real business constraints, delivering faster decision-making, stronger operational control, and sustained ROI."
+     ]
+    }
+   ],
+   "takeawaysIntro": [],
+   "takeaways": [
+    {
+     "title": "High-Impact AI Use Cases",
+     "text": "The most practical, high-impact AI use cases in procurement that are working today across industries"
+    },
+    {
+     "title": "Document Intelligence at Scale",
+     "text": "How document intelligence applies to contracts and invoices to reduce cycle time and improve compliance"
+    },
+    {
+     "title": "Spend Visibility and Control",
+     "text": "How AI and analytics improve spend visibility and surface leakage, anomalies, and savings opportunities"
+    },
+    {
+     "title": "Supplier Performance Optimization",
+     "text": "Where AI strengthens supplier performance management and accelerates sourcing decisions in day-to-day operations"
+    },
+    {
+     "title": "Where to Start with AI",
+     "text": "A simple, leader-friendly way to prioritize where to start based on value at stake and data readiness"
+    }
+   ],
+   "who": [
+    {
+     "title": "Procurement Leadership",
+     "text": "CPOs, category leaders, sourcing managers, and procurement COE leaders focused on measurable outcomes"
+    },
+    {
+     "title": "Finance and Operations Leaders",
+     "text": "Leaders responsible for cost control, working capital, compliance, and process efficiency"
+    },
+    {
+     "title": "Supply Chain and Supplier Management",
+     "text": "Teams accountable for supplier performance, delivery reliability, and supplier development"
+    },
+    {
+     "title": "Digital, Data, and Transformation Leaders",
+     "text": "Leaders driving automation, analytics, and enterprise AI adoption across business functions"
+    }
+   ],
+   "h1": "AI in Procurement: Practical Patterns Leaders Can Deploy Now",
+   "sub": "High-Impact Use Cases and a Simple Way to Prioritize Your First Moves"
+  }
+ },
+ "architecting-ai-at-scale": {
+  "slug": "architecting-ai-at-scale",
+  "title": "Architecting AI at Scale",
+  "dateLabel": "Wednesday, May 20, 2026",
+  "subtitle": "Designing the Enterprise AI Control Plane",
+  "description": null,
+  "about": null,
+  "hero": null,
+  "landingPath": "/architecting-ai-at-scale",
+  "landing": {
+   "abstract": [
+    "Artificial Intelligence is transitioning from experimental pilots to core operational systems. Many enterprises continue to approach AI as a set of isolated applications such as chatbots, copilots, or analytics models. This approach creates fragmentation as adoption grows across functions. Common challenges include rising costs, inconsistent governance, model sprawl, and unclear accountability.",
+    "Scaling AI requires an architectural approach that governs how models are accessed, routed, monitored, and integrated into business workflows. This includes defining decision boundaries, enforcing policies, and ensuring reliability in systems that are inherently probabilistic.",
+    "This session introduces the concept of the Enterprise AI Control Plane, an architectural layer that enables structured and governed AI adoption. The discussion covers model routing strategies, risk-tiered AI usage, policy enforcement, observability, and human oversight. It also addresses how decision ownership and escalation paths must be defined within AI-enabled workflows.",
+    "Participants will gain a practical framework for building enterprise AI systems that are scalable, reliable, and aligned with business objectives."
+   ],
+   "dateLong": "Wednesday, May 20, 2026",
+   "time": [
+    "10:00 AM EST (New York)",
+    "5:00 PM KSA (Riyadh)",
+    "6:00 PM GST (Dubai)"
+   ],
+   "duration": "1 Hour",
+   "speakers": [
+    {
+     "name": "Dr. Anand Jayaraman",
+     "roles": [
+      "Chief Scientist, Soothsayer Analytics"
+     ],
+     "bio": [
+      "Dr. Anand Jayaraman is the Chief Scientist at Soothsayer Analytics. He leads the design and delivery of advanced AI and machine learning solutions across industries. His work spans financial markets, optimization systems, and enterprise AI architecture.",
+      "He has extensive experience building production-grade AI systems that integrate predictive models, Generative AI, and decision intelligence frameworks. His focus is on enabling organizations to move from proof-of-concept initiatives to structured deployments that deliver measurable impact.",
+      "His current work includes enterprise AI architecture, multi-model strategies, cost-efficient AI design, and agentic workflows. He works with organizations to build AI systems that are governed, reliable, and sustainable at scale."
+     ]
+    }
+   ],
+   "takeawaysIntro": [
+    "This session is designed to provide architectural clarity with direct applicability. Participants will leave knowing how to:"
+   ],
+   "takeaways": [
+    {
+     "title": "From Pilots to Systems",
+     "text": "Understand why isolated AI use cases break at scale, and what structural gaps emerge when moving from experimentation to enterprise deployment."
+    },
+    {
+     "title": "The Cost of Fragmentation",
+     "text": "Identify the operational and financial risks of uncoordinated AI adoption, including model sprawl, duplicated costs, and lack of accountability."
+    },
+    {
+     "title": "Control Plane Fundamentals",
+     "text": "Define what an Enterprise AI Control Plane is and how it standardises model access, orchestration, and policy enforcement across the organisation."
+    },
+    {
+     "title": "Model Routing in Practice",
+     "text": "Design intelligent routing strategies across multiple models and vendors based on cost, latency, accuracy, and task complexity."
+    },
+    {
+     "title": "Risk-Tiered AI Usage",
+     "text": "Structure AI usage based on business impact, applying different levels of control, validation, and human oversight depending on risk."
+    },
+    {
+     "title": "Governance That Operates",
+     "text": "Implement enforceable guardrails, decision ownership, and escalation paths that move governance from policy documents into real systems."
+    },
+    {
+     "title": "Observability and Reliability",
+     "text": "Build monitoring frameworks that track performance, cost, drift, and failure modes in probabilistic AI systems."
+    },
+    {
+     "title": "Execution Roadmap",
+     "text": "Develop a phased approach to move from fragmented AI initiatives to a unified, scalable, and governed enterprise architecture."
+    }
+   ],
+   "who": [
+    {
+     "title": "Risk, Governance, and Compliance Professionals",
+     "text": "Professionals responsible for enforcing guardrails, defining policies, and ensuring AI systems operate within acceptable risk boundaries."
+    },
+    {
+     "title": "AI Engineers & Architects",
+     "text": "Technical practitioners building and deploying AI systems who need to understand model orchestration, routing strategies, and production-grade reliability."
+    },
+    {
+     "title": "CXOs and Senior Executives",
+     "text": "Leaders evaluating AI as a strategic capability and needing clarity on how to structure accountability, control costs, and scale adoption responsibly."
+    },
+    {
+     "title": "IT and Digital Transformation Leaders",
+     "text": "Leaders driving enterprise-wide transformation initiatives who must ensure AI systems are integrated, governed, and aligned with business processes."
+    },
+    {
+     "title": "AI & Data Science Teams",
+     "text": "Teams transitioning from experimentation to production who need clarity on scaling models, managing costs, and maintaining system performance."
+    },
+    {
+     "title": "Product, Operations, and Business Leaders",
+     "text": "Decision-makers responsible for AI-enabled workflows across functions who need to define ownership, escalation paths, and real-world deployment readiness."
+    },
+    {
+     "title": "CIOs, CTOs, and CDOs",
+     "text": "Technology and data leaders responsible for defining enterprise AI architecture, platform strategy, and long-term governance models."
+    },
+    {
+     "title": "Enterprise Architects",
+     "text": "Professionals designing system-wide architectures who need to integrate AI components into existing technology ecosystems in a structured and scalable way."
+    }
+   ],
+   "closing": {
+    "heading": "If you are deploying AI and questioning how to scale it in a structured, controlled, and accountable way — this session is for you.",
+    "text": [
+     "Join Dr. Anand Jayaraman for a practitioner-led session on building an Enterprise AI Control Plane, implementing model routing strategies, enforcing governance, and creating reliable AI systems that operate at scale."
+    ]
+   },
+   "h1": "Architecting AI at Scale: Designing the Enterprise AI Control Plane",
+   "sub": "A practitioner-led session on moving beyond fragmented AI pilots to a structured, governed architecture—covering model routing, risk-tiered usage, observability, and decision ownership for real enterprise-scale deployment."
+  }
+ },
+ "building-digital-competency": {
+  "slug": "building-digital-competency",
+  "title": "Building Digital Competency",
+  "dateLabel": "Wednesday, December 10, 2025",
+  "subtitle": "Evolving from Experimentation to Enduring Enterprise Capability",
+  "description": "A practitioner-led session focused on building organizational capability to integrate, govern, and scale digital systems — enabling enterprises to move beyond pilots toward sustainable, high-impact transformation.",
+  "about": "Digital transformation is no longer defined by access to tools, but by an organization’s ability to continuously integrate, govern, and scale digital systems in alignment with business strategy. This session explored how enterprises can overcome fragmented initiatives and build true digital competency through stronger leadership alignment, workforce enablement, infrastructure readiness, and governance frameworks — enabling long-term, scalable, and resilient digital growth.",
+  "hero": "/images/webinars/building-digital-competency.webp",
+  "landingPath": null,
+  "landing": {
+   "abstract": [
+    "Digital transformation is not defined by access to technology. It is defined by the ability of an organization to continuously identify, integrate, govern, and scale digital systems in alignment with business strategy. This is what we call Digital Competency, and it has become the new enterprise imperative.",
+    "Enterprises often struggle not with technology itself but with organizational barriers such as fragmented data, siloed efforts, limited skills, and unclear leadership alignment. As a result, many AI and digital initiatives stall at the proof-of-concept stage and fail to produce sustained value. Building competency addresses these challenges by creating the internal muscle to act intelligently, lead responsibly, and evolve continuously.",
+    "This webinar will present Soothsayer Analytics' structured framework for Digital Competency. Participants will learn about six critical domains: executive vision and alignment, infrastructure readiness, workforce enablement, use case development, responsible deployment, and governance with continuous improvement. The session will also highlight practical methods for equipping teams through TekLEAP role-based learning and embedding resilient systems with TekDARWIN.",
+    "Attendees will leave with a clear roadmap to build institutional strength, reduce dependence on vendors, and position their organizations to thrive in a rapidly changing digital economy."
+   ],
+   "dateLong": "Wednesday, December 10",
+   "time": [
+    "7:00 AM EST (New York)",
+    "3:00 PM AST (Riyadh)",
+    "4:00 PM GST (Dubai)"
+   ],
+   "duration": "1 Hour",
+   "speakers": [
+    {
+     "name": "Dr. Anand Jayaraman",
+     "roles": [
+      "Chief Scientist at Soothsayer Analytics"
+     ],
+     "bio": [
+      "Dr. Anand Jayaraman is a distinguished AI strategist and Chief Scientist with over 25 years of experience in BFSI, manufacturing, and business transformation. He specializes in advanced AI models, predictive analytics, and machine learning frameworks for complex industry challenges.",
+      "His expertise spans quantitative modeling, time series forecasting, AI optimization, and risk analytics. He has led initiatives enhancing operational efficiency and strategic growth across finance, supply chain, manufacturing, and retail. His research includes co-developing the Crawford-Jayaraman Scaling.",
+      "Holding a Ph.D. in Physics from University of Pittsburgh and B.Tech. from IIT Bombay, he combines technical expertise with strategic foresight."
+     ]
+    }
+   ],
+   "takeawaysIntro": [],
+   "takeaways": [
+    {
+     "title": "Foundation Framework",
+     "text": "Why digital competency is the foundation for long-term transformation"
+    },
+    {
+     "title": "Six Domain Model",
+     "text": "The six domains of sustainable digital competency: vision, infrastructure, workforce, use cases, deployment, and governance"
+    },
+    {
+     "title": "Platform Solutions",
+     "text": "How TekLEAP and TekDARWIN provide role-specific learning and responsible architecture for enterprise AI"
+    },
+    {
+     "title": "Implementation Strategy",
+     "text": "Practical steps to overcome silos, align leadership, and accelerate adoption"
+    },
+    {
+     "title": "Capability Building",
+     "text": "How to build internal innovation teams and career pathways that make competency permanent"
+    }
+   ],
+   "who": [
+    {
+     "title": "Executive Leadership",
+     "text": "Senior executives responsible for transformation strategy"
+    },
+    {
+     "title": "Technical Leadership",
+     "text": "AI and data leaders building scalable enterprise systems"
+    },
+    {
+     "title": "Governance & Compliance",
+     "text": "Governance and compliance professionals shaping digital oversight"
+    },
+    {
+     "title": "Human Capital",
+     "text": "Human capital and learning leaders responsible for workforce enablement"
+    }
+   ],
+   "h1": null,
+   "sub": null,
+   "closing": {
+    "heading": "Register now",
+    "text": [
+     "Register today to secure your place and learn how to transform digital transformation into lasting digital competency."
+    ]
+   }
+  }
+ },
+ "how-to-make-ai-transformation-work": {
+  "slug": "how-to-make-ai-transformation-work",
+  "title": "How to make AI transformation work",
+  "dateLabel": "Wednesday, July 22, 2026",
+  "subtitle": null,
+  "description": null,
+  "about": null,
+  "hero": null,
+  "landingPath": "/how-to-make-ai-transformation-work",
+  "landing": {
+   "abstract": [
+    "These days, the media is rife with reports of AI transformations not working or not having a clear return on investment. This is in part because AI transformations are historically pushed as a technology, rather than a strategic imperative. In this talk, we will examine how to make AI transformation work, and ensure a tangible return on investment. McKinsey and MIT opine that over 80% of AI projects are not working out the way companies intend them to.",
+    "This presentation examines why AI implementation so frequently fails across the enterprise landscape. Real world examples are shared to highlight exactly what it takes to succeed. Drawing on MIT and BCG research, data shows that the vast majority of generative AI pilots yield no measurable return. This talk argues that technical capability and data readiness are rarely the true bottlenecks, even though they remain important challenges. Instead, real value from AI is the product of three compounding factors: whether the tool works, whether it is actually used, and most critically, whether it is applied to the right problems. Using historical parallels like the slow adoption of electricity in early manufacturing, the presentation frames AI as a transformation requiring workflow redesign and cultural change rather than just technology deployment. It outlines a structured digital strategy framework covering why, what, and how to digitalize. Finally, it emphasizes that AI initiatives must be anchored in corporate strategy and directly linked to measurable organizational outcomes."
+   ],
+   "dateLong": "Wednesday, July 22, 2026",
+   "time": [
+    "10:00 AM EST (New York)",
+    "5:00 PM KSA (Riyadh)",
+    "6:00 PM GST (Dubai)"
+   ],
+   "duration": "1 Hour",
+   "speakers": [
+    {
+     "name": "Krishnan Sankaranarayanan, PhD, MBA",
+     "roles": [
+      "Advisor, AI Innovation at Soothsayer Analytics"
+     ],
+     "bio": [
+      "Krishnan Sankaranarayanan, PhD, MBA, is a seasoned executive with over 24 years of experience in the chemical and energy industry. He obtained his PhD in Chemical Engineering at Princeton University, after which he spent 1 2 years at ExxonMobil, followed by 12 years at SABIC, in a host of different roles. Most recently, he was responsible for the AI transformation at SABIC across all domains and geographies. Krishnan, also teaches at the University of Houston (AI for Chemical Engineers, and Chemical Industry Strategy), and Columbia University (How to make AI implementations for) for executives."
+     ]
+    }
+   ],
+   "takeawaysIntro": [
+    "This session is designed to provide practical clarity, not just conceptual understanding. Participants will leave knowing how to:"
+   ],
+   "takeaways": [
+    {
+     "title": "Why AI Transformations Fail",
+     "text": "Understand why the majority of AI initiatives struggle to deliver measurable value despite significant investment and executive attention."
+    },
+    {
+     "title": "Strategic Alignment Matters",
+     "text": "Learn why AI must be anchored to business strategy and organizational priorities rather than driven solely by technology adoption."
+    },
+    {
+     "title": "Choosing the Right Problems",
+     "text": "Discover how selecting high-impact business challenges is often the single biggest determinant of AI success."
+    },
+    {
+     "title": "The AI Value Equation",
+     "text": "Explore the three factors that drive outcomes: whether AI works, whether people use it, and whether it is applied to the right problems."
+    },
+    {
+     "title": "Escaping Pilot Purgatory",
+     "text": "Examine why promising AI pilots fail to scale and how governance, ownership, and accountability enable enterprise adoption."
+    },
+    {
+     "title": "Driving Organizational Adoption",
+     "text": "Understand the critical role of change management, trust, training, and workflow integration in realizing AI value."
+    },
+    {
+     "title": "Following the Money",
+     "text": "Learn how to identify AI opportunities with the clearest path to financial impact, operational improvement, and business value."
+    },
+    {
+     "title": "Building an ROI-Focused AI Strategy",
+     "text": "Develop a practical framework for prioritizing, implementing, and scaling AI initiatives that deliver sustainable and measurable returns."
+    }
+   ],
+   "who": [
+    {
+     "title": "Business Leaders and Department Heads",
+     "text": "Leaders responsible for improving operational efficiency, reducing manual effort, and modernizing workflows across functions such as Procurement, Finance, HR, Sales, and Operations"
+    },
+    {
+     "title": "CXOs and Senior Executives",
+     "text": "Executives seeking clarity on the strategic implications of Agentic AI and how it can drive measurable outcomes across enterprise operations"
+    },
+    {
+     "title": "IT and Digital Transformation Leaders",
+     "text": "Technology leaders evaluating AI architecture, enterprise integration, and the deployment of governed AI systems within complex environments"
+    },
+    {
+     "title": "Innovation and AI Teams",
+     "text": "Teams experimenting with Generative AI and looking to move beyond pilots toward structured, workflow aligned Agentic AI implementation"
+    },
+    {
+     "title": "Managers Driving Process Improvement",
+     "text": "Senior professionals tasked with improving workflows, reducing operational friction, and identifying automation opportunities within their teams"
+    },
+    {
+     "title": "Risk, Governance, and Compliance Professionals",
+     "text": "Professionals responsible for ensuring AI systems operate within defined governance frameworks, with transparency, accountability, and human oversight"
+    }
+   ],
+   "closing": {
+    "heading": "Are you evaluating how to generate measurable business value from AI and avoid the pitfalls that stall most enterprise transformations? If so, this session is for you.",
+    "text": [
+     "Join Krishnan Sankaranarayanan, PhD, MBA, for a practitioner-led masterclass on moving beyond mere AI experimentation. You will learn how to achieve tangible ROI through tight strategic alignment and high-impact use case selection. Krishnan will also detail the keys to organizational adoption, effective governance, and scalable transformation frameworks, all grounded in real-world experience."
+    ]
+   },
+   "h1": "How to make AI transformation work",
+   "sub": "A practitioner-led session on why most AI transformations fail to deliver measurable returns and how organizations can successfully translate AI investments into business value. Covering strategic alignment, use case selection, adoption, governance, change management and value realization, the session provides a practical framework for moving beyond experimentation and achieving sustainable ROI from AI initiatives."
+  }
+ },
+ "responsible-ai-webinar": {
+  "slug": "responsible-ai-webinar",
+  "title": "Responsible AI Webinar",
+  "dateLabel": "Wednesday, October 22, 2025",
+  "subtitle": "Building AI Systems That Endure, Align, and Earn Trust",
+  "description": "A practitioner-led session focused on building Responsible AI systems that are explainable, resilient, and aligned with enterprise values — enabling organizations to move beyond experimentation toward scalable, trusted AI infrastructure.",
+  "about": "Responsible AI is no longer a theoretical or compliance-driven concept. As organizations scale AI across real-world operations — processing critical data, automating decisions, and influencing business outcomes — responsibility becomes a foundational requirement. This session explored how enterprises can design and deploy AI systems that are not only high-performing, but also transparent, governed, and resilient. It introduced structured approaches such as the DARWIN Framework to build strong data foundations, architecture, workflows, and governance models for long-term sustainability.",
+  "hero": "/images/webinars/responsible-ai-webinar.webp",
+  "landingPath": null,
+  "landing": null
+ },
+ "too-many-ai-tools-too-little-return": {
+  "slug": "too-many-ai-tools-too-little-return",
+  "title": "Too Many AI Tools, Too Little Return",
+  "dateLabel": "Tuesday, September 22, 2026",
+  "subtitle": null,
+  "description": null,
+  "about": null,
+  "hero": "/images/webinars/too-many-ai-tools-too-little-return.webp",
+  "landingPath": "/too-many-ai-tools-too-little-return",
+  "landing": {
+   "abstract": [
+    "Ask your finance team what the company spends on AI tools and you will get an estimate. Ask what it has returned and the room goes quiet. This session is about closing that gap. We will cover where the spend hides, which tools are worth keeping, and how to build a return number your CFO will sign off on.",
+    "AI spend rarely shows up as one line item. It is a Copilot rollout here, a team subscription a director expensed there, a pilot nobody switched off, and an inference bill buried in the cloud invoice. None of it is anyone's fault. But with no shared view, two teams end up solving the same problem twice, adoption stays patchy, and when the board asks what the company got for the money, nobody can answer. Control does not mean buying less.",
+    "It means knowing which tools fit which work, and measuring the gains in a unit finance already trusts. Jordan Martz has watched this play out inside companies still running unconsolidated ERP and CRM systems. He will cover what the cleanup costs once it has been put off for a few years, and how to get ahead of the board's question rather than scramble after it."
+   ],
+   "dateLong": "Tuesday, September 22, 2026",
+   "time": [
+    "10:00 AM EST (New York)",
+    "5:00 PM KSA (Riyadh)",
+    "6:00 PM GST (Dubai)"
+   ],
+   "duration": "1 Hour",
+   "speakers": [
+    {
+     "name": "Jordan Martz",
+     "roles": [
+      "Partner ISV Solution Architect, VAST Data · Founder, DataMartz · Advisor to Soothsayer Analytics"
+     ],
+     "bio": [
+      "Jordan Martz has spent twenty years on both sides of this problem, building enterprise data platforms and buying them. He was Solution Architect of the Year at Databricks, carried the number one quota at Fivetran in 2023 and 2024, and through DataMartz, the practice he founded, has delivered more than twenty engagements for companies including Apple, Coca-Cola, Chevron and Nationwide. He joins this session from the buyer's seat: what AI tool sprawl looks like when it lands on top of unconsolidated ERP and CRM operations, and what it costs to merge it all."
+     ]
+    }
+   ],
+   "takeawaysIntro": [
+    "Five things you will be able to act on this quarter."
+   ],
+   "takeaways": [
+    {
+     "title": "Kill the Overlap",
+     "text": "How to map every AI tool against the work it actually supports, so you can see which three are doing the same job."
+    },
+    {
+     "title": "Measure It in a Unit Finance Accepts",
+     "text": "Learn how to measure AI-driven productivity gains in terms thaHow to turn \"it saves us time\" into hours, headcount or cost that your CFO will not argue with.t finance leaders can validate and accept."
+    },
+    {
+     "title": "Find the Spend You Are Not Seeing",
+     "text": "Identify where AI costs quietly accumulate across teams Where the money hides. Expensed seats, dormant licenses, pilots nobody switched off, inference buried in the cloud bill.and what it takes to bring fragmented spending under control."
+    },
+    {
+     "title": "Set Standards Without Becoming the Police",
+     "text": "What a tooling standard has to look like if you want teams to follow it rather than route around it."
+    },
+    {
+     "title": "Have the Return Case Ready Before They Ask",
+     "text": "Learn how to connect AI tooling decisions to business outcomes and build a creHow to tie tooling decisions to business outcomes so the number already exists when the board asks for it.dible return case that can withstand scrutiny from finance and the board."
+    }
+   ],
+   "who": [
+    {
+     "title": "Technology and Digital Leadership",
+     "text": "You own the AI tooling estate and you could not produce a complete list of what is in it by Friday."
+    },
+    {
+     "title": "Finance Leaders",
+     "text": "You have approved AI spend across four departments and you have no way to tell whether any of it moved a number."
+    },
+    {
+     "title": "Operations and Functional Leaders",
+     "text": "Your teams use AI every day and you are measured on productivity gains you cannot evidence."
+    },
+    {
+     "title": "Data, Analytics, and AI Leaders",
+     "text": "You have been asked to set AI standards for the business and you are already a year behind what teams adopted on their own."
+    }
+   ],
+   "closing": {
+    "heading": "Sixty minutes on Tuesday, September 22. You will leave able to answer the question your board is going to ask. What did we get for the AI spend?",
+    "text": [
+     "Join us to learn how to bring structure to enterprise AI tooling, connect tools to the work they genuinely support, and build a return case that stands up to finance and board-level scrutiny."
+    ]
+   },
+   "h1": "Your AI Spend Went Up. Nobody Can Prove the Return.",
+   "sub": "Bringing Order to Finding the Hidden Spend, Cutting What Nobody Uses, and Building a Return Number Your CFO Will Sign Off OnEnterprise AI Tooling and Building a Return Case That Holds Up"
+  }
+ },
+ "trustworthy-ai-by-design": {
+  "slug": "trustworthy-ai-by-design",
+  "title": "Trustworthy AI by Design",
+  "dateLabel": "Wednesday, May 6, 2026",
+  "subtitle": "Guardrails, Governance, and Responsible Deployment",
+  "description": "A practitioner-led session on securing AI systems, embedding safety controls, and operationalising governance frameworks that hold up in real enterprise environments — not just in theory.",
+  "about": null,
+  "hero": "/images/webinars/trustworthy-ai-by-design.webp",
+  "landingPath": "/trustworthy-ai-by-design",
+  "landing": {
+   "abstract": [
+    "AI security is no longer a niche concern for security teams. As organisations move AI from experimentation into production — processing real data, automating real decisions, and operating with increasing autonomy — the risks are no longer theoretical. Yet most deployments still lack the controls, oversight structures, and governance frameworks needed to manage those risks responsibly.",
+    "This session takes a grounded, practical look at what securing AI in production actually requires. We examine how AI systems fail differently from traditional software, walk through the most critical threats facing LLM and agentic deployments today, and explore how to build layered guardrails that address those threats — covering input controls, processing constraints, and output validation.",
+    "We also examine the governance layer. This includes how to apply frameworks such as NIST AI RMF and the EU AI Act as engineering decisions rather than compliance exercises, what meaningful human oversight looks like in practice, and how agentic AI specifically changes the risk profile and the controls that autonomous systems require.",
+    "Participants will leave with a clear view of where their AI systems are most exposed, how to prioritise the controls that matter most, and a practical action framework for next steps."
+   ],
+   "dateLong": "Wednesday, May 6, 2026",
+   "time": [
+    "10:00 AM EST (New York)",
+    "5:00 PM KSA (Riyadh)",
+    "6:00 PM GST (Dubai)"
+   ],
+   "duration": "1 Hour",
+   "speakers": [
+    {
+     "name": "Jeevan Sreerama",
+     "roles": [
+      "Principal AI Architect, Soothsayer Analytics"
+     ],
+     "bio": [
+      "Jeevan Sreerama is the Principal AI Architect at Soothsayer Analytics, with nearly two decades of experience spanning software engineering, artificial intelligence and machine learning, and enterprise-scale system design. His technical depth covers the full AI stack — from classical machine learning, deep learning, natural language processing, and computer vision through to Generative AI and Agentic AI — with a core strength in engineering-first AI: building systems that are reliable, observable, secure, and scalable in real production environments, not merely correct in isolation.",
+      "As an architect who has delivered across Azure, AWS, and GCP, Jeevan specialises in embedding safety controls, evaluation pipelines, and model-risk governance into AI systems that operate under demanding enterprise requirements — including alignment with GDPR, SOC 2, and the NIST AI Risk Management Framework. His work makes AI trustworthy by design, not by afterthought. A BCS Fellow and IEEE Senior Member, he is recognised for combining engineering rigour with strategic clarity."
+     ]
+    }
+   ],
+   "takeawaysIntro": [
+    "This session is designed to provide practical clarity, not just conceptual understanding. Participants will leave knowing how to:"
+   ],
+   "takeaways": [
+    {
+     "title": "Why AI Security Is Different",
+     "text": "Understand why AI systems require a different security approach and where traditional controls fall short."
+    },
+    {
+     "title": "The Threat Landscape",
+     "text": "Identify the most critical risks facing LLM and agentic deployments today, using the OWASP Top 10 for LLM Applications as a practical reference."
+    },
+    {
+     "title": "Layered Guardrails",
+     "text": "Design input, processing, and output controls that enforce safe model behaviour without compromising system utility."
+    },
+    {
+     "title": "Governance Without the Theatre",
+     "text": "Understand how to apply NIST AI RMF, the EU AI Act, and ISO 42001 as practical engineering decisions, including what meaningful human oversight requires."
+    },
+    {
+     "title": "Securing Agentic AI",
+     "text": "Understand why autonomous agents require additional controls, and how to apply least-privilege scoping, sandboxed execution, and approval gates in practice."
+    },
+    {
+     "title": "What to Do Next",
+     "text": "Identify the most common governance failures and leave with a practical action framework for your own AI deployments."
+    }
+   ],
+   "who": [
+    {
+     "title": "Risk, Governance, and Compliance Professionals",
+     "text": "Professionals responsible for ensuring AI systems operate within defined governance frameworks, with transparency, accountability, and human oversight."
+    },
+    {
+     "title": "AI Engineers & Architects",
+     "text": "Technical practitioners designing, building, or evaluating LLM and agentic AI systems for enterprise deployment."
+    },
+    {
+     "title": "CXOs and Senior Executives",
+     "text": "Executives seeking clarity on what responsible AI deployment requires and how to establish accountability structures across their organisations."
+    },
+    {
+     "title": "IT and Digital Transformation Leaders",
+     "text": "Technology leaders evaluating AI architecture, security posture, and governance requirements for deployments in complex or regulated environments."
+    },
+    {
+     "title": "AI & Data Science Teams",
+     "text": "Teams moving AI systems from experimentation into production and navigating the security, compliance, and operational requirements that entails."
+    },
+    {
+     "title": "Product & Operations Leaders",
+     "text": "Leaders responsible for AI-enabled products and workflows who need to understand the governance, oversight, and risk management requirements before going live."
+    }
+   ],
+   "closing": {
+    "heading": "If you are deploying AI and asking how to make it safe, governed, and trustworthy — this session is for you.",
+    "text": [
+     "Join Jeevan Sreerama for a practitioner-led session on the threat landscape, layered guardrails, governance frameworks, agentic AI security, and a practical action framework to move forward."
+    ]
+   },
+   "h1": "Trustworthy AI by Design: Guardrails, Governance, and Responsible Deployment",
+   "sub": "A practitioner-led session on securing AI systems, embedding safety controls, and operationalising governance frameworks that hold up in real enterprise environments — not just in theory."
+  }
+ },
+ "why-ai-projects-fail-and-what-to-do-about-it": {
+  "slug": "why-ai-projects-fail-and-what-to-do-about-it",
+  "title": "Why AI Projects Fail, and What to Do About It",
+  "dateLabel": "Wednesday, October 14, 2026",
+  "subtitle": null,
+  "description": null,
+  "about": null,
+  "hero": "/images/webinars/why-ai-projects-fail-and-what-to-do-about-it.webp",
+  "landingPath": "/why-ai-projects-fail-and-what-to-do-about-it",
+  "landing": {
+   "abstract": [
+    "Many AI initiatives fail not because the technology falls short, but because adoption does. This session explores why live solutions gradually lose traction, the warning signs that usage is declining, and the practical steps organizations can take to restore value or determine when a fresh approach is needed.",
+    "The failure statistics get quoted in every boardroom. The reasons behind them almost never get examined. Most AI projects do not fail because the technology did not work. They fail after it works. The solution goes live, performs as promised, and then quietly stops being used. Expectations were set at a level the problem could not support. The organization drifted back to systems it already trusted. Nobody owned the output.",
+    "This webinar gets to the core reasons behind these failures and, more importantly, what can be done about them. Drawing on cross-industry examples of solutions that were built, deployed, and still did not hold, the session covers the patterns that precede a stall and the practical steps available once one has started. The patterns are recognizable and the remedies are concrete, including how to judge whether a stalled initiative can be recovered or needs rebuilding."
+   ],
+   "dateLong": "Wednesday, October 14, 2026",
+   "time": [
+    "10:00 AM EST (New York)",
+    "5:00 PM KSA (Riyadh)",
+    "6:00 PM GST (Dubai)"
+   ],
+   "duration": "1 Hour",
+   "speakers": [
+    {
+     "name": "Shravan Adapa",
+     "roles": [
+      "Director of AI at Soothsayer Analytics"
+     ],
+     "bio": [
+      "Shravan Adapa is the Director of AI at Soothsayer Analytics, where he helps organizations translate AI and Generative AI into measurable business outcomes. With over a decade of experience across manufacturing, retail, logistics, and financial services, he has led end-to-end initiatives from executive alignment and solution design to production rollout across cloud and hybrid environments.",
+      "His work spans high-impact, operational AI applications including demand and supply forecasting, quality and reliability intelligence, and document-driven automation for procurement and finance. Shravan is known for building practical, scalable solutions that fit real business constraints, delivering faster decision-making, stronger operational control, and sustained ROI."
+     ]
+    }
+   ],
+   "takeawaysIntro": [
+    "This session is designed to provide practical clarity, not just conceptual understanding. Participants will leave knowing how to:"
+   ],
+   "takeaways": [
+    {
+     "title": "Why Projects Stall",
+     "text": "Understand the core reasons AI solutions stop delivering value even after the technology is working."
+    },
+    {
+     "title": "Spot the Warning Signs",
+     "text": "Recognize the early indicators that a live AI solution is drifting out of use before the problem becomes harder to reverse."
+    },
+    {
+     "title": "Recover or Rebuild",
+     "text": "Learn how to assess whether a stalled AI initiative can be recovered or whether starting again is the better path."
+    },
+    {
+     "title": "Set Realistic Expectations",
+     "text": "Understand why setting expectations at the wrong level is one of the most common and avoidable causes of AI project failure."
+    },
+    {
+     "title": "Make Ownership Stick",
+     "text": "See how clear ownership of AI output determines whether a solution becomes part of everyday operations or fades away within its first year."
+    }
+   ],
+   "who": [
+    {
+     "title": "Executive Sponsors",
+     "text": "CEOs, COOs, and business unit leaders accountable for the outcomes of AI investment"
+    },
+    {
+     "title": "Digital, Data, and Transformation Leaders",
+     "text": "Leaders driving enterprise AI programs and answerable for the results they produce"
+    },
+    {
+     "title": "Technology Leadership",
+     "text": "CIOs, CTOs, and heads of engineering supporting AI solutions running in production"
+    },
+    {
+     "title": "Operations and Functional Leaders",
+     "text": "Leaders whose teams are expected to work with AI output day to day"
+    }
+   ],
+   "closing": {
+    "heading": "If an AI solution has gone live but is no longer delivering the value you expected, this session is for you.",
+    "text": [
+     "Join us to understand why AI projects stall after deployment, recognize the warning signs early, and learn how to determine whether an initiative can be recovered or needs to be rebuilt."
+    ]
+   },
+   "h1": "Why AI Projects Fail, and What to Do About It",
+   "sub": "Why Solutions Stop Delivering After They Go Live, and How to Recover Them"
+  }
+ }
+}

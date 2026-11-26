@@ -14,7 +14,7 @@ import { Reveal } from "./ui/Reveal";
  * "Enterprise AI Case Studies": an expanding accordion on desktop
  * (hover or focus a slim panel to open it), stacked cards on mobile.
  */
-export function CustomerStories() {
+export function CustomerStories({ title = CASE_STUDIES.title, intro }: { title?: string; intro?: string } = {}) {
   const [active, setActive] = useState(0);
   const reduce = useReducedMotion();
   const items = CASE_STUDIES.items;
@@ -28,7 +28,10 @@ export function CustomerStories() {
       <PixelEdge color="#f7fcfd" accent={false} />
       <div className="container-page">
         <Reveal className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-          <h2 id="cases-title" className="h-section">{CASE_STUDIES.title}</h2>
+          <div>
+            <h2 id="cases-title" className="h-section">{title}</h2>
+            {intro && <p className="mt-4 max-w-[640px] text-lg leading-[1.6] text-ink-soft">{intro}</p>}
+          </div>
           <LinkButton href={CASE_STUDIES.viewAll} className="self-start sm:self-auto">View All Studies</LinkButton>
         </Reveal>
 

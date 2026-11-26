@@ -53,14 +53,14 @@ export const LINKS = {
   blog: "https://soothsayeranalytics.com/blog",
   caseStudies: "https://soothsayeranalytics.com/case-studies",
   podcasts: "https://soothsayeranalytics.com/podcasts",
-  webinars: "https://www.soothsayeranalytics.ai/webinars",
+  webinars: "/webinars",
   philanthropy: "/philanthropy",
 
   // Homepage CTAs
   services: "https://soothsayeranalytics.com/services",
   bespokeAI: "https://soothsayeranalytics.com/bespoke-a-i-solutions",
-  digitalCompetency: "https://www.soothsayeranalytics.ai/digital-competency",
-  responsibleAI: "https://www.soothsayeranalytics.ai/responsible-ai",
+  digitalCompetency: "/services/ai-capability-building",
+  responsibleAI: "/responsible-ai",
   augentExternal: "https://www.augent.ai/",
   idp: "https://www.augent.ai/intelligent-document-processing",
 

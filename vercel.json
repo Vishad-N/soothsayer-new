@@ -3,18 +3,7 @@
   "framework": "nextjs",
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/webinars", "destination": "https://www.soothsayeranalytics.ai/webinars" },
-    { "source": "/webinars/:path*", "destination": "https://www.soothsayeranalytics.ai/webinars/:path*" },
-
     { "source": "/case-studies", "destination": "https://soothsayeranalytics.com/case-studies" },
-    { "source": "/case-studies/:path+", "destination": "https://www.soothsayeranalytics.ai/case-studies/:path+" },
-
-    { "source": "/about", "destination": "https://www.soothsayeranalytics.ai/soothsayer-new/about" },
-    { "source": "/soothsayer-new/:path+", "destination": "https://www.soothsayeranalytics.ai/soothsayer-new/:path+" },
-    { "source": "/uae/:path+", "destination": "https://www.soothsayeranalytics.ai/uae/:path+" },
-
-    { "source": "/contact", "destination": "https://soothsayeranalytics.com/contact-us" },
-
-    { "source": "/:path+", "destination": "https://www.soothsayeranalytics.ai/:path+" }
+    { "source": "/contact", "destination": "https://soothsayeranalytics.com/contact-us" }
   ]
 }
